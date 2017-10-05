@@ -1,0 +1,45 @@
+// ======================================
+//  Variables
+// ======================================
+
+// Colors
+$colors: (
+'text': #575757,
+'primary': #50E3C2,
+'login': #47DEFF,
+'success': #78C58F,
+'error': #FF8F93,
+'warning': #FF9C7E,
+'info': #BD9CFF,
+'link': #AFF1FF,
+'col-12': #7FD079,
+'col-8': #78C0AB,
+'col-7': #D9856D,
+'col-6': #838EDC,
+'col-5': #9DE997,
+'col-4': #E0B47C,
+'col-3': #CE86E9,
+);
+
+// Fonts 
+$font-stack-primary: Tahoma, Geneva, sans-serif;
+
+$lato-url1: url('../fonts/lato/lato-black.eot');
+$lato-url2: url('../fonts/lato/lato-black.eot?#iefix') format('embedded-opentype'),
+url('../fonts/lato/lato-black.woff') format('woff'),
+url('../fonts/lato/lato-black.ttf') format('truetype'),
+url('../fonts/lato/lato-black.svg#latoblack') format('svg');
+
+
+$font-styles: (
+    normal,
+    italic
+);
+
+// Breakpoints
+$large-display: 1440px;
+
+
+
+
+
