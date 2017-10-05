@@ -1,17 +1,16 @@
 import React from 'react';
 import './css/styles.css';
-import Header from './Header.js'
+import './css/flat-ui-pro.css';
+import Mainsite from './Mainsite';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 const App = () => {
   return(
     <BrowserRouter>
-    <div>
       <Switch>
-      <Route exact path="/" render={() => (<Header />)} />
+      <Route exact path="/" render={() => (<Mainsite />)} />
       </Switch>
-    </div>
     </BrowserRouter>
   );
 }

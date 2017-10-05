@@ -392,17 +392,32 @@ template {
 * {
   box-sizing: border-box; }
 
-.container {
-  color: #575757;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-family: Tahoma, Geneva, sans-serif;
-  text-align: center;
-  margin: 0;
+.app {
+  min-height: 100%;
   display: grid;
-  grid-template-columns: 384px; }
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1fr minmax(200px, 1fr) 1fr; }
 
-.nav__item {
+.my-name, .projects, .footer {
+  display: flex;
+  flex-direction: column; }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+li {
   list-style: none; }
+
+.name-header {
+  align-self: center;
+  margin: 5em; }
+
+.legal {
+  margin-top: auto; }
+
+.foot-nav {
+  margin-top: auto; }
 
 /*# sourceMappingURL=styles.css.map */
