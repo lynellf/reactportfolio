@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import Posts from './Posts.js';
 
-const Main = () => {
-  return(
+
+
+//Create a list of posts from the data passed as props
+
+class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+    }
+  }
+
+  componentDidMount() {
+    axios.get('https://ezellf.com/blog/?json=get_tag_posts&tag_slug=Project')
+    .then(response => {
+      console.log(response);
+      this.setState({
+        posts: response.posts
+      })
+    })
+  }
+
+
+
+  render() {
+    return(
     <main className="projects">
-      <div className="project-detail">
-        <Link to="#" ><h4 className="portfolio-item">React Flickr Search </h4></Link>
-        <Link to="#" ><h4 className="portfolio-item">jQuery Photo Gallery </h4></Link>
-        <Link to="#" ><h4 className="portfolio-item">Sample Portfolio Page </h4></Link>
-      </div>
+      <Posts data={this.state.posts}/>
     </main>
-  );
+    );
+  }
 }
 
 export default Main;

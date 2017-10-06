@@ -393,10 +393,13 @@ template {
   box-sizing: border-box; }
 
 .app {
-  min-height: 100%;
+  height: 100vh;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 1fr minmax(200px, 1fr) 1fr; }
+  grid-template-rows: minmax(500px, 1fr) minmax(200px, 1fr) 1fr; }
+
+.nav__item {
+  list-style: none; }
 
 .my-name, .projects, .footer {
   display: flex;
@@ -410,14 +413,37 @@ ul {
 li {
   list-style: none; }
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
 .name-header {
   align-self: center;
-  margin: 5em; }
+  margin-top: auto;
+  margin-bottom: auto; }
+
+.portfolio-links {
+  margin-top: auto; }
 
 .legal {
-  margin-top: auto; }
+  display: block;
+  text-align: center; }
 
 .foot-nav {
   margin-top: auto; }
+
+.login-fieldset {
+  margin-top: auto;
+  margin-bottom: auto;
+  border: none;
+  display: flex;
+  flex-direction: column; }
+
+.welcome {
+  border: none;
+  margin: auto;
+  display: flex;
+  flex-direction: column; }
 
 /*# sourceMappingURL=styles.css.map */

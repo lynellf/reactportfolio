@@ -12,11 +12,15 @@
 
 
 .app {
-  min-height: 100%;
+  height: 100vh;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 1fr minmax(200px, 1fr) 1fr;
+  grid-template-rows: minmax(500px, 1fr) minmax(200px, 1fr) 1fr;
 };
+
+.nav__item {
+    list-style: none;
+}
 
 .my-name, .projects, .footer {
 @include flex($direction: column, $wrap: null, $space: null);
@@ -31,4 +35,9 @@ ul {
 li {
   list-style: none;
   // margin: 0 1em 0 1em;
+}
+
+.wrapper {
+  height: 100vh;
+  @include flex($direction: column, $wrap: null, $space: null);
 }
