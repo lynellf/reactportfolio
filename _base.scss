@@ -1,0 +1,38 @@
+// ======================================
+//  Base Styles
+// ======================================
+
+* {
+    box-sizing: border-box;
+}
+
+// ======================================
+//  Layout Container Styles
+// ======================================
+
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: minmax(500px, 1fr) minmax(200px, 1fr) 1fr;
+};
+
+.nav__item {
+    list-style: none;
+}
+
+.my-name, .projects, .footer {
+@include flex($direction: column, $wrap: null, $space: null);
+};
+
+
+ul {
+  @include flex($direction: row, $wrap: null, $space: null);
+  justify-content: space-between;
+};
+
+li {
+  list-style: none;
+  // margin: 0 1em 0 1em;
+}
