@@ -1,9 +1,17 @@
-.name-header {
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
+.carousel {
+  margin: auto;
+  max-width: 1024px;
 }
 
-.portfolio-links {
-  margin-top: auto;
+.carousel-inner>.item>img {
+  max-width: 640px;
+  max-height: 360px;
+}
+
+.img-fluid {
+  max-height: 210px;
+  margin: auto;
+  @include mq('med') {
+    max-height: 400px;
+  }
 }

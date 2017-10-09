@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Posts from './Posts.js';
+import Rolling from './images/Rolling.svg';
 
 
 
@@ -12,28 +12,44 @@ class Main extends Component {
     super();
     this.state = {
       posts: [],
+      isLoading: true
     }
   }
 
   componentDidMount() {
     axios.get('https://ezellf.com/blog/?json=get_tag_posts&tag_slug=Project')
     .then(response => {
-      console.log(response);
       this.setState({
-        posts: response.posts
+        posts: response.data.posts,
+        isLoading: false
       })
     })
   }
 
-
-
   render() {
-    return(
-    <main className="projects">
-      <Posts data={this.state.posts}/>
-    </main>
-    );
+    if (this.state.isLoading === true) {
+      return (
+        <img src={Rolling} alt="" className="loading"/>
+      );
+    } else if (this.state.isLoading === false) {
+        return(
+        <main className="projects col-container">
+          <div className="cards">
+            <h4>Projects</h4>
+            <Posts data={this.state.posts}/>
+          </div>
+          <div className="cards">
+            <h4>Background</h4>
+              <p>As a recent college graduate, I want to continue my life of learning and creating value for others. Joining the Treehouse
+          Techdegree program feels like the right step after finishing with a bachelor's in management information systems.
+          I'm super excited to be a part of this amazing experience.</p>
+          </div>
+        </main>
+        );
+    }
   }
+
+
 }
 
 export default Main;

@@ -1,3 +1,5 @@
+@import url(~slick-carousel/slick/slick.css);
+@import url(~slick-carousel/slick/slick-theme.css);
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -395,20 +397,24 @@ template {
 .app {
   height: 100vh;
   display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-rows: minmax(500px, 1fr) minmax(200px, 1fr) 1fr; }
+  grid-template-rows: 1fr minmax(200px, 1fr) 1fr;
+  grid-auto-columns: 1fr; }
+  @media (min-width: 768px) {
+    .app {
+      grid-template-rows: 1fr minmax(500px, 1fr) 1fr; } }
+
+.sub-page {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column; }
 
 .nav__item {
   list-style: none; }
 
-.my-name, .projects, .footer {
+.col-container {
   display: flex;
   flex-direction: column; }
-
-ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
 
 li {
   list-style: none; }
@@ -418,32 +424,106 @@ li {
   display: flex;
   flex-direction: column; }
 
-.name-header {
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto; }
+.carousel {
+  margin: auto;
+  max-width: 1024px; }
 
-.portfolio-links {
-  margin-top: auto; }
+.carousel-inner > .item > img {
+  max-width: 640px;
+  max-height: 360px; }
+
+.img-fluid {
+  max-height: 210px;
+  margin: auto; }
+  @media (min-width: 768px) {
+    .img-fluid {
+      max-height: 400px; } }
+
+.projects {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; }
+  @media (min-width: 768px) {
+    .projects {
+      display: flex;
+      flex-direction: row;
+      max-width: 1024px; } }
+  @media (min-width: 992px) {
+    .projects {
+      display: flex;
+      flex-direction: row;
+      max-width: 1200px; } }
+
+.cards {
+  margin: auto;
+  width: 50%; }
+
+.post-results {
+  padding-left: 0; }
+
+.loading {
+  margin: auto; }
 
 .legal {
   display: block;
   text-align: center; }
 
+.mtl {
+  background: #34495E; }
+
 .foot-nav {
   margin-top: auto; }
 
-.login-fieldset {
-  margin-top: auto;
-  margin-bottom: auto;
-  border: none;
-  display: flex;
-  flex-direction: column; }
-
-.welcome {
-  border: none;
+.post-container {
+  max-width: 300px;
+  flex: 1;
+  display: grid;
   margin: auto;
-  display: flex;
-  flex-direction: column; }
+  grid-template-areas: "content" "image"; }
+  @media (min-width: 768px) {
+    .post-container {
+      max-width: 1200px;
+      grid-template-areas: "content image";
+      grid-gap: 5em; } }
+  @media (min-width: 992px) {
+    .post-container {
+      max-width: 1400px;
+      grid-template-areas: "content image";
+      grid-gap: 10em; } }
+
+.post-content-container {
+  grid-area: 'content';
+  width: 300px;
+  margin: auto; }
+  @media (min-width: 768px) {
+    .post-content-container {
+      width: 600px; } }
+  @media (min-width: 992px) {
+    .post-content-container {
+      width: 700px; } }
+
+.image-container {
+  grid-area: 'image';
+  width: 300px;
+  margin: auto; }
+  @media (min-width: 768px) {
+    .image-container {
+      width: 600px; } }
+  @media (min-width: 992px) {
+    .image-container {
+      width: 700px; } }
+
+.slick-image {
+  margin: auto;
+  width: 90%; }
+
+.solo {
+  display: block;
+  margin: auto;
+  margin-top: 15em; }
+  @media (min-width: 768px) {
+    .solo {
+      margin-top: 20em; } }
 
 /*# sourceMappingURL=styles.css.map */

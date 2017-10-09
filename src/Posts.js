@@ -5,16 +5,15 @@ import PostLink from './PostLink.js';
 
 const PostList = (props) => {
     const results = props.data;
-    let postResults = results.map(post => 
-    <PostLink title={post.title} id={post.id}/>);
+    let postResults = results.map(post =>
+    <PostLink title={post.title} key={post.id} url={post.url} id={post.id}/>);
 
     return(
         <div className="post-list-container">
-            <h2>Projects</h2>
-            <ul>
+            <ul className="post-results">
                 {postResults}
             </ul>
-        </div>
+        </div> 
     );
 
 }

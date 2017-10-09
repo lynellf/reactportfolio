@@ -2,6 +2,12 @@
 //  Mixins
 // =========================================
 
+//Grid display with fixed view height (allowing for sticky footers)
+@mixin sticky-grid {
+    height: 100vh;
+    display: grid;
+}
+
 // Create a flex container
 @mixin flex ($direction, $wrap, $space) {
     display: flex;
@@ -10,5 +16,31 @@
     justify-content: $space;
 }
 
+//Center align content with maximum width
+@mixin center-max {
+    margin: auto;
+    max-width: 1024px;
+}
+
 
 // Media queries
+@mixin mq($break) {
+    $value: map-get($breakpoints, $break);
+    $sm: map-get($breakpoints, 'sm');
+
+    @if $value == null {
+        @error "`#{$break}` is not a valid breakpoint name";
+    }
+
+    @else if $value < $sm {
+        @media(max-width: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+}

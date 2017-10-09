@@ -1,9 +1,11 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './css/styles.css';
 import './css/flat-ui-pro.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Mainsite from './Mainsite';
 import Login from './Login';
+import DirectPost from './DirectPost';
 
 const App = () => {
   return(
@@ -11,6 +13,7 @@ const App = () => {
       <Switch>
       <Route exact path="/" render={() => (<Mainsite />)} />
       <Route path="/login" render={() => (<Login />)} />
+      <Route path="/:id" component={DirectPost} />
        </Switch>
     </BrowserRouter>
   );

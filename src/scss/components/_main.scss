@@ -1,1 +1,28 @@
+.projects {
+    margin: auto;
+    @include flex($direction: column, $wrap: null, $space: null);
+    max-width: 300px;
 
+    @include mq('med'){
+        @include flex($direction: row, $wrap: null, $space: null);
+        max-width: 1024px;
+    }
+
+    @include mq('lg') {
+        @include flex($direction: row, $wrap: null, $space: null);
+        max-width: 1200px;
+    }
+}
+
+.cards {
+    margin: auto;
+    width: 50%;
+}
+
+.post-results {
+    padding-left: 0;
+}
+
+.loading {
+    margin: auto;
+}

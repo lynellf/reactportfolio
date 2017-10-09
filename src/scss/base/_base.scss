@@ -10,34 +10,42 @@
 //  Layout Container Styles
 // ======================================
 
+// body {
+//   overflow-y: hidden;
+// }
+
 
 .app {
-  height: 100vh;
-  display: grid;
+  @include sticky-grid;
+  grid-template-rows: 1fr minmax(200px, 1fr) 1fr;
   grid-auto-columns: 1fr;
-  grid-template-rows: minmax(500px, 1fr) minmax(200px, 1fr) 1fr;
+  @include mq('med') {
+     grid-template-rows: 1fr minmax(500px, 1fr) 1fr;
+  }
 };
+
+.sub-page {
+  height: $full-height;
+  margin: auto;
+  @include flex($direction: column, $wrap: null, $space: null);
+}
 
 .nav__item {
     list-style: none;
 }
 
-.my-name, .projects, .footer {
+.col-container {
 @include flex($direction: column, $wrap: null, $space: null);
-};
 
-
-ul {
-  @include flex($direction: row, $wrap: null, $space: null);
-  justify-content: space-between;
 };
 
 li {
   list-style: none;
-  // margin: 0 1em 0 1em;
 }
 
 .wrapper {
-  height: 100vh;
+  height: $full-height;
   @include flex($direction: column, $wrap: null, $space: null);
 }
+
+

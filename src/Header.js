@@ -1,16 +1,12 @@
 import React from 'react';
+import MainCarousel from './MainCarousel.js';
+import NavBar from './NavBar.js';
 
 const Header = () => {
     return(
-        <header className="my-name">
-            <h1 className="name-header">Ezell Frazier</h1>
-            <nav className="portfolio-links">
-                <ul>
-                    <li>Portfolio</li>
-                    <li>Resume</li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
+        <header>
+            <NavBar />
+            <MainCarousel />
         </header>
     );
 }
