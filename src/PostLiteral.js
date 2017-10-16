@@ -11,7 +11,7 @@ const PostLiteral = (props) => {
     )
 
     return (
-        <div className="flex-container">
+        <div className="flex-container--non-main">
             <NavBar/>
             <main className="flex-container__main post">
                 <article className="post__text-container">

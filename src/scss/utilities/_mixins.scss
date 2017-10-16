@@ -18,7 +18,7 @@
 
 //Grid display with fixed view height (allowing for sticky footers)
 @mixin sticky-grid {
-    height: 100vh;
+    min-height: $full-height;
     display: grid;
 }
 
@@ -63,25 +63,144 @@
     }
 }
 
-//Card configuration
+//Container configuration
+@mixin container {
+    @include mq('xs') {
+        grid-template-areas: "head" "main" "aside" "foot";
+        grid-template-rows: auto 1fr auto;
+        @include sticky-grid;
+        @include element(head) {
+            grid-area: head;
+        }
+        @include element(main) {
+            grid-area: main;
+        }
+        @include element(foot) {
+            grid-area: foot;
+        }
+        @include element(aside) {
+            display: none;
+            grid-area: aside;
+        }
+    }
 
+    @include mq('sm') {
+        grid-template-areas: "head" "main" "aside" "foot";
+        grid-template-rows: auto 1fr auto;
+        @include sticky-grid;
+        @include element(head) {
+            grid-area: head;
+        }
+        @include element(main) {
+            grid-area: main;
+        }
+        @include element(foot) {
+            grid-area: foot;
+        }
+        @include element(aside) {
+            display: none;
+            grid-area: aside;
+        }
+    }
+
+    @include mq('med') {
+        grid-template-areas: "head" "main" "aside" "foot";
+        grid-template-rows: auto 1fr auto;
+        @include sticky-grid;
+        @include element(head) {
+            grid-area: head;
+        }
+        @include element(main) {
+            grid-area: main;
+        }
+        @include element(foot) {
+            grid-area: foot;
+        }
+        @include element(aside) {
+            display: none;
+            grid-area: aside;
+        }
+    }
+
+    @include mq('lg') {
+        grid-template-areas: "head head head" "aside main main" "foot foot foot";
+        grid-template-rows: auto 1fr auto;
+        @include sticky-grid;
+        @include element(head) {
+            grid-area: head;
+        }
+        @include element(main) {
+            grid-area: main;
+        }
+        @include element(foot) {
+            grid-area: foot;
+        }
+        @include element(aside) {
+            display: block;
+            grid-area: aside;
+        }
+    }
+}
+
+//Main Card configuration
 @mixin deck {
     display: grid;
-    
     @include mq('xs') {
         width: $x-small;
-        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "carousel" 
+        "projects" 
+        "bg";
     }
     @include mq('sm') {
         width: $small;
+        grid-template-areas: 
+        "carousel" 
+        "projects" 
+        "bg";
     }
     @include mq('med') {
         width: $med;
-        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "carousel" 
+        "projects" 
+        "bg";
     }
     @include mq('lg') {
         width: $lg;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        @include element(carousel) {
+            grid-template-areas: carousel;
+            grid-column-start: 1;
+            grid-column-end: -1;
+        }
+
+        @include element(projects) {
+            grid-template-areas: projects;
+        }
+
+        @include element(bg) {
+            grid-template-areas: bg;
+        }
     }
+    
+    @include element(carousel) {
+        grid-template-areas: carousel;
+        @extend %center-paragraph-div;
+    }
+
+    @include element(projects) {
+        grid-template-areas: projects;
+        @extend %center-paragraph-div;
+    }
+
+    @include element(bg) {
+        grid-template-areas: bg;
+        @extend %center-paragraph-div;
+    }
+    @include modifier
 
 }
 
