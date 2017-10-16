@@ -4,7 +4,7 @@ import NavBar from './NavBar.js';
 
 const Header = () => {
     return(
-        <header>
+        <header className="flex-container__head">
             <NavBar />
             <MainCarousel />
         </header>

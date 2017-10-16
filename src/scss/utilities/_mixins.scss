@@ -2,6 +2,20 @@
 //  Mixins
 // =========================================
 
+// BEM Selectors 
+
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+@mixin modifier($modifer) {
+    &__#{$element} {
+        @content;
+    }
+}
+
 //Grid display with fixed view height (allowing for sticky footers)
 @mixin sticky-grid {
     height: 100vh;
@@ -20,6 +34,10 @@
 @mixin center-max {
     margin: auto;
     max-width: 1024px;
+}
+
+@mixin grid {
+    display: grid;
 }
 
 
@@ -43,4 +61,43 @@
             @content;
         }
     }
+}
+
+//Card configuration
+
+@mixin deck {
+    display: grid;
+    
+    @include mq('xs') {
+        width: $x-small;
+        grid-template-columns: 1fr;
+    }
+    @include mq('sm') {
+        width: $small;
+    }
+    @include mq('med') {
+        width: $med;
+        grid-template-columns: 1fr 1fr;
+    }
+    @include mq('lg') {
+        width: $lg;
+    }
+
+}
+
+//Post configuration
+@mixin post {
+    @include flex($direction: column, $wrap: null, $space: space-between);
+    width: 80%;
+    margin: auto;
+}
+
+//Post Images
+
+@mixin post-image {
+    @extend %center-image;
+    max-width: 80%;
+    border-radius: 3%;
+    height: auto;
+    padding-bottom: 1em;
 }

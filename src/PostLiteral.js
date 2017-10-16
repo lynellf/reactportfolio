@@ -1,43 +1,25 @@
 import React from 'react';
 import NavBar from './NavBar.js';
-import Slider from 'react-slick';
 import Footer from './Footer';
 
 const PostLiteral = (props) => {
     const images = props.images;
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: false,
-        autoplay: true,
-        //CenterPadding to 0 fixes overlapping slide images.
-        centerPadding: 0,
-        centerMode: true,
-
-    }
     let imageResults = images.map(image =>
-        <div key={image.id}>
-            <img src={image.url} alt="" className="slick-image img-rounded img-responsive"/>
+        <div key={image.id} className="container">
+            <img src={image.url} alt="" className="post__image"/>
         </div>
     )
 
     return (
-        <div className="sub-page">
+        <div className="flex-container">
             <NavBar/>
-            <div className="post-container">
-                <div className="post-content-container">
-                    <h4>{props.title}</h4>
-                    <div className="post-literal" dangerouslySetInnerHTML={{ __html: props.post }} />
-                </div>
-                <div className="image-container">
-                    <Slider {...settings}>
-                        {imageResults}
-                    </Slider>
-                </div>
-            </div>
+            <main className="flex-container__main post">
+                <article className="post__text-container">
+                    <h4 className="post__title">{props.title}</h4>
+                    {imageResults[0]}
+                    <div className="post__text" dangerouslySetInnerHTML={{ __html: props.post }} />
+                </article>
+            </main>
             <Footer/>
         </div>
     );

@@ -8,11 +8,17 @@ $secondary: #16a085;
 
 //Display
 $breakpoints: ( 
-    'xs': 480px, 
-    'sm': 767px, 
+    'xs': 320px, 
+    'sm': 360px, 
     'med': 768px, 
     'lg': 992px, 
     );
 
 $full-height: 100vh;
+$x-small: map-get($map: $breakpoints, $key: 'xs' );
+$small: map-get($map: $breakpoints, $key: 'sm');
+$med: map-get($map: $breakpoints, $key: 'med');
+$lg: map-get($map: $breakpoints, $key: 'lg');
+
+
 

@@ -1,10 +1,39 @@
+.foot-nav {
+  @include element(row){
+    @include mq('xs') {
+      @include flex($direction: column, $wrap: null, $space: space-between);
+      @include element(name) {
+        text-align: center;
+      }
+    }
+    @include mq('sm') {
+      @include element(name) {
+        text-align: center;
+      }
+    }
+    @include mq('xs') {
+      @include element(nav-list) {
+        margin-top: 1em;
+        text-align: center;
+      }
+    }
+
+    @include mq('sm') {
+      @include element(nav-list) {
+        margin-top: 1em;
+        text-align: center;
+      }
+    }
+  } 
+}
+
 .legal {
   display: block;
   text-align: center;
 }
 
 .mtl {
-  background: #34495E;
+  background: $primary;
 }
 
 .foot-nav {

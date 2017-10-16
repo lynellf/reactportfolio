@@ -33,12 +33,12 @@ class Main extends Component {
       );
     } else if (this.state.isLoading === false) {
         return(
-        <main className="projects col-container">
-          <div className="cards">
+        <main className="deck">
+          <div className="deck__card">
             <h4>Projects</h4>
             <Posts data={this.state.posts}/>
           </div>
-          <div className="cards">
+          <div className="deck__card">
             <h4>Background</h4>
               <p>As a recent college graduate, I want to continue my life of learning and creating value for others. Joining the Treehouse
           Techdegree program feels like the right step after finishing with a bachelor's in management information systems.

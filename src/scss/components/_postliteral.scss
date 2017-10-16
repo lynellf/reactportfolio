@@ -1,59 +1,12 @@
-.post-container {
-    max-width: 300px;
-    flex: 1;
-    display: grid;
-    margin:auto;
-    grid-template-areas: 
-    "content"
-    "image";
-    @include mq('med') {
-        max-width: 1200px;
-        grid-template-areas: 
-        "content image";
-        grid-gap: 5em;
+.post {
+    @include post;
+    @include element(text){
+        @extend %center-paragraph-div;
     }
-    @include mq('lg') {
-        max-width: 1400px;
-        grid-template-areas: "content image";
-        grid-gap: 10em;
+    @include element(title) {
+        text-align: center;
     }
-}
-
-.post-content-container {
-    grid-area: 'content';
-    width: 300px;
-    margin: auto;
-    @include mq('med') {
-        width: 600px;
+    @include element(image) {
+        @include post-image;
     }
-    @include mq('lg') {
-        width: 700px;
-    }
-}
-
-.image-container {
-    grid-area: 'image';
-    width: 300px;
-    margin: auto;
-    @include mq('med') {
-        width: 600px;
-    }
-    @include mq('lg') {
-        width: 700px;
-    }
-}
-
-.slick-image {
-    margin: auto;
-    width: 90%;
-}
-
-.solo {
-    display: block;
-    margin: auto;
-    margin-top: 15em;
-    @include mq('med') {
-        margin-top: 20em;
-    }
-
 }

@@ -10,42 +10,14 @@
 //  Layout Container Styles
 // ======================================
 
-// body {
-//   overflow-y: hidden;
-// }
-
-
-.app {
-  @include sticky-grid;
-  grid-template-rows: 1fr minmax(200px, 1fr) 1fr;
-  grid-auto-columns: 1fr;
-  @include mq('med') {
-     grid-template-rows: 1fr minmax(500px, 1fr) 1fr;
-  }
-};
-
-.sub-page {
-  height: $full-height;
-  margin: auto;
-  @include flex($direction: column, $wrap: null, $space: null);
+body {
+  overflow-x: hidden;
 }
 
-.nav__item {
-    list-style: none;
+ul {
+  padding-left: 0;
 }
-
-.col-container {
-@include flex($direction: column, $wrap: null, $space: null);
-
-};
 
 li {
   list-style: none;
 }
-
-.wrapper {
-  height: $full-height;
-  @include flex($direction: column, $wrap: null, $space: null);
-}
-
-

@@ -30,7 +30,7 @@ class DirectPost extends Component {
   render(){
     if (this.state.isLoading === true) {
       return (
-        <img src={Rolling} alt="" className="loading solo" />
+        <img src={Rolling} alt="" className="loading" />
       );
     } else if (this.state.isLoading === false) {
         return (
