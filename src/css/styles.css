@@ -1,116 +1,632 @@
-/*
-Error: Mixin modifier is missing argument $modifer.
-        on line 203 of scss/utilities/_mixins.scss, in `modifier'
-        from line 203 of scss/utilities/_mixins.scss, in `deck'
-        from line 2 of scss/components/_main.scss
-        from line 2 of scss/components/_index.scss
-        from line 3 of scss/styles.scss
+@import url(~slick-carousel/slick/slick.css);
+@import url(~slick-carousel/slick/slick-theme.css);
+.post__image, .post__image-container__image {
+  display: block;
+  margin: auto; }
 
-Backtrace:
-scss/utilities/_mixins.scss:203:in `modifier'
-scss/utilities/_mixins.scss:203:in `deck'
-scss/components/_main.scss:2
-scss/components/_index.scss:2
-scss/styles.scss:3
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:75:in `block in perform_arguments'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:67:in `zip'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:67:in `perform_arguments'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:362:in `block in visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `with_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:367:in `block (4 levels) in visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:367:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:367:in `block (3 levels) in visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:367:in `block (2 levels) in visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:86:in `perform_arguments'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:362:in `block in visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `with_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:320:in `block in watch'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Mixin modifier is missing argument $modifer.\A         on line 203 of scss/utilities/_mixins.scss, in `modifier'\A         from line 203 of scss/utilities/_mixins.scss, in `deck'\A         from line 2 of scss/components/_main.scss\A         from line 2 of scss/components/_index.scss\A         from line 3 of scss/styles.scss"; }
+.deck__carousel, .deck__projects, .deck__bg, .post__text {
+  width: 80%;
+  max-width: 800px;
+  margin: auto; }
+
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block; }
+
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit; }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+img {
+  border-style: none; }
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Scripting
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+canvas {
+  display: inline-block; }
+
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none; }
+
+/* Hidden
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  overflow-x: hidden; }
+
+ul {
+  padding-left: 0; }
+
+li {
+  list-style: none; }
+
+.carousel {
+  margin: auto;
+  max-width: 1024px; }
+
+.carousel-inner > .item > img {
+  max-width: 640px;
+  height: 50%; }
+
+.deck {
+  display: grid; }
+  @media (max-width: 320px) {
+    .deck {
+      width: 320px;
+      grid-gap: 1em;
+      grid-template-areas: "carousel"  "projects"  "bg"; } }
+  @media (min-width: 360px) {
+    .deck {
+      width: 360px;
+      grid-gap: 1em;
+      grid-template-areas: "carousel"  "projects"  "bg"; } }
+  @media (min-width: 768px) {
+    .deck {
+      width: 768px;
+      grid-gap: 1em;
+      grid-template-areas: "carousel"  "projects"  "bg"; } }
+  @media (min-width: 992px) {
+    .deck {
+      width: 992px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      .deck__carousel {
+        grid-template-areas: carousel;
+        grid-column-start: 1;
+        grid-column-end: -1; }
+      .deck__projects {
+        grid-template-areas: projects; }
+      .deck__bg {
+        grid-template-areas: bg; } }
+  .deck__carousel {
+    grid-template-areas: carousel; }
+  .deck__projects {
+    grid-template-areas: projects; }
+  .deck__bg {
+    grid-template-areas: bg; }
+  .deck__projects {
+    padding: 1em;
+    background-color: #EDEFF1;
+    border-radius: 6px;
+    transition: all .5s;
+    border-bottom: 4px solid #34495E; }
+    .deck__projects:hover {
+      border-color: #16a085; }
+  .deck__bg {
+    padding: 1em;
+    background-color: #EDEFF1;
+    border-radius: 6px;
+    transition: all .5s;
+    border-bottom: 4px solid #34495E; }
+    .deck__bg:hover {
+      border-color: #16a085; }
+  @media (max-width: 320px) {
+    .deck {
+      width: 80%;
+      margin: auto; } }
+  @media (min-width: 360px) {
+    .deck {
+      width: 80%;
+      margin: auto; } }
+
+@media (max-width: 320px) {
+  .foot-nav__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .foot-nav__row__name {
+      text-align: center; } }
+@media (min-width: 360px) {
+  .foot-nav__row__name {
+    text-align: center; } }
+@media (max-width: 320px) {
+  .foot-nav__row__nav-list {
+    margin-top: 1em;
+    text-align: center; } }
+@media (min-width: 360px) {
+  .foot-nav__row__nav-list {
+    margin-top: 1em;
+    text-align: center; } }
+
+.legal {
+  display: block;
+  text-align: center; }
+
+.mtl {
+  background: #34495E; }
+
+.foot-nav {
+  margin-top: auto; }
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  background-color: #EDEFF1;
+  border-radius: 6px;
+  transition: all .5s;
+  border-bottom: 4px solid #34495E; }
+  .post:hover {
+    border-color: #16a085; }
+  .post__title {
+    text-align: center; }
+  .post__image {
+    max-width: 80%;
+    border-radius: 3%;
+    height: auto;
+    padding-bottom: 1em; }
+  .post__image-container__image {
+    max-width: 80%;
+    border-radius: 3%;
+    height: auto;
+    padding-bottom: 1em; }
+
+.app-container__aside {
+  max-width: 300px;
+  margin-right: 1em;
+  padding: 1em;
+  background-color: #EDEFF1;
+  border-radius: 6px;
+  transition: all .5s;
+  border-bottom: 4px solid #34495E; }
+  .app-container__aside:hover {
+    border-color: #16a085; }
+  .app-container__aside__skills {
+    width: 50%; }
+  .app-container__aside__img {
+    width: 60%;
+    margin: 1em; }
+  .app-container__aside__row {
+    display: flex;
+    flex-direction: row; }
+  @media (min-width: 768px) {
+    .app-container__aside {
+      max-height: 60%; } }
+  @media (min-width: 992px) {
+    .app-container__aside {
+      max-height: 80%; } }
+
+@media (max-width: 320px) {
+  .app-container {
+    grid-template-areas: "head" "main" "aside" "foot";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    display: grid; }
+    .app-container__head {
+      grid-area: head; }
+    .app-container__main {
+      grid-area: main; }
+    .app-container__foot {
+      grid-area: foot; }
+    .app-container__aside {
+      display: none;
+      grid-area: aside; } }
+@media (min-width: 360px) {
+  .app-container {
+    grid-template-areas: "head" "main" "aside" "foot";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    display: grid; }
+    .app-container__head {
+      grid-area: head; }
+    .app-container__main {
+      grid-area: main; }
+    .app-container__foot {
+      grid-area: foot; }
+    .app-container__aside {
+      display: none;
+      grid-area: aside; } }
+@media (min-width: 768px) {
+  .app-container {
+    grid-template-areas: "head" "main" "aside" "foot";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    display: grid; }
+    .app-container__head {
+      grid-area: head; }
+    .app-container__main {
+      grid-area: main; }
+    .app-container__foot {
+      grid-area: foot; }
+    .app-container__aside {
+      display: none;
+      grid-area: aside; } }
+@media (min-width: 992px) {
+  .app-container {
+    grid-template-areas: "head head head" "left main right"  "foot foot foot";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    display: grid; }
+    .app-container__head {
+      grid-area: head; }
+    .app-container__main {
+      grid-area: main; }
+    .app-container__foot {
+      grid-area: foot; }
+    .app-container__aside {
+      display: block; }
+    .app-container .left {
+      grid-area: left; }
+    .app-container .right {
+      grid-area: right; } }
+
+.loading {
+  display: block;
+  margin: auto; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,17 +1,18 @@
 import React from 'react';
 
 const Login = () => {
+
   return(
     <div className="wrapper">
-      <form className="login-fieldset">
+      <form className="login-fieldset" method="post" action="http://localhost:8080/api/login">
         <fieldset className="welcome">
           <legend className="">Hello Ezell. Please sign-in.</legend>
             <label for="username">Username: </label>
             <input type="text"
-            name="username"
+            name="userName"
             placeholder="Enter Username"
             className="login-field form-control input-hg"
-            id="username"/>
+            id="userName"/>
             <label for="#password">Password: </label>
             <input
             type="password"
@@ -20,6 +21,7 @@ const Login = () => {
             placeholder="Enter password"
             className="login-field form-control input-hg"/>
         </fieldset>
+        <input type="submit" value="Login"/>
       </form>
     </div>
   );

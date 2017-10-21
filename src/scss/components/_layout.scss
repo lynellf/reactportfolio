@@ -1,10 +1,8 @@
-.flex-container {
-    @include container;
+.app-container {
+    @include home-container;
 }
 
 .loading {
     display: block;
     margin: auto;
 }
-
-

@@ -5,15 +5,15 @@ import Footer from './Footer';
 const PostLiteral = (props) => {
     const images = props.images;
     let imageResults = images.map(image =>
-        <div key={image.id} className="container">
-            <img src={image.url} alt="" className="post__image"/>
+        <div key={image.id} className="post__image-container">
+            <img src={image.url} alt="" className="post__image-container__image"/>
         </div>
     )
 
     return (
-        <div className="flex-container--non-main">
+        <div className="app-container--non-main">
             <NavBar/>
-            <main className="flex-container__main post">
+            <main className="app-container__main post">
                 <article className="post__text-container">
                     <h4 className="post__title">{props.title}</h4>
                     {imageResults[0]}

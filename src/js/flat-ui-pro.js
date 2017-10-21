@@ -12,6 +12,13 @@
  *
  * http://api.jqueryui.com/category/ui-core/
  */
+
+import {$, jQuery, Globalize, augment} from 'jquery';
+import '../css/vendor/bootstrap.min.css';
+import '../css/flat-ui-pro.min.css';
+import ui from 'jquery-ui';
+window.location = location;
+
 (function( $, undefined ) {
 
 var uuid = 0,

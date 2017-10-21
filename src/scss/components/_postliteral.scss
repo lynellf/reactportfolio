@@ -1,5 +1,6 @@
 .post {
     @include post;
+    @include card;
     @include element(text){
         @extend %center-paragraph-div;
     }
@@ -9,4 +10,10 @@
     @include element(image) {
         @include post-image;
     }
+    @include element(image-container) {
+        @include element(image) {
+            @include post-image;
+        }
+    }
 }
+

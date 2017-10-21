@@ -1,3 +1,17 @@
 .deck {
     @include deck;
+    @include element(projects) {
+        @include card;
+    }
+    @include element(bg) {
+        @include card;
+    }
+    @include mq('xs') {
+        width: 80%;
+        margin: auto;
+    }
+    @include mq('sm') {
+        width: 80%;
+        margin: auto;
+    }
 }

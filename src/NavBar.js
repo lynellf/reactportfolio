@@ -17,25 +17,23 @@ export default class Example extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Navbar className="navbar" color="black" expand="md" light>
-                    <NavbarBrand href="/">Ezell Frazier</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto nav" navbar>
-                            <NavItem>
-                                <NavLink href="/">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/lynellf">Github</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="mailto:lynellf@gmail.com">Contact</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </div>
+            <Navbar className="navbar" color="black" expand="md" light>
+                <NavbarBrand href="/">Ezell Frazier</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto nav" navbar>
+                        <NavItem>
+                            <NavLink href="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="https://github.com/lynellf">Github</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="mailto:lynellf@gmail.com">Contact</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar> 
         );
     }
 }

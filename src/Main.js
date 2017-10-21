@@ -34,7 +34,7 @@ class Main extends Component {
       );
     } else if (this.state.isLoading === false) {
         return(
-        <main className="deck">
+        <main className="app-container__main deck">
           <div className="deck__carousel">
               <MainCarousel />
           </div>
