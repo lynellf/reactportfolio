@@ -14,11 +14,11 @@ var PostSchema = new mongoose.Schema({
         unique: false
     },
     date: {
-        type: Date,
+        type: String,
         required: true
     }, 
     postId: {
-        type: Number,
+        type: String,
         unique: true
     },
     tags: {

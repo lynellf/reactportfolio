@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/styles.css';
+import 'babel-polyfill';
+import './css/Draft.css';
+// import './css/styles.css';
 import App from './App';
 
 

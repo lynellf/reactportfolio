@@ -39,7 +39,7 @@ router.post('/register', function (req, res) {
 });
 
 //POST/Blog Content
-router.post('/post', function (req, res) {
+router.post('/submit', function (req, res) {
   if (
     req.body.title &&
     req.body.post &&
