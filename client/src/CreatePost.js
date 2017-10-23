@@ -28,9 +28,9 @@ export default class CreatePost extends Component {
         this.tagChange = this.tagChange.bind(this);
     }
 
-    titleChange(value) {
+    titleChange(evt) {
         this.setState({
-            title: value
+            title: evt.target.value
         })
     }
 
@@ -73,7 +73,7 @@ export default class CreatePost extends Component {
                         <h4>New Post</h4>
                         <Form.Field label='Title' control='input' 
                             value={this.state.title}
-                            onChange={this.titleChange}
+                            onChange={evt => this.titleChange(evt)}
                         />
                         <ReactQuill value={this.state.post}
                             onChange={this.postChange} />
