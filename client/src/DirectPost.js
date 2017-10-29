@@ -8,20 +8,21 @@ class DirectPost extends Component {
   constructor(props) {
     super();
     this.state = {
-      images: [],
       title: '',
       contents: '',
+      imgUrl: '',
       isLoading: true,
     }
   }
 
   componentDidMount() {
-    axios.get(`https://ezellf.com/blog/?json=get_post&post_id=${this.props.match.params.id}`)
+    axios.get(`/api/post/${this.props.match.params.id}`)
       .then(response => {
+        console.log(response);
         this.setState({
-          contents: response.data.post.content,
+          contents: response.data.post.post,
           title: response.data.post.title,
-          images: response.data.post.attachments,
+          imgUrl: response.data.post.imgUrl,
           isLoading: false
         })
       })
@@ -34,7 +35,7 @@ class DirectPost extends Component {
       );
     } else if (this.state.isLoading === false) {
         return (
-          <PostLiteral title={this.state.title} post={this.state.contents} images={this.state.images} />
+          <PostLiteral title={this.state.title} post={this.state.contents} imgUrl={this.state.imgUrl}/>
         );
     }
   }

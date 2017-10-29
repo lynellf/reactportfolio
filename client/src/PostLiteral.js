@@ -1,22 +1,22 @@
 import React from 'react';
-import NavBar from './NavBar.js';
+import Header from './Header.js';
 import Footer from './Footer';
 
 const PostLiteral = (props) => {
-    const images = props.images;
-    let imageResults = images.map(image =>
-        <div key={image.id} className="post__image-container">
-            <img src={image.url} alt="" className="post__image-container__image"/>
+    const image = props.imgUrl;
+    let imageResults = (
+        <div  className="post__image-container">
+            <img src={image} alt="" className="post__image-container__image"/>
         </div>
     )
 
     return (
         <div className="app-container--non-main">
-            <NavBar/>
+            <Header/>
             <main className="app-container__main post">
                 <article className="post__text-container">
                     <h4 className="post__title">{props.title}</h4>
-                    {imageResults[0]}
+                    { imageResults }
                     <div className="post__text" dangerouslySetInnerHTML={{ __html: props.post }} />
                 </article>
             </main>

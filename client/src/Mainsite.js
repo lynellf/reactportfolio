@@ -33,8 +33,9 @@ export default class MainSite extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://ezellf.com/blog/?json=get_tag_posts&tag_slug=Project')
+    axios.get('/api/posts')
       .then(response => {
+        console.log(response.data.posts);
         this.setState({
           posts: response.data.posts,
           postAreLoading: false
@@ -53,7 +54,7 @@ export default class MainSite extends Component {
         this.setState({
           recentSongs: songCapture
         })
-        console.log(songCapture);
+        // console.log(songCapture);
       })
 
     axios.get(`https://teamtreehouse.com/ezellfrazier.json`)
@@ -86,7 +87,7 @@ export default class MainSite extends Component {
           <Grid centered={true} divided={true} stackable={true} verticalAlign="middle" stretched={true}>
             <Grid.Row>
               <Grid.Column width={2}>
-                <Aside2 posts={this.state.posts} />
+                {<Aside2 posts={this.state.posts} />}
               </Grid.Column>
               <Grid.Column width={10}>
                 <Main posts={this.state.posts} />
