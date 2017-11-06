@@ -2,7 +2,7 @@ import React from 'react';
 
 const Register = () => {
     return (
-        <form action="http://localhost:8080/api/register" method="post">
+        <form action="http://localhost:3001/api/register" method="post">
             <fieldset>
                 <label for="userName">User Name:</label>
                 <input type="text" placeholder="Enter User Name" name="userName" id="userName"/>

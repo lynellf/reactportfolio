@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Footer from './Footer.js';
+import Header from './Header.js';
+import { Button } from 'semantic-ui-react';
 
 const Login = () => {
 

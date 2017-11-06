@@ -28,7 +28,11 @@ var PostSchema = new mongoose.Schema({
     },
     imgUrl: {
         type: String
+    },
+    lastUpdated: {
+        type: String
     }
+
 });
 
 Posts = mongoose.model('Posts', PostSchema);

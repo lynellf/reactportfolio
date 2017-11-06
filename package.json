@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "auth0-js": "^8.10.1",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "connect-mongo": "^2.0.0",
@@ -17,6 +18,7 @@
     "express-session": "^1.15.6",
     "fs": "0.0.1-security",
     "images-upload-middleware": "^1.1.1",
+    "immutability-helper": "^2.4.0",
     "jade": "~1.11.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.12.3",

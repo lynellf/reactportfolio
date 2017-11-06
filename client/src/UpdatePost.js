@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import { Form, Button,  Container, Menu } from 'semantic-ui-react';
-import ReactQuill from 'react-quill'; 
+import { Form, Button, Container, Menu } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 
+
 const margin = {
-    margin: "3em 0 0 0"
+    margin: "3em 1em 0 0"
 };
 
 const centerAlign = {
@@ -21,23 +22,24 @@ const centeredStyle = {
 
 const d = new Date();
 
-class CreatePost extends Component {
+class UpdatePost extends Component {
     constructor(props) {
         super(props)
         this.state = {
             title: '',
             post: '',
-            date: `${d.getMonth()} ${d.getDate()} ${d.getFullYear()}`,
+            lastUpdated: `${d.getMonth()} ${d.getDate()} ${d.getFullYear()}`,
             tags: [],
             imgUrl: "",
             files: [],
-            postId: `${Date.now()}`
-         } // You can also pass a Quill Delta here
+            postId: ''
+        } // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
         this.tagChange = this.tagChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     goTo(route) {
@@ -52,6 +54,20 @@ class CreatePost extends Component {
         this.props.auth.logout();
     }
 
+    componentDidMount() {
+        axios.get(`/api/post/${this.props.match.params.id}`)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    post: response.data.post.post,
+                    title: response.data.post.title,
+                    imgUrl: response.data.post.imgUrl,
+                    postId: response.data.post.postId,
+                    isLoading: false
+                })
+            })
+    }
+
     handleUploadFile = (event) => {
         this.setState({
             files: event.target.files
@@ -63,13 +79,14 @@ class CreatePost extends Component {
         axios.post('/api/upload', data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
-            }}).then((response) => {
+            }
+        }).then((response) => {
             this.setState({
                 imgUrl: response.data
             })
             return (response);
         });
-        
+
         event.preventDefault();
     }
 
@@ -80,9 +97,9 @@ class CreatePost extends Component {
     }
 
     postChange(value) {
-        this.setState({ 
+        this.setState({
             post: value,
-         })
+        })
     }
 
     tagChange(evt) {
@@ -93,14 +110,13 @@ class CreatePost extends Component {
     }
 
     handleSubmit(event) {
-        axios.post('/api/submit', {
+        axios.post(`/api/update/${this.state.postId}`, {
             title: this.state.title,
             post: this.state.post,
-            date: this.state.date,
+            lastUpdated: this.state.date,
             tags: this.state.tags,
             imgUrl: this.state.imgUrl,
-            photo: this.state.photo,
-            postId: this.state.postId
+            photo: this.state.photo
         })
             .then(function (response) {
                 console.log(response);
@@ -114,11 +130,25 @@ class CreatePost extends Component {
         this.props.history.push('/controlpanel');
     }
 
+    handleDelete(){
+        axios.post(`/api/rp`, {
+            postId: this.state.postId
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        // Redirect to target page
+        this.props.history.push('/controlpanel');
+    }
+
     render() {
         const { isAuthenticated } = this.props.auth;
         return (
             <div style={margin}>
-                <Header/>
+                <Header />
                 {isAuthenticated() && (
                     <Form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data">
                         <Container>
@@ -139,11 +169,11 @@ class CreatePost extends Component {
                                 onChange={evt => this.tagChange(evt)}
                             />
 
-                            <Button type='submit' style={margin}>Submit Post</Button>
+                            <Button type='submit' style={margin}>Update Post</Button>
+                            <Button type='button' style={margin} onClick={this.handleDelete}>Delete Post</Button>
                         </Container>
                     </Form>
                 )}
-
                 {!isAuthenticated() && (
                     <h4 style={margin}>
                         You are not logged in! Please{' '}
@@ -153,7 +183,7 @@ class CreatePost extends Component {
                         {' '}to continue.
                             </h4>
                 )}
-
+                
                 <Menu inverted color="blue" fixed="bottom">
                     <Menu.Item header href="/">
                         Ezell Frazier
@@ -174,9 +204,9 @@ class CreatePost extends Component {
                     )}
                 </Menu>
             </div>
-            
+
         )
     }
 }
 
-export default withRouter(CreatePost);
+export default withRouter(UpdatePost);

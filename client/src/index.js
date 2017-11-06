@@ -1,10 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import 'babel-polyfill';
-import './css/Draft.css';
-// import './css/styles.css';
-import App from './App';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'semantic-ui-css/semantic.min.css';
+import { makeMainRoutes } from './routes';
 
+const routes = makeMainRoutes();
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
+ReactDOM.render(
+  routes,
+  document.getElementById('root')
+);
