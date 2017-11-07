@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import { Table, Button, Menu } from 'semantic-ui-react';
+import NavStart from './NavStart';
 import axios from 'axios';
-import ControlPanelList from './ControlPanelList';
-import Rolling from './images/Rolling.svg';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-
-const margin = {
-    margin: "3em 1em 0 0"
-},
-
-buttons = {
-    margin: "0 1em"
-};
-
-const centeredStyle = {
-    margin: "auto"
-}
 
 class ControlPanel extends Component {
     constructor(props) {
@@ -55,9 +39,7 @@ class ControlPanel extends Component {
     }
 
     handleDelete(id) {
-        const position = this.state.posts.findIndex(i => i.postId == id);
         const posts = this.state.posts;
-        const updated = posts.splice(position, 1);
 
         axios.post(`/api/rp`, {
             postId: id
@@ -82,63 +64,65 @@ class ControlPanel extends Component {
     render() {
         const { isAuthenticated } = this.props.auth;
         const postList = this.state.posts.map(post =>
-            <Table.Row key={post.postId}>
-                <Table.Cell>
+            <tr key={post.postId}>
+                <td>
                     <Link key={post.postId} to={`/post/${post.postId}`}>{post.title}</Link>
-                </Table.Cell>
-                <Table.Cell>
-                    <Button type="button" style={buttons} onClick={() => this.handleDelete(post.postId)}>Delete</Button>
-                    <Button style={buttons} onClick={() => this.updatePost(post.postId)}>Edit</Button>
-                </Table.Cell>
-            </Table.Row>);
+                </td>
+                <td>
+                    <button type="button" className="button--default" onClick={() => this.handleDelete(post.postId)}>Delete</button>
+                    <button type="button" className="button--default" onClick={() => this.updatePost(post.postId)}>Edit</button>
+                </td>
+            </tr>);
         return (
             <div className="control-panel">
-                <Header />
+                <NavStart />
                 {
                     isAuthenticated() && (
                         
-                            <Table celled style={ margin }>
-                                <Table.Header>
-                                    <Table.Row>
-                                        <Table.HeaderCell>Title</Table.HeaderCell>
-                                        <Table.HeaderCell>Options</Table.HeaderCell>
-                                    </Table.Row>
-                                </Table.Header>
-                                <Table.Body>
+                            <table className="post-list">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     {postList}
-                                </Table.Body>
-                            </Table>
+                                </tbody>
+                            </table>
                         
                     )
                 }
                 {!isAuthenticated() && (
-                        <h4 style={margin}>
-                            You are not logged in! Please{' '}
-                            <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
-                                Log In
-                            </a>
-                            {' '}to continue.
-                            </h4>
-                    )}
-                <Menu inverted color="blue" fixed="bottom">
-                    <Menu.Item header href="/">
-                        Ezell Frazier
-                     </Menu.Item>
-                    <Menu.Item style={centeredStyle}>
-                        Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                    </Menu.Item>
-
-                    {!isAuthenticated() && (
-                        <Menu.Item onClick={this.login.bind(this)}>
+                    <h4 className="title--medium">
+                        You are not logged in! Please{' '}
+                        <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
                             Log In
-                    </Menu.Item>
-                    )}
-                    {isAuthenticated() && (
-                        <Menu.Item onClick={this.logout.bind(this)}>
-                            Log Out
-                    </Menu.Item>
-                    )}
-                </Menu>
+                            </a>
+                        {' '}to continue.
+                            </h4>
+                )}
+                <div className="nav--end">
+                    <ul className="nav__list">
+                        <li className="nav__item">
+                            <Link to="/">Ezell Frazier</Link>
+                        </li>
+                        <li className="nav__item">
+                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                        </li>
+
+                        {!isAuthenticated() && (
+                            <li onClick={this.login.bind(this)}>
+                                Log In
+                        </li>
+                        )}
+                        {isAuthenticated() && (
+                            <li onClick={this.logout.bind(this)}>
+                                Log Out
+                        </li>
+                        )}
+                    </ul>
+                </div>
             </div>
         );
     }

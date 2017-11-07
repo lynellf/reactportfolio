@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import PostLiteral from './PostLiteral.js';
+import PostArticle from './PostArticle.js';
 import Rolling from './images/Rolling.svg';
 
 class DirectPost extends Component {
@@ -35,7 +35,7 @@ class DirectPost extends Component {
       );
     } else if (this.state.isLoading === false) {
         return (
-          <PostLiteral title={this.state.title} post={this.state.contents} imgUrl={this.state.imgUrl}/>
+          <PostArticle title={this.state.title} post={this.state.contents} imgUrl={this.state.imgUrl}/>
         );
     }
   }

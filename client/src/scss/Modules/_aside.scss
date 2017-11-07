@@ -1,0 +1,21 @@
+[class^="aside--"] {
+    
+}
+
+.aside {
+    @include m('left') {
+
+    }
+
+    @include m('right') {
+
+    }
+
+    @include e('list') {
+
+    }
+
+    @include e('item') {
+
+    }
+}

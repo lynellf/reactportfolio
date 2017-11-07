@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import NavStart from './NavStart';
-import ReactQuill from 'react-quill';
+import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { withRouter, Link } from "react-router-dom";
 
 const d = new Date();
 
-class UpdatePost extends Component {
+class PostNew extends Component {
     constructor(props) {
         super(props)
         this.state = {
             title: '',
             post: '',
-            lastUpdated: `${d.getMonth()} ${d.getDate()} ${d.getFullYear()}`,
+            date: `${d.getMonth()} ${d.getDate()} ${d.getFullYear()}`,
             tags: [],
             imgUrl: "",
             files: [],
-            postId: ''
-        } // You can also pass a Quill Delta here
+            postId: `${Date.now()}`
+         } // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
         this.tagChange = this.tagChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     goTo(route) {
@@ -39,20 +38,6 @@ class UpdatePost extends Component {
         this.props.auth.logout();
     }
 
-    componentDidMount() {
-        axios.get(`/api/post/${this.props.match.params.id}`)
-            .then(response => {
-                console.log(response);
-                this.setState({
-                    post: response.data.post.post,
-                    title: response.data.post.title,
-                    imgUrl: response.data.post.imgUrl,
-                    postId: response.data.post.postId,
-                    isLoading: false
-                })
-            })
-    }
-
     handleUploadFile = (event) => {
         this.setState({
             files: event.target.files
@@ -64,14 +49,13 @@ class UpdatePost extends Component {
         axios.post('/api/upload', data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
-            }
-        }).then((response) => {
+            }}).then((response) => {
             this.setState({
                 imgUrl: response.data
             })
             return (response);
         });
-
+        
         event.preventDefault();
     }
 
@@ -82,9 +66,9 @@ class UpdatePost extends Component {
     }
 
     postChange(value) {
-        this.setState({
+        this.setState({ 
             post: value,
-        })
+         })
     }
 
     tagChange(evt) {
@@ -95,13 +79,14 @@ class UpdatePost extends Component {
     }
 
     handleSubmit(event) {
-        axios.post(`/api/update/${this.state.postId}`, {
+        axios.post('/api/submit', {
             title: this.state.title,
             post: this.state.post,
-            lastUpdated: this.state.date,
+            date: this.state.date,
             tags: this.state.tags,
             imgUrl: this.state.imgUrl,
-            photo: this.state.photo
+            photo: this.state.photo,
+            postId: this.state.postId
         })
             .then(function (response) {
                 console.log(response);
@@ -115,25 +100,11 @@ class UpdatePost extends Component {
         this.props.history.push('/controlpanel');
     }
 
-    handleDelete(){
-        axios.post(`/api/rp`, {
-            postId: this.state.postId
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        // Redirect to target page
-        this.props.history.push('/controlpanel');
-    }
-
     render() {
         const { isAuthenticated } = this.props.auth;
         return (
             <div className="container--site">
-                <NavStart />
+                <NavStart/>
                 {isAuthenticated() && (
                     <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data">
                         <div className="container--form">
@@ -154,11 +125,11 @@ class UpdatePost extends Component {
                                 onChange={evt => this.tagChange(evt)}
                             />
 
-                            <button type='submit' className="button--default">Update Post</button>
-                            <button type='button' className="button--default" onClick={this.handleDelete}>Delete Post</button>
+                            <button type='submit' className="button--default">Submit Post</button>
                         </div>
                     </form>
                 )}
+
                 {!isAuthenticated() && (
                     <h4 className="title--medium">
                         You are not logged in! Please{' '}
@@ -168,7 +139,7 @@ class UpdatePost extends Component {
                         {' '}to continue.
                             </h4>
                 )}
-                
+
                 <div className="nav--end">
                     <ul className="nav__list">
                         <li className="nav__item">
@@ -178,22 +149,22 @@ class UpdatePost extends Component {
                             Copyright (c) 2017 Ezell Frazier All Rights Reserved.
                         </li>
 
-                        {!isAuthenticated() && (
-                            <li onClick={this.login.bind(this)}>
-                                Log In
+                    {!isAuthenticated() && (
+                        <li onClick={this.login.bind(this)}>
+                            Log In
                         </li>
-                        )}
-                        {isAuthenticated() && (
-                            <li onClick={this.logout.bind(this)}>
-                                Log Out
+                    )}
+                    {isAuthenticated() && (
+                        <li onClick={this.logout.bind(this)}>
+                            Log Out
                         </li>
-                        )}
+                    )}
                     </ul>
                 </div>
             </div>
-
+            
         )
     }
 }
 
-export default withRouter(UpdatePost);
+export default withRouter(PostNew);

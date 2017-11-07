@@ -15,16 +15,6 @@ var app = express();
 
 var db = mongoose.connection
 
-// use sessions for tracking logins
-app.use(session({
-  secret: "Atem is watching...",
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: db
-  })
-}));
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
