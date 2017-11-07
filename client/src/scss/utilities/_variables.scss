@@ -1,0 +1,20 @@
+//====================================================
+//Functions 
+//=====================================================
+
+//Converts pixels to ems
+@function pem($pixels) {
+    @return($pixels/16 *1em);
+}
+
+//=====================================================
+//Colors
+//=====================================================
+
+$color--bluewood: #34495e;
+$color--meadow: #16a085;
+
+$color--primary: $color--bluewood;
+$color--secondary: $color--meadow;
+
+
