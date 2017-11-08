@@ -1,0 +1,56 @@
+[class^="nav--"] {
+    background-color: $color--primary;
+    color: white;
+}
+
+.nav {
+    @include e('list') {
+        padding: 0;
+        margin: 0;
+        display: flex;
+
+        a {
+            color: white;
+            &:hover {
+                color: $color--secondary;
+            }
+        }
+    }
+
+    @include e('item') {
+        list-style: none;
+        margin: 0 pem(32);
+    }
+
+    @include m('start') {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: pem(20) pem(48) 0;
+
+    }
+
+    @include m('end') {
+        height: 100%;
+        display: flex;
+        padding: pem(20) pem(48) 0;
+    }
+}
+
+.title {
+    @include m('strong') {
+        display: inline-block;
+        color: white;
+        a {
+            color: white;
+            &:hover {
+                color: $color--secondary;
+            }
+        }
+    }
+}
+
+.legal {
+    display: block;
+    margin: 0 auto;
+}

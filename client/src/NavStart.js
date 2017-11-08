@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const NavStart = () => {
     return(
         <div className="nav--start">
+            <h2 className="title--strong">
+                <Link to="/">Ezell Frazier</Link>
+            </h2>
             <ul className="nav__list">
-                <li className="nav__item">
-                    <Link to="/">Ezell Frazier</Link>
-                </li>
                 <li className="nav__item">
                     <a href="https://github.com/lynellf">GitHub</a>
                 </li>

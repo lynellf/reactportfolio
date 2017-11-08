@@ -10,17 +10,17 @@ const PostArticle = (props) => {
 
     return (
         <div className="container--site">
-            <header>
+            <header className="header">
                 <NavStart />
             </header>
-            <main>
-                <article>
+            <main className="main">
+                <article  className="article">
                     <h4 className="title--medium">{props.title}</h4>
                     { imageResults }
                     <div className="container--text" dangerouslySetInnerHTML={{ __html: props.post }} />
                 </article>
             </main>
-            <footer>
+            <footer className="footer">
                 <NavEnd />
             </footer>
         </div>

@@ -74,16 +74,21 @@ class ControlPanel extends Component {
                 </td>
             </tr>);
         return (
-            <div className="control-panel">
-                <NavStart />
-                {
+            <div className="container--site">
+                <header className="header">
+                    <nav>
+                        <NavStart />
+                    </nav>
+                </header>
+                <main className="main">
+                    {
                     isAuthenticated() && (
                         
                             <table className="post-list">
                                 <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Options</th>
+                                    <tr className="post-list__row">
+                                        <th className="title--light">Title</th>
+                                        <th className="title--light">Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,8 +97,8 @@ class ControlPanel extends Component {
                             </table>
                         
                     )
-                }
-                {!isAuthenticated() && (
+                        }
+                    {!isAuthenticated() && (
                     <h4 className="title--medium">
                         You are not logged in! Please{' '}
                         <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
@@ -101,28 +106,36 @@ class ControlPanel extends Component {
                             </a>
                         {' '}to continue.
                             </h4>
-                )}
-                <div className="nav--end">
-                    <ul className="nav__list">
-                        <li className="nav__item">
+                    )}
+                </main>
+                <footer className="footer">
+                    <div className="nav--end">
+                        <h2 className="title--strong">
                             <Link to="/">Ezell Frazier</Link>
-                        </li>
-                        <li className="nav__item">
-                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                        </li>
-
-                        {!isAuthenticated() && (
-                            <li onClick={this.login.bind(this)}>
-                                Log In
-                        </li>
-                        )}
-                        {isAuthenticated() && (
-                            <li onClick={this.logout.bind(this)}>
-                                Log Out
-                        </li>
-                        )}
-                    </ul>
-                </div>
+                        </h2>
+                        <span className="legal">
+                                Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                            </span>
+                        <ul className="nav__list">
+                            {!isAuthenticated() && (
+                                <li 
+                                className="nav__item"
+                                onClick={this.login.bind(this)}
+                                >
+                                    Log In
+                            </li>
+                            )}
+                            {isAuthenticated() && (
+                                <li
+                                className="nav__item"
+                                onClick={this.logout.bind(this)}
+                                >
+                                    Log Out
+                            </li>
+                            )}
+                        </ul>
+                    </div>
+                </footer>
             </div>
         );
     }

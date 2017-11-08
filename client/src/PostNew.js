@@ -104,63 +104,85 @@ class PostNew extends Component {
         const { isAuthenticated } = this.props.auth;
         return (
             <div className="container--site">
-                <NavStart/>
-                {isAuthenticated() && (
-                    <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data">
-                        <div className="container--form">
-                            <h4 className="title--medium">New Post</h4>
-                            <input type="text" label='Title' control='input'
-                                value={this.state.title}
-                                onChange={evt => this.titleChange(evt)}
-                            />
-                            <ReactQuill value={this.state.post}
-                                onChange={this.postChange} />
+                <header className="header">
+                    <NavStart/>
+                </header>
+                <main className="main">
+                    {isAuthenticated() && (
+                        <form 
+                            onSubmit={this.handleSubmit} 
+                            name='photo' 
+                            encType="multipart/form-data"
+                            className="post-form"
+                        >
+                            <div className="container--form">
+                                <h4 className="title--medium">New Post</h4>
+                                <input 
+                                    type="text" 
+                                    label='Title' 
+                                    control='input' 
+                                    className="form__input"
+                                    value={this.state.title}
+                                    onChange={evt => this.titleChange(evt)}
+                                />
+                                <ReactQuill value={this.state.post}
+                                    onChange={this.postChange} />
 
-                            <input type="file" onChange={this.handleUploadFile.bind(this)} name="photo" />
+                                <input 
+                                    type="file" 
+                                    onChange={this.handleUploadFile.bind(this)} 
+                                    name="photo"
+                                    className="form__input"
+                                 />
 
 
-                            <h4 className="title--medium">Tags</h4>
-                            <input type="text" control='input'
-                                value={this.state.tags}
-                                onChange={evt => this.tagChange(evt)}
-                            />
+                                <h4 className="title--medium">Tags</h4>
+                                <input 
+                                    type="text" 
+                                    control='input'
+                                    className="form__input"
+                                    value={this.state.tags}
+                                    onChange={evt => this.tagChange(evt)}
+                                />
 
-                            <button type='submit' className="button--default">Submit Post</button>
-                        </div>
-                    </form>
-                )}
-
-                {!isAuthenticated() && (
-                    <h4 className="title--medium">
-                        You are not logged in! Please{' '}
-                        <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
-                            Log In
-                            </a>
-                        {' '}to continue.
-                            </h4>
-                )}
-
-                <div className="nav--end">
-                    <ul className="nav__list">
-                        <li className="nav__item">
-                            <Link to="/">Ezell Frazier</Link>
-                        </li>
-                        <li className="nav__item">
-                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                        </li>
+                                <button type='submit' className="button--default">Submit Post</button>
+                            </div>
+                        </form>
+                    )}
 
                     {!isAuthenticated() && (
-                        <li onClick={this.login.bind(this)}>
-                            Log In
-                        </li>
+                        <h4 className="title--medium">
+                            You are not logged in! Please{' '}
+                            <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
+                                Log In
+                                </a>
+                            {' '}to continue.
+                                </h4>
                     )}
-                    {isAuthenticated() && (
-                        <li onClick={this.logout.bind(this)}>
-                            Log Out
-                        </li>
-                    )}
-                    </ul>
-                </div>
+                </main>
+                <footer className="footer">
+                    <div className="nav--end">
+                        <ul className="nav__list">
+                            <li className="nav__item">
+                                <Link to="/">Ezell Frazier</Link>
+                            </li>
+                            <li className="nav__item">
+                                Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                            </li>
+
+                        {!isAuthenticated() && (
+                            <li onClick={this.login.bind(this)}>
+                                Log In
+                            </li>
+                        )}
+                        {isAuthenticated() && (
+                            <li onClick={this.logout.bind(this)}>
+                                Log Out
+                            </li>
+                        )}
+                        </ul>
+                    </div>
+                </footer>
             </div>
             
         )

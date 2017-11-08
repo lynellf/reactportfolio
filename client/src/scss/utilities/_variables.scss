@@ -7,6 +7,16 @@
     @return($pixels/16 *1em);
 }
 
+//Load imported fonts
+// @if variable-exists(font-url) {
+//     @import url($font-url);
+// }
+
+//Value to pixels
+@function pixels($target) {
+    @return(($target * 1px));
+}
+
 //=====================================================
 //Colors
 //=====================================================
@@ -18,3 +28,27 @@ $color--primary: $color--bluewood;
 $color--secondary: $color--meadow;
 
 
+//=====================================================
+//Breakpoints
+//=====================================================
+
+$breaks: (
+    'sm': 320px,
+    'med': 768px,
+    'lg': 1024px
+);
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+$base--font-size: 16;
+// $font-url: "https://fonts.googleapis.com/css?family=Open+Sans";
+// $font-stack--primary: 'Open Sans',
+// sans-serif;
+
+// Font Weights
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+$font-weight--ultra-bold: 900;

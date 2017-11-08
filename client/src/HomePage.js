@@ -79,10 +79,16 @@ export default class HomePage extends Component {
       );
     } else {
       return (
-        <div className="container--site">
-          <NavStart />
+        <div className="container--home">
+          <header className="header">
+            <nav>
+              <NavStart />
+            </nav>
+          </header>
                 <AsideLeft posts={this.state.posts} />
-                <HomeIntro />
+                <main className="main">
+                  <HomeIntro />
+                </main>
                 <AsideRight
                   recentSongs={this.state.recentSongs}
                   badges={this.state.badges}
@@ -91,7 +97,9 @@ export default class HomePage extends Component {
                   htmlPoints={this.state.htmlPoints}
                   databasePoints={this.state.databasePoints}
                 />
-          <NavEnd />
+          <footer className="footer">
+            <NavEnd />
+          </footer>
         </div>
       );
     }
