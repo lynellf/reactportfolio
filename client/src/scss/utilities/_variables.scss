@@ -34,8 +34,8 @@ $color--secondary: $color--meadow;
 
 $breaks: (
     'sm': 320px,
-    'med': 768px,
-    'lg': 1024px
+    'med': 321px,
+    'lg': 768px
 );
 
 // ==========================================================================
@@ -47,8 +47,24 @@ $base--font-size: 16;
 // sans-serif;
 
 // Font Weights
-$font-weight--thin: 100;
-$font-weight--light: 300;
-$font-weight--medium: 400;
-$font-weight--bold: 700;
-$font-weight--ultra-bold: 900;
+$font-weight--extra-light: 100;
+$font-weight--light: 200;
+$font-weight--normal: 300;
+$font-weight--normal-bold: 400;
+$font-weight--medium: 500;
+$font-weight--medium-bold: 600;
+$font-weight--heavy: 700;
+$font-weight--super-heavy: 800;
+$font-weight--ultra: 900;
+
+$weights: (
+    'extra-light': $font-weight--extra-light,
+    'light': $font-weight--light,
+    'normal': $font-weight--normal,
+    'bold': $font-weight--normal-bold,
+    'medium': $font-weight--medium,
+    'medium-bold': $font-weight--medium-bold,
+    'heavy': $font-weight--heavy,
+    'super': $font-weight--super-heavy,
+    'ultra': $font-weight--ultra
+)

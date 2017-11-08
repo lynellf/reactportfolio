@@ -23,7 +23,7 @@
     }
 
     @include m('start') {
-        height: 100%;
+        height: auto;
         display: flex;
         justify-content: space-between;
         padding: pem(20) pem(48) 0;

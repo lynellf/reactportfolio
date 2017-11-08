@@ -1,0 +1,18 @@
+.article {
+    margin: 0 auto;
+    width: 60%;
+    max-width: pem(768);
+    height: 100%;
+}
+
+.container {
+    @include m('text') {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        p {
+            display: block;
+        }
+    }
+}

@@ -110,25 +110,22 @@ class ControlPanel extends Component {
                 </main>
                 <footer className="footer">
                     <div className="nav--end">
-                        <h2 className="title--strong">
-                            <Link to="/">Ezell Frazier</Link>
-                        </h2>
                         <span className="legal">
                                 Copyright (c) 2017 Ezell Frazier All Rights Reserved.
                             </span>
                         <ul className="nav__list">
                             {!isAuthenticated() && (
                                 <li 
-                                className="nav__item"
-                                onClick={this.login.bind(this)}
+                                    className="nav__item"
+                                    onClick={this.login.bind(this)}
                                 >
                                     Log In
                             </li>
                             )}
                             {isAuthenticated() && (
                                 <li
-                                className="nav__item"
-                                onClick={this.logout.bind(this)}
+                                    className="nav__item"
+                                    onClick={this.logout.bind(this)}
                                 >
                                     Log Out
                             </li>

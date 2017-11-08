@@ -174,23 +174,23 @@ class UpdatePost extends Component {
                                 </h4>
                     )}
                 </main>
-                <footer className="footerr">
+                <footer className="footer">
                     <div className="nav--end">
+                        <span className="legal">
+                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                            </span>
                         <ul className="nav__list">
-                            <li className="nav__item">
-                                <Link to="/">Ezell Frazier</Link>
-                            </li>
-                            <li className="nav__item">
-                                Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                            </li>
-
                             {!isAuthenticated() && (
-                                <li onClick={this.login.bind(this)}>
+                                <li 
+                                    className="nav__item"
+                                    onClick={this.login.bind(this)}>
                                     Log In
                             </li>
                             )}
                             {isAuthenticated() && (
-                                <li onClick={this.logout.bind(this)}>
+                                <li 
+                                    className="nav__item"
+                                    onClick={this.logout.bind(this)}>
                                     Log Out
                             </li>
                             )}

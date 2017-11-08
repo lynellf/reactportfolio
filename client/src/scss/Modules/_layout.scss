@@ -6,7 +6,8 @@
         }
 
         @include m('site') {
-            height: 100vh;
+            // height: 100vh;
+            min-height: 100vh;
             display: block;
         }
 
@@ -60,6 +61,7 @@
 .main {
     grid-area: main;
     min-height: pem(800);
+    height: auto;
     @include mq('sm') {
 
     }
@@ -67,4 +69,5 @@
 
 .footer {
     grid-area: footer;
+    padding: pem(48) 0 0;
 }

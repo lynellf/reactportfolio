@@ -4,6 +4,19 @@
 
 .article {
     @include e('image'){
-        
+        border-radius: pem(6);
+        display: block;
+        vertical-align: middle;
+        margin: 0 0 pem(20);
+        @include mq('sm') {
+            max-width: pem(300);
+        }
+        @include mq('med') {
+            max-width: pem(600);
+        }
+        @include mq('lg') {
+            max-width: pem(768);
+        }
+        height: auto;
     }
 }

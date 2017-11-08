@@ -1,9 +1,7 @@
 .title {
-    @include m('light') {
-
-    }
-
-    @include m('medium') {
-
+    @each $el, $weight in $weights {
+        @include m(#{$el}) {
+            font-weight: $weight;
+        }
     }
 }

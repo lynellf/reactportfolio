@@ -389,4 +389,12 @@ template {
 [hidden] {
   display: none; }
 
+* {
+  box-sizing: border-box; }
+
+p {
+  margin: 0 0 15px;
+  font-size: 18px;
+  line-height: 1.722; }
+
 /*# sourceMappingURL=index.css.map */
