@@ -1,3 +1,7 @@
+.grid__col--3.centered, .grid__col--4.centered, .grid__col--5.centered, .grid__col--6.centered, .grid__col--7.centered, .grid__col--8.centered, .grid__col--12.centered {
+  margin-left: auto;
+  margin-right: auto; }
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -397,42 +401,57 @@ p {
   font-size: 18px;
   line-height: 1.722; }
 
-@media (max-width: 320px) {
-  .container--home {
-    height: 100vh;
-    display: block; }
-  .container--site {
-    min-height: 100vh;
-    display: block; } }
-@media (min-width: 768px) {
-  .container--home {
-    height: 100vh;
-    display: grid;
-    grid-template-areas: "header header header" "aside-left main aside-right" "footer footer footer";
-    grid-gap: 2em; }
-  .container--site {
-    height: 100vh;
-    display: grid;
-    grid-template-areas: "header header header" "main main main" "footer footer footer";
-    grid-gap: 2em; } }
+.container {
+  display: flex;
+  direction: column; }
 
-.header {
-  grid-area: header; }
-
-.aside--left {
-  grid-area: aside-left; }
-
-.aside--right {
-  grid-area: aside-right; }
-
-.main {
-  grid-area: main;
-  min-height: 50em;
-  height: auto; }
-
-.footer {
-  grid-area: footer;
-  padding: 3em 0 0; }
+.grid__row {
+  max-width: 100vw;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  @media (min-width: 321px) {
+    .grid__row {
+      display: block; } }
+  @media (min-width: 768px) {
+    .grid__row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; } }
+.grid__col--3 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.25; }
+.grid__col--4 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.3333333333; }
+.grid__col--5 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.4166666667; }
+.grid__col--6 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.5; }
+.grid__col--7 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.5833333333; }
+.grid__col--8 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 0.6666666667; }
+.grid__col--12 {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
+  margin-bottom: 1em;
+  flex: 1; }
 
 [class^="nav--"] {
   background-color: #34495e;

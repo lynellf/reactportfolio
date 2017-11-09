@@ -74,13 +74,13 @@ class ControlPanel extends Component {
                 </td>
             </tr>);
         return (
-            <div className="container--site">
-                <header className="header">
+            <div className="container">
+                <header className="header grid__row">
                     <nav>
                         <NavStart />
                     </nav>
                 </header>
-                <main className="main">
+                <main className="main grid__row">
                     {
                     isAuthenticated() && (
                         

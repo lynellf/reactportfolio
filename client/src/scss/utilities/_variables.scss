@@ -38,6 +38,20 @@ $breaks: (
     'lg': 768px
 );
 
+$container--max-width: 1260px;
+
+// ==========================================================================
+// Margins & Rounded Corners
+// ==========================================================================
+
+$margin--one: pem(8);
+$margin--two: pem(16);
+$margin--three: pem(24);
+$margin--four: pem(32);
+
+//Rounded edges
+$border--radius: pem(5.5);
+
 // ==========================================================================
 // Fonts
 // ==========================================================================
@@ -67,4 +81,22 @@ $weights: (
     'heavy': $font-weight--heavy,
     'super': $font-weight--super-heavy,
     'ultra': $font-weight--ultra
-)
+);
+
+// ==========================================================================
+// Grid Config
+// ==========================================================================
+
+$grid--width: 1260;
+$grid-row--width: percentage($number: 1);
+$grid--columns: 12;
+$grid--gutters: pem(5);
+$grid-col--width: (
+     '3': (3/$grid--columns), 
+     '4': (4/$grid--columns),
+     '5': (5/$grid--columns), 
+     '6': (6/$grid--columns), 
+     '7': (7/$grid--columns), 
+     '8': (8/$grid--columns), 
+     '12': (12/$grid--columns)
+     );

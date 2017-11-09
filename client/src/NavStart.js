@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavStart = () => {
     return(
-        <div className="nav--start">
+        <div className="nav--start grid__col--12">
             <h2 className="title--strong">
                 <Link to="/">Ezell Frazier</Link>
             </h2>
