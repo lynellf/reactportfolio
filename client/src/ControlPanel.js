@@ -80,14 +80,9 @@ class ControlPanel extends Component {
                         <NavStart />
                     </nav>
                 </header>
-                <main className="main">
-                    {isAuthenticated() && (
-                        <div className="posts grid__row">
-                            <table className="post-list__table">
-                                <thead>
-                                    <tr className="post-list__row">
-                                        <th className="title--light">Title</th>
-                                        <th className="title--light">Options</th>
+                <main className="main grid__row">
+                    {
+                    isAuthenticated() && (
                                     </tr>
                                 </thead>
                                 <tbody>
