@@ -1,20 +1,16 @@
 /*
-Error: Undefined mixin 'mq'.
-        on line 2 of scss/Modules/_layout.scss, in `mq'
-        from line 2 of scss/Modules/_layout.scss
+Error: Undefined mixin 'e'.
+        on line 12 of scss/Modules/_layout.scss, in `e'
+        from line 12 of scss/Modules/_layout.scss
         from line 1 of scss/Modules/index.scss
 
-1: @import './_layout',
-2:         './_nav',
-3:         './_aside',
-4:         './_projects',
-5:         './_form',
-6:         './_article',
-7:         './_table'
+7:         './_quill',
+8:         './_article',
+9:         './_table'
 
 Backtrace:
-scss/Modules/_layout.scss:2:in `mq'
-scss/Modules/_layout.scss:2
+scss/Modules/_layout.scss:12:in `e'
+scss/Modules/_layout.scss:12
 scss/Modules/index.scss:1
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
@@ -84,4 +80,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'mq'.\A         on line 2 of scss/Modules/_layout.scss, in `mq'\A         from line 2 of scss/Modules/_layout.scss\A         from line 1 of scss/Modules/index.scss\A \A 1: @import './_layout',\A 2:         './_nav',\A 3:         './_aside',\A 4:         './_projects',\A 5:         './_form',\A 6:         './_article',\A 7:         './_table'"; }
+  content: "Error: Undefined mixin 'e'.\A         on line 12 of scss/Modules/_layout.scss, in `e'\A         from line 12 of scss/Modules/_layout.scss\A         from line 1 of scss/Modules/index.scss\A \A 7:         './_quill',\A 8:         './_article',\A 9:         './_table'"; }

@@ -68,23 +68,22 @@ class ControlPanel extends Component {
                 <td>
                     <Link key={post.postId} to={`/post/${post.postId}`}>{post.title}</Link>
                 </td>
-                <td>
-                    <button type="button" className="button--default" onClick={() => this.handleDelete(post.postId)}>Delete</button>
-                    <button type="button" className="button--default" onClick={() => this.updatePost(post.postId)}>Edit</button>
+                <td className="post-list__options">
+                    <button type="button" className="btn--primary" onClick={() => this.handleDelete(post.postId)}>Delete</button>
+                    <button type="button" className="btn--primary" onClick={() => this.updatePost(post.postId)}>Edit</button>
                 </td>
             </tr>);
         return (
-            <div className="container--site">
+            <div className="container">
                 <header className="header">
                     <nav>
                         <NavStart />
                     </nav>
                 </header>
                 <main className="main">
-                    {
-                    isAuthenticated() && (
-                        
-                            <table className="post-list">
+                    {isAuthenticated() && (
+                        <div className="posts grid__row">
+                            <table className="post-list__table">
                                 <thead>
                                     <tr className="post-list__row">
                                         <th className="title--light">Title</th>
@@ -95,10 +94,10 @@ class ControlPanel extends Component {
                                     {postList}
                                 </tbody>
                             </table>
-                        
-                    )
-                        }
+                        </div>
+                        )}
                     {!isAuthenticated() && (
+                        <div className="auth-check">
                     <h4 className="title--medium">
                         You are not logged in! Please{' '}
                         <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
@@ -106,14 +105,15 @@ class ControlPanel extends Component {
                             </a>
                         {' '}to continue.
                             </h4>
+                        </div>
                     )}
                 </main>
                 <footer className="footer">
-                    <div className="nav--end">
-                        <span className="legal">
+                    <div className="nav--end grid__row">
+                        <span className="legal grid__col--10">
                                 Copyright (c) 2017 Ezell Frazier All Rights Reserved.
                             </span>
-                        <ul className="nav__list">
+                        <ul className="nav__list grid__col--2">
                             {!isAuthenticated() && (
                                 <li 
                                     className="nav__item"

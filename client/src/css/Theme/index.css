@@ -1,19 +1,21 @@
 /*
-Error: Undefined variable: "$weights".
-        on line 2 of scss/Theme/_typography.scss
-        from line 1 of scss/Theme/index.scss
+Error: Undefined variable: "$font-stack--primary".
+        on line 3 of scss/Theme/_typography.scss
+        from line 2 of scss/Theme/index.scss
 
-1: @import './_typography',
-2:         './_form',
-3:         './_buttons',
-4:         './_images'
+1: @import './_fonts',
+2:         './_typography',
+3:         './_form',
+4:         './_buttons',
+5:         './_images',
+6:         './_table'
 
 Backtrace:
-scss/Theme/_typography.scss:2
-scss/Theme/index.scss:1
+scss/Theme/_typography.scss:3
+scss/Theme/index.scss:2
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:233:in `visit_each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
@@ -77,4 +79,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$weights\".\A         on line 2 of scss/Theme/_typography.scss\A         from line 1 of scss/Theme/index.scss\A \A 1: @import './_typography',\A 2:         './_form',\A 3:         './_buttons',\A 4:         './_images'"; }
+  content: "Error: Undefined variable: \"$font-stack--primary\".\A         on line 3 of scss/Theme/_typography.scss\A         from line 2 of scss/Theme/index.scss\A \A 1: @import './_fonts',\A 2:         './_typography',\A 3:         './_form',\A 4:         './_buttons',\A 5:         './_images',\A 6:         './_table'"; }

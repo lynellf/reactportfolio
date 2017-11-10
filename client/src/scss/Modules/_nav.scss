@@ -1,5 +1,5 @@
 [class^="nav--"] {
-    background-color: $color--primary;
+    background-color: $site-primary;
     color: white;
 }
 
@@ -8,13 +8,9 @@
         padding: 0;
         margin: 0;
         display: flex;
-
-        a {
-            color: white;
-            &:hover {
-                color: $color--secondary;
-            }
-        }
+        justify-content: flex-end;
+        margin: pem(19.920) 0;
+        @extend %no-decoration;
     }
 
     @include e('item') {
@@ -24,10 +20,6 @@
 
     @include m('start') {
         height: auto;
-        display: flex;
-        justify-content: space-between;
-        padding: pem(20) pem(48) 0;
-
     }
 
     @include m('end') {
@@ -41,16 +33,12 @@
     @include m('strong') {
         display: inline-block;
         color: white;
-        a {
-            color: white;
-            &:hover {
-                color: $color--secondary;
-            }
-        }
+        @extend %no-decoration
     }
 }
 
 .legal {
     display: block;
-    margin: 0 auto;
+    margin: pem(19.920) auto pem(19.920);
+    text-align: center;
 }

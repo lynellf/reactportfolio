@@ -1,3 +1,22 @@
 .post-list {
-    
+    @include e('table') {
+        @extend %centered;
+        margin-top: pem(20);
+        margin-bottom: pem(20);
+        width: 50%;
+
+        th {
+            text-align: left;
+        }
+
+        @extend %table-default;
+
+        
+    }
+    @include e('options') {
+        button {
+            margin: 0 pem(5);
+        }
+    }
+
 }

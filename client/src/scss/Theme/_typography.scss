@@ -1,5 +1,11 @@
+
+[class^="container"] {
+    font-family: $font-stack--primary;
+}
+
 .title {
-    @each $el, $weight in $weights {
+    @each $el,
+    $weight in $weights {
         @include m(#{$el}) {
             font-weight: $weight;
         }

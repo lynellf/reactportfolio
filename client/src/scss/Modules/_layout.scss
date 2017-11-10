@@ -1,73 +1,26 @@
 .container {
-    @include mq('sm') {
-        @include m('home') {
-            height: 100vh;
-            display: block;
-        }
-
-        @include m('site') {
-            // height: 100vh;
-            min-height: 100vh;
-            display: block;
-        }
-
-    }
-
-    @include mq('lg') {
-        @include m('home') {
-            height: 100vh;
-            display: grid;
-            grid-template-areas: 
-            "header header header"
-            "aside-left main aside-right"
-            "footer footer footer";
-            grid-gap: 2em;
-        }
-
-        @include m('site') {
-            height: 100vh;
-            display: grid;
-            grid-template-areas: 
-            "header header header"
-            "main main main"
-            "footer footer footer";
-            grid-gap: 2em;
-        }
-
-    }
-    
-
-    @include m('form') {
-        
-    }
-
-    @include m('text') {
-        
-    }
-}
-
-.header {
-    grid-area: header;
-}
-
-.aside--left {
-    grid-area: aside-left;
-}
-
-.aside--right {
-    grid-area: aside-right;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .main {
-    grid-area: main;
-    min-height: pem(800);
-    height: auto;
-    @include mq('sm') {
-
-    }
+    flex: 1;
 }
 
-.footer {
-    grid-area: footer;
-    padding: pem(48) 0 0;
+.grid {
+    @include e('row') {
+        display: flex;
+    }
+
+    @include e('col') {
+        @each $col, $width in $grid-col--width {
+            @include m(#{$col}) {
+                flex: $width;
+                &.centered {
+                    @extend %centered;
+                }
+            }
+        }
+    }
 }
