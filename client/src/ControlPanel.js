@@ -81,10 +81,19 @@ class ControlPanel extends Component {
                     </nav>
                 </header>
                 <main className="main grid__row">
-                    {
-                    isAuthenticated() && (
-                                    </tr>
-                                </thead>
+                    {isAuthenticated() && (
+                    <div className="posts">
+                        <table className="post-list__table">
+                            <thead>
+                                <tr className="post-list__row">
+                                    <th className="title--light">
+                                        Title
+                                    </th>
+                                    <th className="title--light">
+                                        Options
+                                    </th>
+                                </tr>
+                            </thead>
                                 <tbody>
                                     {postList}
                                 </tbody>
@@ -104,30 +113,20 @@ class ControlPanel extends Component {
                     )}
                 </main>
                 <footer className="footer">
-                    <div className="nav--end grid__row">
-                        <span className="legal grid__col--10">
-                                Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                            </span>
-                        <ul className="nav__list grid__col--2">
-                            {!isAuthenticated() && (
-                                <li 
-                                    className="nav__item"
-                                    onClick={this.login.bind(this)}
-                                >
-                                    Log In
-                            </li>
-                            )}
-                            {isAuthenticated() && (
-                                <li
-                                    className="nav__item"
-                                    onClick={this.logout.bind(this)}
-                                >
-                                    Log Out
-                            </li>
-                            )}
-                        </ul>
-                    </div>
-                </footer>
+                <div className="nav--end">
+                    <span className="legal">
+                        Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                        </span>
+                    <ul className="nav__list">
+                    {!isAuthenticated() && (<li onClick={this.login.bind(this)}>
+                            Log In
+                        </li>)}
+                    {isAuthenticated() && (<li onClick={this.logout.bind(this)}>
+                            Log Out
+                        </li>)}
+                    </ul>
+                </div>
+            </footer>
             </div>
         );
     }

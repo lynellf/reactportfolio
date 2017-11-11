@@ -139,40 +139,58 @@ class UpdatePost extends Component {
                     </nav>
                 </header>
                 <main className="main">
-                    {isAuthenticated() && (
-                        <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data">
-                            <div className="container--form">
-                                <h4 className="title--medium">New Post</h4>
-                                <input type="text" label='Title' control='input'
-                                    value={this.state.title}
-                                    onChange={evt => this.titleChange(evt)}
+                {isAuthenticated() && (
+                <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="post-form">
+                        <div className="form">
+                            <h4 className="title--medium">
+                                New Post
+                            </h4>
+                            <input 
+                                type="text" 
+                                label='Title' 
+                                className="form__input" 
+                                placeholder="Title" 
+                                value={this.state.title} 
+                                onChange={evt => this.titleChange(evt)}
+                            />
+                            <ReactQuill 
+                                value={this.state.post} 
+                                onChange={this.postChange} 
+                                modules={this.moudles}
+                            />
+                            <span className="form__btn btn--primary">
+                                Upload Image
+                                <input 
+                                    type="file" 
+                                    onChange={this.handleUploadFile.bind(this)} 
+                                    name="photo" 
+                                    className="form__input"
                                 />
-                                <ReactQuill value={this.state.post}
-                                    onChange={this.postChange} />
+                            </span>
 
-                                <input type="file" onChange={this.handleUploadFile.bind(this)} name="photo" />
+                            <input 
+                                type="text" 
+                                className="form__input" 
+                                placeholder="Tags"
+                                value={this.state.tags} 
+                                onChange={evt => this.tagChange(evt)}
+                            />
 
+                            <button 
+                                type='submit' 
+                                className="form__btn btn--primary">
+                                Submit Post
+                            </button>
+                        </div>
+                    </form>)}
 
-                                <h4 className="title--medium">Tags</h4>
-                                <input type="text" control='input'
-                                    value={this.state.tags}
-                                    onChange={evt => this.tagChange(evt)}
-                                />
-
-                                <button type='submit' className="button--default">Update Post</button>
-                                <button type='button' className="button--default" onClick={this.handleDelete}>Delete Post</button>
-                            </div>
-                        </form>
-                    )}
-                    {!isAuthenticated() && (
-                        <h4 className="title--medium">
-                            You are not logged in! Please{' '}
-                            <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
-                                Log In
-                                </a>
-                            {' '}to continue.
-                                </h4>
-                    )}
+                {!isAuthenticated() && (<h4 className="title--medium">
+                        You are not logged in! Please{' '}
+                        <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
+                            Log In
+                            </a>
+                        {' '}to continue.
+                            </h4>)}
                 </main>
                 <footer className="footer">
                     <div className="nav--end">

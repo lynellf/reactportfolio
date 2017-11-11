@@ -1,4 +1,4 @@
-.grid__col--1.centered, .grid__col--2.centered, .grid__col--3.centered, .grid__col--4.centered, .grid__col--5.centered, .grid__col--6.centered, .grid__col--7.centered, .grid__col--8.centered, .grid__col--9.centered, .grid__col--10.centered, .grid__col--11.centered, .grid__col--12.centered, .post-list__table {
+.grid__col--1.centered, .grid__col--2.centered, .grid__col--3.centered, .grid__col--4.centered, .grid__col--5.centered, .grid__col--6.centered, .grid__col--7.centered, .grid__col--8.centered, .grid__col--9.centered, .grid__col--10.centered, .grid__col--11.centered, .grid__col--12.centered, .post-list__table, .posts {
   margin-left: auto;
   margin-right: auto; }
 
@@ -607,7 +607,7 @@ p {
         width: 37.5em;
         margin-right: 8.125em; } }
   .form__btn {
-    margin: 1.25em 0; }
+    margin: 3.125em 0; }
 
 @media (min-width: 768px) {
   .ql-container, .ql-clipboard {
@@ -1306,7 +1306,7 @@ p {
 .post-list__table {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
-  width: 50%; }
+  min-width: 31.25em; }
   .post-list__table th {
     text-align: left; }
 .post-list__options button {

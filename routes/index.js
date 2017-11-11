@@ -58,6 +58,44 @@ Posts.create(postData, function(error, postData) {
 }); 
 });
 
+// POST/Resume (Create or Update)
+router.post('/submitres', function (req, res) {
+  let resumeData = {
+    skills: req.body.skills,
+    experience: req.body.experience,
+    education: req.body.education,
+    projects: req.body.projects
+  };
+  Resume.update(resumeData, {upsert: true, setDefaultsOnInsert: true}, function(error, resumeData) {
+    if (error) {
+      console.log(error);
+      console.log(req.body);
+    } else {
+      // console.log(resumeData);
+      res.send(`Successfully posted updated resume to database.`);
+      return console.log(`Successfully posted updated resume to database.`);
+    }
+  }); 
+  });
+
+  // GET/Resume
+router.get('/resume', function (req, res) {
+  // console.log(req.params);
+  Resume.findOne({}, function (err, docs) {
+    if (!err) {
+      let results = {
+        "resume": {}
+      };
+      results.resume = docs;
+      res.send(results);
+      return (results);
+    } else {
+      console.log(err);
+      return(err);
+    }
+  });
+});
+
 // POST/Update Blog Content
 router.post('/update/:postId', function (req, res) {
   let updateData = {
