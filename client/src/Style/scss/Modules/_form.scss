@@ -1,0 +1,46 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include e('input') {
+        @extend %input;
+        margin: pem(20) 0;
+        @include mq('med') {
+            width: pem(445);
+            margin-right: pem(96);
+        }
+
+        @include mq('lg') {
+            width: pem(600);
+            margin-right: pem(130);
+        }
+    }
+
+    @include e('btn') {
+        margin: pem(50) 0;
+    }
+}
+
+.ql-container, .ql-clipboard {
+    @include mq('med') {
+        width: pem(668);
+    }
+
+    @include mq('lg') {
+        width: pem(900);
+    }
+}
+
+.res {
+    @include e('toggle') {
+        text-align: center;
+        color: $site-primary;
+        display: block;
+        width: 100%;
+        border: solid medium $concrete;
+        padding: pem(10);
+        border-radius: pem(6);
+    }
+}
+

@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
-import './css/styles.css';
-import { makeMainRoutes } from './router';
+import './Style/css/styles.css';
+import { makeMainRoutes } from './Content/Helpers/router';
 
 const routes = makeMainRoutes();
 
