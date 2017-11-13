@@ -11,6 +11,7 @@ import UpdatePost from '../Admin/UpdatePost';
 import DirectPost from '../Blog/DirectPost';
 import Resume from '../Resume/Resume';
 import Portfolio from '../Portfolio/Portfolio';
+import About from '../About/About';
 
 const auth = new Auth();
 
@@ -26,7 +27,8 @@ export const makeMainRoutes = () => {
         <Switch>
           <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/resume" render={(props) => (<Resume auth={auth} {...props} />)} />
-          <Route path="/Portfolio" render={(props) => (<Portfolio auth={auth} {...props} />)} />
+          <Route path="/about" render={(props) => (<About auth={auth} {...props} />)} />
+          <Route path="/portfolio" render={(props) => (<Portfolio auth={auth} {...props} />)} />
           <Route path="/new" render={(props) => (<NewPost auth={auth} {...props} />)} />
           <Route path="/editresume" render={(props) => (<EditResume auth={auth} {...props} />)} />
           <Route path="/update/:id" render={(props) => (<UpdatePost auth={auth} {...props} />)} />

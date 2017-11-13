@@ -9,13 +9,16 @@ const NavStart = () => {
             </h2>
             <ul className="nav__list grid__col--9">
                 <li className="nav__item">
+                    <Link to="/">Home</Link>
+                </li>
+                <li className="nav__item">
                     <Link to ="/resume">Resume</Link>
                 </li>
                 <li className="nav__item">
                     <Link to="/portfolio">Portfolio</Link>
                 </li>
                 <li className="nav__item">
-                    <a href="https://teamtreehouse.com/ezellfrazier">Team Treehouse</a>
+                    <Link to="/about">More</Link>
                 </li>
             </ul>
         </div>

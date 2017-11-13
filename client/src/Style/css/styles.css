@@ -592,6 +592,70 @@ p {
   margin: 1.245em auto 1.245em;
   text-align: center; }
 
+@media (max-width: 360px) {
+  .about__progress {
+    display: block; } }
+@media (min-width: 768px) {
+  .about__progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; } }
+.about__badges {
+  border-radius: 0.375em; }
+  @media (max-width: 360px) {
+    .about__badges {
+      display: block; } }
+  @media (min-width: 768px) {
+    .about__badges {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: #bdc3c7;
+      max-width: 75em;
+      margin: auto; } }
+.about__artists {
+  margin: auto;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  border-radius: 0.375em; }
+  @media (max-width: 360px) {
+    .about__artists {
+      display: block; } }
+  @media (min-width: 768px) {
+    .about__artists {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: #bdc3c7;
+      max-width: 75em; } }
+
+.badge, .song {
+  border-radius: 0.375em;
+  margin: 0.625em auto;
+  background: white; }
+  @media (max-width: 360px) {
+    .badge, .song {
+      display: block; } }
+  @media (min-width: 768px) {
+    .badge, .song {
+      display: flex;
+      padding: 0.625em 1.25em;
+      align-items: center;
+      box-shadow: 0.1875em 0.25em black; } }
+  .badge__image, .song__image {
+    margin-right: 0.625em;
+    border-radius: 0.375em;
+    padding: 0.3125em;
+    background: #95a5a6; }
+
+@media (min-width: 768px) {
+  .badge {
+    width: 30%; } }
+
+@media (min-width: 768px) {
+  .song {
+    width: 40%; } }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -2210,6 +2274,10 @@ p {
   @media (min-width: 1024px) {
     .article__image {
       max-width: 48em; } }
+
+.badge__icon {
+  height: auto;
+  width: 3.125em; }
 
 .table {
   font-size: 16; }

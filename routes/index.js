@@ -381,4 +381,77 @@ var fileName;
     });
   });
 
+/////////////////////////////////////////////
+/// Books
+/////////////////////////////////////////////
+  // POST/ Add new Book
+  router.post('/submitbook', function (req, res) {
+    let bookData = {
+      bookName: req.body.bookName,
+      bookImg: req.body.bookImg,
+      bookId: req.body.bookId
+    };
+    Books.create(bookData, function (error, bookData) {
+      if (error) {
+        console.log(error);
+        console.log(req.body);
+      } else {
+        // console.log(bookData);
+        res.send(`Successfully posted book to database.`);
+        return console.log(`Successfully posted book to database.`);
+      }
+    });
+  });
+
+  // Post/ Remove Book
+  router.post('/deleteschool', function (req, res) {
+    // console.log(req.body.eduId);
+    let deletedEdu = {
+      eduId: req.body.eduId
+    }
+    edu.findOneAndRemove({ eduId: `${deletedEdu.eduId}` }, function (err, docs) {
+      if (!err) {
+        console.log(`edu Id: ${deletedEdu.eduId} has been deleted.`);
+        res.send(`edu Id: ${deletedEdu.eduId} has been deleted.`);
+        return (`edu Id: ${deletedEdu.eduId} has been deleted.`);
+      } else {
+        console.log(err);
+        return (err);
+      }
+    });
+  });
+
+  // GET/ Single School
+  router.get('/edu/:eduId', function (req, res) {
+    // console.log(req.params);
+    Edu.findOne({ eduId: `${req.params.eduId}` }, function (err, docs) {
+      if (!err) {
+        let results = {
+          "edu": {}
+        };
+        results.edu = docs;
+        res.send(results);
+        return (results);
+      } else {
+        console.log(err);
+        return (err);
+      }
+    });
+  });
+
+  // GET/ All Education
+  router.get('/edu', function (req, res) {
+    Edu.find({}, function (err, docs) {
+      if (!err) {
+        let results = {
+          "edus": {}
+        };
+        results.edus = docs;
+        // console.log(results);
+        res.send(results);
+        return (results);
+      }
+    });
+  });
+
 module.exports = router;
