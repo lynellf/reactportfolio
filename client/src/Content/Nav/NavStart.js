@@ -18,6 +18,9 @@ const NavStart = () => {
                     <Link to="/portfolio">Portfolio</Link>
                 </li>
                 <li className="nav__item">
+                    <Link to="/blog">Blog</Link>
+                </li>
+                <li className="nav__item">
                     <Link to="/about">More</Link>
                 </li>
             </ul>

@@ -592,6 +592,14 @@ p {
   margin: 1.245em auto 1.245em;
   text-align: center; }
 
+.welcome__intro {
+  margin: auto; }
+.welcome__skills {
+  border-top: thin solid black;
+  padding-top: 0.9375em;
+  display: inline-block;
+  text-align: center; }
+
 @media (max-width: 360px) {
   .about__progress {
     display: block; } }
@@ -1734,6 +1742,9 @@ p {
 [class^="container"] {
   font-family: "Lato", Helvetica, Arial, sans-serif; }
 
+.container--text {
+  padding: 0 2.5em; }
+
 .title--extra-light {
   font-weight: 100; }
 .title--light {
@@ -2278,6 +2289,12 @@ p {
 .badge__icon {
   height: auto;
   width: 3.125em; }
+
+.profile-pic {
+  margin-top: 1.875em;
+  height: auto;
+  width: 80%;
+  border-radius: 50%; }
 
 .table {
   font-size: 16; }

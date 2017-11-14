@@ -3,6 +3,12 @@
     font-family: $font-stack--primary;
 }
 
+.container {
+    @include m('text') {
+        padding: 0 pem(40);
+    }
+}
+
 .title {
     @each $el,
     $weight in $weights {
