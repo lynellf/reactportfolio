@@ -5,6 +5,7 @@ var Job = require('../model/job.js');
 var Skill = require('../model/skill.js');
 var Edu = require('../model/edu.js');
 var path = require('path');
+var latest = Posts.find({ tags: 'Project' }).limit(3);
 var fileName;
 
 /////////////////////////////////////////////
@@ -142,6 +143,21 @@ var fileName;
   // GET/ All Blog Posts with Project Tag
   router.get('/portfolio', function (req, res) {
     Posts.find({ tags: `Project` }, function (err, docs) {
+      if (!err) {
+        let results = {
+          "posts": {}
+        };
+        results.posts = docs;
+        // console.log(results);
+        res.send(results);
+        return (results);
+      }
+    });
+  });
+
+  // GET/ Most Recent Projects
+  router.get('/latest', function (req, res) {
+    Posts.find(latest, function (err, docs) {
       if (!err) {
         let results = {
           "posts": {}

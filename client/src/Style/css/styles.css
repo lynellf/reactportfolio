@@ -664,6 +664,26 @@ p {
   .song {
     width: 40%; } }
 
+.project {
+  margin-top: 1.25em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .project__imac {
+    height: auto;
+    width: 18.75em; }
+  .project__item {
+    position: relative;
+    margin: 1.25em;
+    text-align: center; }
+  .project__img {
+    width: 16.75em;
+    height: 51%;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    border-radius: 0.375em; }
+
 .form {
   display: flex;
   flex-direction: column;

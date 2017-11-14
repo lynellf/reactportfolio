@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../Nav/NavStart';
 import NavEnd from '../Nav/NavEnd';
 import { Link } from "react-router-dom";
+import Desktop from "../../Style/images/imac.svg";
 
 export default class Portfolio extends Component {
     constructor() {
@@ -26,6 +27,9 @@ export default class Portfolio extends Component {
         const projects = this.state.projects;
         const results = projects.map(project =>
             <div className="project__item" key={ project.postId }>
+                <div className="project__display">
+                    <img src={Desktop} alt="Desktop Display" className="project__imac"/>
+                </div>
                 <img src={ project.imgUrl } alt={ project.title } className="project__img"/>
                 <Link to={ `post/${ project.postId }` }>{ project.title }</Link>
             </div>
