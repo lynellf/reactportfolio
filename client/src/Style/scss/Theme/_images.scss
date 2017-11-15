@@ -29,8 +29,11 @@
 }
 
 .profile-pic {
+    display: block;
+    margin: auto;
     margin-top: pem(30);
     height: auto;
-    width: 80%;
+    width: 20%;
     border-radius: 50%;
+    border: thin solid black;
 }

@@ -3,6 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background: $clouds;
+    border-radius: pem(6);
 
     @include e('imac') {
         height: auto;
@@ -23,6 +25,13 @@
         left: pem(16);
         border-radius: pem(6);
         // padding: 0 pem(10);
+    }
+
+    @include e('title') {
+        padding: pem(10);
+        background: $site-secondary;
+        color: $inverse;
+        border-radius: pem(6);
     }
 }
 

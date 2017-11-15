@@ -9,7 +9,7 @@ const Article = (props) => {
     )
 
     return (
-        <div className="container--site">
+        <div className="container">
             <header className="header">
                 <NavStart />
             </header>

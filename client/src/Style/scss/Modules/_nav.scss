@@ -20,6 +20,7 @@
 
     @include m('start') {
         height: auto;
+        padding: 0 pem(50);
     }
 
     @include m('end') {

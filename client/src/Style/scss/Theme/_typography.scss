@@ -7,6 +7,10 @@
     @include m('text') {
         padding: 0 pem(40);
     }
+
+    a {
+        text-decoration: none;
+    }
 }
 
 .title {

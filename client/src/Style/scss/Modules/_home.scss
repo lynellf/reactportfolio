@@ -1,12 +1,33 @@
 .welcome {
+
+    @include e('profile') {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: pem(20);
+    }
+    
     @include e('intro') {
-        // padding: 0 pem(100);
+        // align-content: center;
+        // align-items: center;
         margin: auto;
     }
+
+    @include e('body') {
+        background: $clouds;
+        border-radius: pem(6);
+        margin: pem(20) 0;
+        padding: pem(20);
+    }
+
     @include e('skills') {
-        border-top: thin solid black;
-        padding-top: pem(15);
-        display: inline-block;
-        text-align: center;
+        @extend %skills;
+        margin-bottom: pem(20);
+        margin-top: pem(20);
+    }
+
+    @include e('text') {
+        margin-bottom: pem(30);
+        margin-top: pem(30);
     }
 }
