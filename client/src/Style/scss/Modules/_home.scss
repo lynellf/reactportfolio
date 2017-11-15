@@ -1,9 +1,14 @@
 .welcome {
 
     @include e('profile') {
-        display: flex;
+        @include mq('sm') {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+        }
+        
         flex-direction: row-reverse;
-        justify-content: space-between;
+        // justify-content: space-between;
         margin-bottom: pem(20);
     }
     

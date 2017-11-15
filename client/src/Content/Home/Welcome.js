@@ -32,7 +32,7 @@ export default class Welcome extends Component {
                     <img src={Desktop} alt="Desktop Display" className="project__imac" />
                 </div>
                 <img src={project.imgUrl} alt={project.title} className="project__img" />
-                <Link to={`post/${project.postId}`} className="project__title title--heavy">{project.title}</Link>
+                <Link to={`post/${project.postId}`} className="project__title title--medium">{project.title}</Link>
             </div>
         );
         return (

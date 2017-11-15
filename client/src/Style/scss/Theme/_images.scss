@@ -30,10 +30,10 @@
 
 .profile-pic {
     display: block;
-    margin: auto;
+    margin: 0 auto;
     margin-top: pem(30);
-    height: auto;
-    width: 20%;
+    height: pem(200);
+    width: pem(150);
     border-radius: 50%;
     border: thin solid black;
 }

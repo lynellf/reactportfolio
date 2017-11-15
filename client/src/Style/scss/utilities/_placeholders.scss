@@ -18,17 +18,21 @@
     text-align: center;
 }
 
+%rounded-link {
+    padding: pem(10);
+    background: $site-secondary;
+    color: $inverse;
+    border-radius: pem(6);
+}
+
 // ==========================================================================
 // Links
 // ==========================================================================
 
 %no-decoration
 a {
-    color: white;
+    color: $inverse;
     text-decoration: none;
-    &:hover {
-        color: $site-secondary;
-    }
 }
 
 // ==========================================================================

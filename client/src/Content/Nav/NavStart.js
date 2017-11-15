@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const NavStart = () => {
     return(
-        <div className="nav--start grid__row">
-            <h2 className="title--strong grid__col--3">
+        <div className="nav--start">
+            <h2 className="logo">
                 <Link to="/">Ezell Frazier</Link>
             </h2>
-            <ul className="nav__list grid__col--9">
+            <ul className="nav__list">
                 <li className="nav__item">
                     <Link to="/">Home</Link>
                 </li>
