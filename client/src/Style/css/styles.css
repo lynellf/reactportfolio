@@ -577,9 +577,14 @@ p {
 .grid__col--12 {
   flex: 1; }
 
-[class^="nav--"] {
+.header, .footer {
   background-color: #34495e;
   color: white; }
+
+@media (min-width: 838px) {
+  [class^="nav--"] {
+    margin: auto;
+    max-width: 87.5em; } }
 
 .nav__list {
   padding: 0;
@@ -616,40 +621,73 @@ p {
   @media (min-width: 838px) {
     .nav--start {
       flex-direction: row;
+      align-items: center;
+      align-content: center;
       justify-content: space-between; } }
 .nav--end {
   height: 100%;
   display: flex;
-  align-items: center;
-  padding: 1.25em 3em 0; }
+  align-items: center; }
   @media (max-width: 837px) {
     .nav--end {
       flex-direction: column; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 838px) {
     .nav--end {
-      flex-direction: row; } }
+      flex-direction: row;
+      padding: 1.25em 3em 0; } }
 
 .logo {
   margin: 0;
   display: inline-block;
   color: white; }
 
-.legal {
-  display: block;
-  margin: 1.245em auto 1.245em;
-  text-align: center; }
-
 .about, .external {
   text-align: center; }
   .about__list, .external__list {
     display: flex;
-    color: white; }
+    color: white;
+    padding: 0; }
+    @media (max-width: 837px) {
+      .about__list, .external__list {
+        justify-content: space-between; } }
+    @media (min-width: 838px) {
+      .about__list, .external__list {
+        justify-content: space-evenly; } }
   .about__item, .external__item {
-    list-style: none;
-    margin: 0 1em; }
+    list-style: none; }
     .about__item a, .external__item a {
       text-decoration: none;
       color: white; }
+    @media (max-width: 837px) {
+      .about__item, .external__item {
+        margin: 0.375em 0.5em; } }
+    @media (min-width: 838px) {
+      .about__item, .external__item {
+        margin: 0 0.5em; } }
+
+@media (max-width: 837px) {
+  .about {
+    margin: 0.5em 0; } }
+@media (min-width: 838px) {
+  .about {
+    order: 0; } }
+
+.legal {
+  text-align: center;
+  display: block; }
+  @media (max-width: 837px) {
+    .legal {
+      order: 2;
+      font-size: 0.8125em;
+      margin: 0.5em 0; } }
+  @media (min-width: 838px) {
+    .legal {
+      font-size: 0.8125em;
+      order: 1; } }
+
+@media (min-width: 838px) {
+  .external {
+    order: 2; } }
 
 .welcome__profile {
   display: flex; }
@@ -740,30 +778,25 @@ p {
     width: 40%; } }
 
 .project {
-  margin-top: 1.25em;
   display: flex;
   flex-wrap: wrap;
+  align-self: center;
   justify-content: space-around;
   background: #ecf0f1;
-  border-radius: 0.375em; }
-  @media (max-width: 837px) {
-    .project__imac {
-      height: auto;
-      width: 6.25em; } }
-  @media (min-width: 838px) {
-    .project__imac {
-      height: auto;
-      width: 18.75em; } }
-  @media (max-width: 837px) {
-    .project__item {
-      position: relative;
-      margin: 1.25em;
-      text-align: center; } }
-  @media (min-width: 838px) {
-    .project__item {
-      position: relative;
-      margin: 1.25em;
-      text-align: center; } }
+  border-radius: 0.375em;
+  margin: auto; }
+  .project__imac {
+    height: auto; }
+    @media (max-width: 837px) {
+      .project__imac {
+        width: 6.25em; } }
+    @media (min-width: 838px) {
+      .project__imac {
+        width: 18.75em; } }
+  .project__item {
+    position: relative;
+    margin: 1.25em;
+    text-align: center; }
   @media (max-width: 837px) {
     .project__img {
       width: 5.6875em;
@@ -1495,9 +1528,38 @@ p {
 
 .article {
   margin: 0 auto;
-  width: 60%;
   max-width: 48em;
   height: 100%; }
+  .article__imac {
+    height: auto; }
+    @media (max-width: 837px) {
+      .article__imac {
+        height: auto;
+        width: 6.25em; } }
+    @media (min-width: 838px) {
+      .article__imac {
+        height: auto;
+        width: 43.75em; } }
+  .article__item {
+    position: relative;
+    margin: 1.25em;
+    text-align: center; }
+  @media (max-width: 837px) {
+    .article__img {
+      width: 5.6875em;
+      height: 39%;
+      position: absolute;
+      top: 0.3125em;
+      left: 2.9375em;
+      border-radius: 0.12375em; } }
+  @media (min-width: 838px) {
+    .article__img {
+      width: 39.375em;
+      height: 54.8%;
+      position: absolute;
+      top: 2.1875em;
+      left: 3.0625em;
+      border-radius: 0.1875em; } }
 
 .post-list__table {
   margin-top: 1.25em;

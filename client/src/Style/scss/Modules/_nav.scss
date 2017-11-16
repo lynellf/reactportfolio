@@ -1,6 +1,13 @@
-[class^="nav--"] {
+.header, .footer {
     background-color: $site-primary;
     color: white;
+}
+
+[class^="nav--"] {
+    @include mq('med') {
+        margin: auto;
+        max-width: pem(1400);
+    }
 }
 
 .nav {
@@ -54,6 +61,8 @@
 
         @include mq('med') {
             flex-direction: row;
+            align-items: center;
+            align-content: center;
             justify-content: space-between;
         }
 
@@ -67,14 +76,14 @@
         height: 100%;
         display: flex;
         align-items: center;
-        padding: pem(20) pem(48) 0;
 
         @include mq('sm') {
             flex-direction: column;
         }
 
-        @include mq('lg') {
+        @include mq('med') {
             flex-direction: row;
+            padding: pem(20) pem(48) 0;
         }
     }
 }
@@ -86,25 +95,69 @@
     @extend %no-decoration
 }
 
-.legal {
-    display: block;
-    margin: pem(19.920) auto pem(19.920);
-    text-align: center;
-}
-
 .about, .external {
     text-align: center;
     @include e('list') {
         display: flex;
         color: $inverse;
+        padding: 0;
+        
+
+        @include mq('sm') {
+            justify-content: space-between;
+        }
+
+        @include mq('med') {
+            justify-content: space-evenly;
+        }
     }
 
     @include e('item') {
         list-style: none;
-        margin: 0 pem(16);
         a {
             text-decoration: none;
             color: $inverse;
         }
+
+        @include mq('sm') {
+            margin: pem(6) pem(8);
+        }
+
+        @include mq('med') {
+            margin: 0 pem(8);
+        }
+    }
+}
+
+
+
+.about {
+    @include mq('sm') {
+        margin: pem(8) 0;
+    }
+    @include mq('med') {
+        order: 0;
+    }
+}
+
+.legal {
+    text-align: center;
+    display: block;
+
+    @include mq('sm') {
+        order: 2;
+        font-size: pem(13);
+        margin: pem(8) 0;
+    }
+    
+    @include mq('med') {
+        font-size: pem(13);
+        order: 1;
+    }
+}
+
+.external {
+    @include mq('med') {
+        order: 2;
     }
 }

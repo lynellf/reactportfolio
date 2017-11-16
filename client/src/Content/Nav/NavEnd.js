@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const NavEnd = () => {
   return (
-    <div className="nav--end">
-      <span className="legal">
+    <div className="nav--end grid__row">
+      <span className="legal grid__col--6">
         Copyright (c) 2017 Ezell Frazier All Rights Reserved.
       </span>
-      <div className="about">
+      <div className="about grid__col--3">
         <span className="about__title">About</span>
         <ul className="about__list">
                 <li className="about__item">
@@ -27,7 +27,7 @@ const NavEnd = () => {
                 </li>
             </ul>
       </div>
-      <div className="external">
+      <div className="external grid__col--3">
         <span className="external__title">External</span>
         <ul className="external__list">
         <li className="external__item">

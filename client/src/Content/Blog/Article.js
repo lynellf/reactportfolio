@@ -1,11 +1,18 @@
 import React from 'react';
 import NavStart from '../Nav/NavStart';
 import NavEnd from '../Nav/NavEnd';
+import Desktop from "../../Style/images/imac.svg";
 
 const Article = (props) => {
     const image = props.imgUrl;
     let imageResults = (
-        <img src={image} alt="" className="article__image"/>
+        <div className="article__item">
+            <div className="article__display">
+                <img src={Desktop} alt="Desktop Display" className="article__imac" />
+            </div>
+            <img src={image} alt="" className="article__img" />
+        </div>
+        
     )
 
     return (
