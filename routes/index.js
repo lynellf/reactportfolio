@@ -5,7 +5,7 @@ var Job = require('../model/job.js');
 var Skill = require('../model/skill.js');
 var Edu = require('../model/edu.js');
 var path = require('path');
-var latest = Posts.find({ tags: 'Project' }).limit(3);
+var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
 
 /////////////////////////////////////////////
