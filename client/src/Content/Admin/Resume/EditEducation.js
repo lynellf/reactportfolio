@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 
-export default class EditEducation extends Component {
+class EditEducation extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -83,3 +83,5 @@ export default class EditEducation extends Component {
         );
     }
 }
+
+export default withRouter(EditEducation);

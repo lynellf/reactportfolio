@@ -242,7 +242,7 @@ var fileName;
       endDate: req.body.endDate,
       tech: req.body.tech,
     };
-    Posts.findOneAndUpdate({ postId: `${req.params.jobId}` }, updateData, function (error, updateData) {
+    Job.findOneAndUpdate({ jobId: `${req.params.jobId}` }, updateData, function (error, updateData) {
       if (error) {
         console.log(error);
         // console.log(req.body);
@@ -345,6 +345,25 @@ var fileName;
     });
   });
 
+  // POST/ Update Job
+  router.post('/updatejob/:jobId', function (req, res) {
+    let updateData = {
+      skill: req.body.skillName,
+      years: req.body.years,
+      skillId: req.body.skillId
+    };
+    Skill.findOneAndUpdate({ skillId: `${req.params.skillId}` }, updateData, function (error, updateData) {
+      if (error) {
+        console.log(error);
+        // console.log(req.body);
+      } else {
+        // console.log(updateData);
+        res.send(`Successfully posted ${updateData.skillName} to database.`);
+        return console.log(`Successfully posted ${updateData.skillName} to database.`);
+      }
+    });
+  });
+
   // GET/ Single Skill
   router.get('/skills/:skillId', function (req, res) {
     // console.log(req.params);
@@ -416,6 +435,26 @@ var fileName;
       } else {
         console.log(err);
         return (err);
+      }
+    });
+  });
+
+  // POST/ Update Education
+  router.post('/updateschool/:eduId', function (req, res) {
+    let updateData = {
+      schoolName: req.body.schoolName,
+      degree: req.body.degree,
+      subject: req.body.subject,
+      graduation: req.body.graduation
+    };
+    Skill.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
+      if (error) {
+        console.log(error);
+        // console.log(req.body);
+      } else {
+        // console.log(updateData);
+        res.send(`Successfully posted ${updateData.eduName} to database.`);
+        return console.log(`Successfully posted ${updateData.eduName} to database.`);
       }
     });
   });

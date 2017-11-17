@@ -8,7 +8,7 @@ export default class AddJob extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            position: 0,
+            position: undefined,
             title: '',
             organization: '',
             location: '',
@@ -102,7 +102,7 @@ export default class AddJob extends Component {
             jobId: jobDetails.jobId
         })
         this.setState({
-            position: 0,
+            position: undefined,
             title: '',
             organization: '',
             location: '',

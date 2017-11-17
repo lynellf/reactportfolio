@@ -16,9 +16,10 @@ export default class UpdateJob extends Component {
             startDate: '',
             endDate: '',
             tech: [],
-            jobId: ''
+            jobId: '',
+            job: {}
         }
-        this.createJob = this.createJob.bind(this);
+        this.updateJob = this.updateJob.bind(this);
         this.titleChange = this.titleChange.bind(this);
         this.orgChange = this.orgChange.bind(this);
         this.startDateChange = this.startDateChange.bind(this);
@@ -28,20 +29,33 @@ export default class UpdateJob extends Component {
         this.locationChange = this.locationChange.bind(this);
     }
 
+    goTo(route) {
+        this.props.history.replace(`/${route}`)
+    }
+    
+    login() {
+        this.props.auth.login();
+    }
+
+    logout() {
+        this.props.auth.logout();
+    }
+
     componentDidMount() {
         axios.get(`/api/job/${this.props.match.params.id}`)
             .then(response => {
                 console.log(response);
                 this.setState({
-                    position: response.data.position,
-                    title: response.data.title,
-                    organization: response.data.organization,
-                    location: response.data.location,
-                    description: response.data.description,
-                    startDate: response.data.startDate,
-                    endDate: response.data.endDate,
-                    tech: response.data.tech,
-                    jobId: response.data.jobId
+                    position: response.data.job.position,
+                    title: response.data.job.title,
+                    organization: response.data.job.organization,
+                    location: response.data.job.location,
+                    description: response.data.job.description,
+                    startDate: response.data.job.startDate,
+                    endDate: response.data.job.endDate,
+                    tech: response.data.job.tech,
+                    jobId: response.data.job.jobId,
+                    job: response.data.job
                 })
             })
     }
@@ -95,7 +109,7 @@ export default class UpdateJob extends Component {
         });
     }
 
-    createJob(event) {
+    updateJob(event) {
         const jobDetails = {
             position: this.state.position,
             title: this.state.title,
@@ -116,102 +130,135 @@ export default class UpdateJob extends Component {
             endDate: jobDetails.endDate,
             tech: jobDetails.tech,
         })
-        this.setState({
-            position: 0,
-            title: '',
-            organization: '',
-            location: '',
-            description: '',
-            startDate: '',
-            endDate: '',
-            tech: [],
-        });
+        
         event.preventDefault();
     }
 
     render() {
+        const { isAuthenticated } = this.props.auth;
+
         return (
-            <form
-                onSubmit={this.createJob}
-                className={`post-form`}>
-                <div className="form">
-                    <input
-                        type="text"
-                        label='Title'
-                        className="form__input"
-                        placeholder="Job Title"
-                        ref="title"
-                        value={this.state.title}
-                        onChange={evt => this.titleChange(evt)}
-                    />
-                    <input
-                        type="text"
-                        label='Company / Organization'
-                        className="form__input"
-                        placeholder="Company / Organization"
-                        ref="organization"
-                        value={this.state.organization}
-                        onChange={evt => this.orgChange(evt)}
-                    />
-                    <input
-                        type="text"
-                        label='Location'
-                        className="form__input"
-                        placeholder="Location"
-                        ref="location"
-                        value={this.state.location}
-                        onChange={evt => this.locationChange(evt)}
-                    />
-                    <input
-                        type="text"
-                        label='Start Date'
-                        className="form__input"
-                        placeholder="Start Date"
-                        ref="start"
-                        value={this.state.startDate}
-                        onChange={evt => this.startDateChange(evt)}
-                    />
-                    <input
-                        type="text"
-                        label='End Date'
-                        className="form__input"
-                        placeholder="End Date"
-                        ref="end"
-                        value={this.state.endDate}
-                        onChange={evt => this.endDateChange(evt)}
-                    />
+            <div className="container">
+                <header className="header">
+                    <NavStart/>
+                </header>
+                <main className="main">
+                    {isAuthenticated() && (
+                        <form 
+                        onSubmit={this.updateJob} 
+                            className={`post-form`}>
+                            <div className="form">
+                                <input
+                                    type="text"
+                                    label='Title'
+                                    className="form__input"
+                                    placeholder="Job Title"
+                                    ref="title"
+                                    value={this.state.title}
+                                    onChange={evt => this.titleChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Company / Organization'
+                                    className="form__input"
+                                    placeholder="Company / Organization"
+                                    ref="organization"
+                                    value={this.state.organization}
+                                    onChange={evt => this.orgChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Location'
+                                    className="form__input"
+                                    placeholder="Location"
+                                    ref="location"
+                                    value={this.state.location}
+                                    onChange={evt => this.locationChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Start Date'
+                                    className="form__input"
+                                    placeholder="Start Date"
+                                    ref="start"
+                                    value={this.state.startDate}
+                                    onChange={evt => this.startDateChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='End Date'
+                                    className="form__input"
+                                    placeholder="End Date"
+                                    ref="end"
+                                    value={this.state.endDate}
+                                    onChange={evt => this.endDateChange(evt)}
+                                />
+        
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Technologies Used"
+                                    ref="tech"
+                                    value={this.state.tech}
+                                    onChange={evt => this.techChange(evt)}
+                                />
+        
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Position"
+                                    ref="position"
+                                    value={this.state.position}
+                                    onChange={evt => this.positionChange(evt)}
+                                />
+        
+                                <ReactQuill
+                                    value={this.state.description}
+                                    onChange={this.descriptionChange}
+                                    modules={this.moudles}
+                                    ref="description"
+                                />
+        
+                                <button
+                                    type='submit'
+                                    className="form__btn btn--primary">
+                                    Update Job
+                                </button>
+                            </div>
+                        </form>
+                    )}
 
-                    <input
-                        type="text"
-                        className="form__input"
-                        placeholder="Technologies Used"
-                        ref="tech"
-                        value={this.state.tech}
-                        onChange={evt => this.techChange(evt)}
-                    />
+                    {!isAuthenticated() && (
+                        <div className="auth-check">
+                    <h4 className="title--medium">
+                        You are not logged in! Please{' '}
+                        <a style={{ cursor: 'pointer' }} onClick={this.login.bind(this)}>
+                            Log In
+                            </a>
+                        {' '}to continue.
+                            </h4>
+                        </div>
+                    )}
+                    
+                </main>
+                <footer className="footer">
+                    <div className="nav--end">
+                        <span className="legal">
+                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
+                            </span>
+                        <ul className="nav__list">
+                        {!isAuthenticated() && (<li onClick={this.login.bind(this)}>
+                                Log In
+                            </li>)}
+                        {isAuthenticated() && (<li onClick={this.logout.bind(this)}>
+                                Log Out
+                            </li>)}
+                        </ul>
+                    </div>
+                </footer>
+            </div>
 
-                    <input
-                        type="text"
-                        className="form__input"
-                        placeholder="Position"
-                        ref="position"
-                        value={this.state.position}
-                        onChange={evt => this.positionChange(evt)}
-                    />
-
-                    {/* <ReactQuill
-                        value={this.state.description}
-                        onChange={this.descriptionChange}
-                        ref="description"
-                    /> */}
-
-                    <button
-                        type='submit'
-                        className="form__btn btn--primary">
-                        Add Job
-            </button>
-                </div>
-            </form>
+            
         );
     }
 }

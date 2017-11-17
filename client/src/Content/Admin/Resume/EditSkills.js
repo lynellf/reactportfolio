@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 
-export default class EditSkills extends Component {
+class EditSkills extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,7 +42,7 @@ export default class EditSkills extends Component {
 
     updateSkill(id) {
         // window.location.replace(`/editskill/${id}`);
-        this.props.history.push(`/editskill/${id}`);
+        this.props.history.push(`/updateskill/${id}`);
     }
 
     render() {
@@ -83,3 +83,5 @@ export default class EditSkills extends Component {
         );
     }
 }
+
+export default withRouter(EditSkills);
