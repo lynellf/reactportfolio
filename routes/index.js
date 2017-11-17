@@ -230,6 +230,30 @@ var fileName;
     }); 
     });
 
+  // POST/ Update Job
+  router.post('/updatejob/:jobId', function (req, res) {
+    let updateData = {
+      position: req.body.position,
+      title: req.body.title,
+      organization: req.body.organization,
+      location: req.body.location,
+      description: req.body.description,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      tech: req.body.tech,
+    };
+    Posts.findOneAndUpdate({ postId: `${req.params.jobId}` }, updateData, function (error, updateData) {
+      if (error) {
+        console.log(error);
+        // console.log(req.body);
+      } else {
+        // console.log(updateData);
+        res.send(`Successfully posted ${updateData.title} to database.`);
+        return console.log(`Successfully posted ${updateData.title} to database.`);
+      }
+    });
+  });
+
   // GET/ Delete Job Post
   router.post('/deletejob', function (req, res) {
     // console.log(req.body.jobId);

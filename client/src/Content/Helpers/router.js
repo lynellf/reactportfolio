@@ -11,6 +11,7 @@ import UpdatePost from '../Admin/UpdatePost';
 import DirectPost from '../Blog/DirectPost';
 import Resume from '../Resume/Resume';
 import Portfolio from '../Portfolio/Portfolio';
+import UpdateJob from '../Admin/Resume/UpdateJob';
 import Blog from '../Blog/Blog';
 import About from '../About/About';
 
@@ -35,6 +36,7 @@ export const makeMainRoutes = () => {
           <Route path="/editresume" render={(props) => (<EditResume auth={auth} {...props} />)} />
           <Route path="/update/:id" render={(props) => (<UpdatePost auth={auth} {...props} />)} />
           <Route path="/post/:id" render={(props) => (<DirectPost auth={auth} {...props} />)} />
+          <Route path="/updatejob/:id" render={(props) => (<UpdateJob auth={auth} {...props} />)} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} /> 

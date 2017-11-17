@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import NavStart from '../Nav/NavStart';
 import axios from 'axios';
 import { withRouter, Link } from "react-router-dom";
+import EditPosts from './Resume/EditPosts';
+import EditJob from './Resume/EditJob';
+import EditSkills from './Resume/EditSkills';
+import EditEducation from './Resume/EditEducation';
 
 class ControlPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
-            isLoading: true
         }
-        this.handleDelete = this.handleDelete.bind(this);
-        this.updatePost = this.updatePost.bind(this);
     }
 
     goTo(route) {
@@ -26,52 +26,9 @@ class ControlPanel extends Component {
         this.props.auth.logout();
     }
 
-    componentDidMount() {
-        axios.get('/api/posts')
-            .then(response => {
-                // console.log(response.data.posts);
-                this.setState({
-                    posts: response.data.posts,
-                    isLoading: false
-                })
-            })
-    }
-
-    handleDelete(id) {
-        const posts = this.state.posts;
-
-        axios.post(`/api/rp`, {
-            postId: id
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-        this.setState({
-            posts: posts
-        })
-
-    }
-
-    updatePost(id) {
-        // window.location.replace(`/update/${id}`);
-        this.props.history.push(`/update/${id}`);
-    }
-
     render() {
         const { isAuthenticated } = this.props.auth;
-        const postList = this.state.posts.map(post =>
-            <tr key={post.postId}>
-                <td>
-                    <Link key={post.postId} to={`/post/${post.postId}`}>{post.title}</Link>
-                </td>
-                <td className="post-list__options">
-                    <button type="button" className="btn--primary" onClick={() => this.handleDelete(post.postId)}>Delete</button>
-                    <button type="button" className="btn--primary" onClick={() => this.updatePost(post.postId)}>Edit</button>
-                </td>
-            </tr>);
+
         return (
             <div className="container">
                 <header className="header">
@@ -79,25 +36,15 @@ class ControlPanel extends Component {
                         <NavStart />
                     </nav>
                 </header>
-                <main className="main grid__row">
+                <main className="main">
                     {isAuthenticated() && (
-                    <div className="posts">
-                        <table className="post-list__table">
-                            <thead>
-                                <tr className="post-list__row">
-                                    <th className="title--light">
-                                        Title
-                                    </th>
-                                    <th className="title--light">
-                                        Options
-                                    </th>
-                                </tr>
-                            </thead>
-                                <tbody>
-                                    {postList}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div>
+                        <EditPosts/>
+                        <EditJob/>
+                        <EditSkills/>
+                        <EditEducation/>
+                    </div>
+                    
                         )}
                     {!isAuthenticated() && (
                         <div className="auth-check">

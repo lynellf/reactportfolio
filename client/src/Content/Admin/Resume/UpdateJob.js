@@ -4,7 +4,7 @@ import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
 
-export default class AddJob extends Component {
+export default class UpdateJob extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,8 +16,7 @@ export default class AddJob extends Component {
             startDate: '',
             endDate: '',
             tech: [],
-            jobId: `${Date.now()}`,
-            jobToggle: 'hidden',
+            jobId: ''
         }
         this.createJob = this.createJob.bind(this);
         this.titleChange = this.titleChange.bind(this);
@@ -27,6 +26,24 @@ export default class AddJob extends Component {
         this.techChange = this.techChange.bind(this);
         this.descriptionChange = this.descriptionChange.bind(this);
         this.locationChange = this.locationChange.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get(`/api/job/${this.props.match.params.id}`)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    position: response.data.position,
+                    title: response.data.title,
+                    organization: response.data.organization,
+                    location: response.data.location,
+                    description: response.data.description,
+                    startDate: response.data.startDate,
+                    endDate: response.data.endDate,
+                    tech: response.data.tech,
+                    jobId: response.data.jobId
+                })
+            })
     }
 
     positionChange(evt) {
@@ -88,9 +105,8 @@ export default class AddJob extends Component {
             startDate: this.state.startDate,
             endDate: this.state.endDate,
             tech: this.state.tech,
-            jobId: this.state.jobId
         }
-        axios.post('/api/submitjob', {
+        axios.post(`/api/updatejob/${this.state.jobId}`, {
             position: jobDetails.position,
             title: jobDetails.title,
             organization: jobDetails.organization,
@@ -99,7 +115,6 @@ export default class AddJob extends Component {
             startDate: jobDetails.startDate,
             endDate: jobDetails.endDate,
             tech: jobDetails.tech,
-            jobId: jobDetails.jobId
         })
         this.setState({
             position: 0,
@@ -110,15 +125,14 @@ export default class AddJob extends Component {
             startDate: '',
             endDate: '',
             tech: [],
-            jobId: `${Date.now()}`
         });
         event.preventDefault();
     }
 
     render() {
         return (
-            <form 
-            onSubmit={this.createJob} 
+            <form
+                onSubmit={this.createJob}
                 className={`post-form`}>
                 <div className="form">
                     <input
@@ -185,12 +199,11 @@ export default class AddJob extends Component {
                         onChange={evt => this.positionChange(evt)}
                     />
 
-                    <ReactQuill
+                    {/* <ReactQuill
                         value={this.state.description}
                         onChange={this.descriptionChange}
-                        modules={this.moudles}
                         ref="description"
-                    />
+                    /> */}
 
                     <button
                         type='submit'
