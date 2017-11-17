@@ -54,7 +54,8 @@ var fileName;
     date: req.body.date,
     postId: req.body.postId,
     tags: req.body.tags,
-    imgUrl: req.body.imgUrl
+    imgUrl: req.body.imgUrl,
+    preview: req.body.preview,
   };
   Posts.create(postData, function(error, postData) {
     if (error) {
@@ -75,7 +76,8 @@ var fileName;
       post: req.body.post,
       lastUpdated: req.body.date,
       tags: req.body.tags,
-      imgUrl: req.body.imgUrl
+      imgUrl: req.body.imgUrl,
+      preview: req.body.preview
     };
     Posts.findOneAndUpdate({ postId: `${req.params.postId}` }, updateData, function (error, updateData) {
       if (error) {

@@ -51,6 +51,7 @@ export default class AddSkill extends Component {
         this.setState({
             skillName: '',
             years: '',
+            skillId: `${Date.now()}`
         });
         event.preventDefault();
     }

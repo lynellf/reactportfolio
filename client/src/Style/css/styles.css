@@ -819,6 +819,33 @@ p {
       width: 11.5em;
       height: auto; } }
 
+.blog {
+  margin: 1.25em auto;
+  align-self: center;
+  background: #ecf0f1;
+  border-radius: 0.375em;
+  max-width: 56.25em;
+  padding: 1.25em;
+  line-height: 1.5625em; }
+  .blog__item {
+    background: white;
+    border-radius: 0.375em;
+    padding: 0.625em; }
+
+.resume {
+  margin: 1.25em auto;
+  align-self: center;
+  background: #ecf0f1;
+  border-radius: 0.375em;
+  max-width: 56.25em;
+  padding: 1.25em;
+  line-height: 1.5625em; }
+  .resume * {
+    list-style: none; }
+  .resume__description {
+    text-decoration: none;
+    font-size: 1em; }
+
 .form {
   display: flex;
   flex-direction: column;

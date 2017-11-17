@@ -31,6 +31,11 @@ var PostSchema = new mongoose.Schema({
     },
     lastUpdated: {
         type: String
+    },
+
+    preview: {
+        type: String,
+        required: true
     }
 
 });

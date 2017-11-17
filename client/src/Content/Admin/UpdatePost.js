@@ -16,7 +16,8 @@ class UpdatePost extends Component {
             tags: [],
             imgUrl: "",
             files: [],
-            postId: ''
+            postId: '',
+            preview: ''
         } // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
@@ -81,8 +82,12 @@ class UpdatePost extends Component {
     }
 
     postChange(value) {
+        let closing = value.indexOf("</p>") + 4;
+        let preview = value.substr(0,closing);
+        console.log(preview);
         this.setState({
             post: value,
+            preview: preview
         })
     }
 
@@ -100,7 +105,8 @@ class UpdatePost extends Component {
             lastUpdated: this.state.date,
             tags: this.state.tags,
             imgUrl: this.state.imgUrl,
-            photo: this.state.photo
+            photo: this.state.photo,
+            preview: this.state.preview
         })
             .then(function (response) {
                 console.log(response);

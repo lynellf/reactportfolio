@@ -16,7 +16,8 @@ class PostNew extends Component{
             tags: [],
             imgUrl: "",
             files: [],
-            postId: `${Date.now()}`
+            postId: `${Date.now()}`,
+            preview: ''
         }; // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);

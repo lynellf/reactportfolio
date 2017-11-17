@@ -47,16 +47,17 @@ export default class Resume extends Component {
         const experience = this.state.jobs;
         const expResults = experience.map(job =>
             <div className="resume__details" key={ job.jobId }>
-                <h5>{ job.title }, { job.location }, { job.startDate } - { job.endDate }</h5>
+                <h3> {job.organization}</h3>
+                <h4>{ job.title }, { job.location }, { job.startDate } - { job.endDate }</h4>
                 <div className="resume__description" dangerouslySetInnerHTML={{__html: job.description}} />
             </div>
         );
         const education = this.state.education;
         const eduResults = education.map(edu =>
             <div className="resume__details" key={ edu.eduId }>
-                <h5>{ edu.schoolName }</h5>
-                <p>{edu.degree}, {edu.graduation}</p>
-                <p>Coursework includes { `${ edu.subject }` }</p>
+                <h3>{ edu.schoolName }</h3>
+                <h4>{edu.degree}, {edu.graduation}</h4>
+                <blockquote className="resume__description">Coursework includes { `${ edu.subject }` }</blockquote>
             </div>
         );
 
@@ -66,32 +67,34 @@ export default class Resume extends Component {
                     <NavStart />
                 </header>
                 <main className="main">
-                    <div className="resume__tech grid__row">
-                        <div className="grid__col--3">
-                            <h4>Technologies</h4>
+                    <div className="resume">
+                        <div className="resume__tech grid__row">
+                            <div className="grid__col--3">
+                                <h2>Skills and Technologies</h2>
+                            </div>
+                            <div className="grid__col--9">
+                                <ul>
+                                    { techResults }
+                                </ul>
+                            </div>
                         </div>
-                        <div className="grid__col--9">
-                            <ul>
-                                { techResults }
-                            </ul>
+                        <br/>
+                        <div className="resume__exp grid__row">
+                            <div className="grid__col--3">
+                                <h2>Work Exprience</h2>
+                            </div>
+                            <div className="grid__col--9">
+                                { expResults }
+                            </div>
                         </div>
-                    </div>
-                    <br/>
-                    <div className="resume__exp grid__row">
-                        <div className="grid__col--3">
-                            <h4>Work Exprience</h4>
-                        </div>
-                        <div className="grid__col--9">
-                            { expResults }
-                        </div>
-                    </div>
-                    <br />
-                    <div className="resume__edu grid__row">
-                        <div className="grid__col--3">
-                            <h4>Education</h4>
-                        </div>
-                        <div className="grid__col--9">
-                            { eduResults }
+                        <br />
+                        <div className="resume__edu grid__row">
+                            <div className="grid__col--3">
+                                <h2>Education</h2>
+                            </div>
+                            <div className="grid__col--9">
+                                { eduResults }
+                            </div>
                         </div>
                     </div>
                 </main>

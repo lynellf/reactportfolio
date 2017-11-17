@@ -25,9 +25,11 @@ export default class Blog extends Component {
     render() {
         const posts = this.state.posts;
         const results = posts.map(post =>
-            <div className="post__item" key={ post.postId }>
-                <img src={ post.imgUrl } alt={ post.title } className="post__img"/>
-                <Link to={ `post/${ post.postId }` }>{ post.title }</Link>
+            <div className="blog__item" key={ post.postId }>
+                <img src={ post.imgUrl } alt={ post.title } className="blog__img"/>
+                <h2><Link to={ `post/${ post.postId }` }>{ post.title }</Link></h2>
+                <div className="blog__preview" dangerouslySetInnerHTML={{ __html: post.preview }}/>
+                <Link to={ `post/${ post.postId }` }>Read More</Link>
             </div>
         );
 
@@ -37,7 +39,7 @@ export default class Blog extends Component {
                     <NavStart />
                 </header>
                 <main className="main">
-                    <div className="post">
+                    <div className="blog">
                         { results }
                     </div>
                 </main>

@@ -109,7 +109,8 @@ export default class AddJob extends Component {
             description: '',
             startDate: '',
             endDate: '',
-            tech: []
+            tech: [],
+            jobId: `${Date.now()}`
         });
         event.preventDefault();
     }

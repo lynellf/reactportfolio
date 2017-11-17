@@ -5,15 +5,21 @@ import Desktop from "../../Style/images/imac.svg";
 
 const Article = (props) => {
     const image = props.imgUrl;
-    let imageResults = (
-        <div className="article__item">
-            <div className="article__display">
-                <img src={Desktop} alt="Desktop Display" className="article__imac" />
+    let imageResults;
+    if (image !== "") {
+        imageResults = (
+            <div className="article__item">
+                <div className="article__display">
+                    <img src={Desktop} alt="Desktop Display" className="article__imac" />
+                </div>
+                <img src={image} alt="" className="article__img" />
             </div>
-            <img src={image} alt="" className="article__img" />
-        </div>
-        
-    )
+            
+        );
+    } else if (image == "") {
+        imageResults = "";
+    }
+    
 
     return (
         <div className="container">
