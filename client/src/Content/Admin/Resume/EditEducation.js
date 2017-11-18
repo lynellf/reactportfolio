@@ -42,7 +42,7 @@ class EditEducation extends Component {
 
     updateEdu(id) {
         // window.location.replace(`/editedu/${id}`);
-        this.props.history.push(`/editedu/${id}`);
+        this.props.history.push(`/updateschool/${id}`);
     }
 
     render() {

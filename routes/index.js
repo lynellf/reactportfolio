@@ -447,7 +447,7 @@ var fileName;
       subject: req.body.subject,
       graduation: req.body.graduation
     };
-    Skill.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
+    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
       if (error) {
         console.log(error);
         // console.log(req.body);
