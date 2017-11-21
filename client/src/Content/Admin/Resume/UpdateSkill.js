@@ -3,12 +3,13 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateSkill extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            skillName: '',
+            skill: '',
             years: '',
             skillId: `${Date.now()}`
         }
@@ -34,7 +35,7 @@ export default class UpdateSkill extends Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    skillName: response.data.skill.skill,
+                    skill: response.data.skill.skill,
                     years: response.data.skill.years,
                     skillId: response.data.skill.skillId
                 })
@@ -43,7 +44,7 @@ export default class UpdateSkill extends Component {
 
     skillChange(evt) {
         this.setState({
-            skillName: evt.target.value
+            skill: evt.target.value
         })
     }
 
@@ -55,17 +56,19 @@ export default class UpdateSkill extends Component {
 
     updateSkill(event) {
         const skillDetails = {
-            skillName: this.state.skillName,
+            skill: this.state.skill,
             years: this.state.years,
             skillId: this.state.skillId
         }
-        axios.post(`/api/updateskill/${this.state.skillId}`, {
-            skill: skillDetails.skillName,
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/updateskill/${this.state.skillId}`, {
+            skill: skillDetails.skill,
             years: skillDetails.years,
             skillId: skillDetails.skillId
         })
         
         event.preventDefault();
+        // Redirect to target page
+        this.props.history.push('/controlpanel');
     }
 
     render() {

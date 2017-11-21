@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class AddSkill extends Component {
     constructor(props) {
@@ -37,7 +38,7 @@ export default class AddSkill extends Component {
             skillId: this.state.skillId
         }
 
-        axios.post('/api/submitskill', {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/submitskill`, {
             skill: skillDetails.skill,
             years: skillDetails.years,
             skillId: skillDetails.skillId

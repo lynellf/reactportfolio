@@ -19,10 +19,20 @@
 }
 
 %rounded-link {
-    padding: pem(10);
     background: $site-secondary;
     color: $inverse;
     border-radius: pem(6);
+    text-decoration: none;
+    padding: pem(10);
+}
+
+%card {
+    background: $clouds;
+    border-radius: pem(6);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
 // ==========================================================================

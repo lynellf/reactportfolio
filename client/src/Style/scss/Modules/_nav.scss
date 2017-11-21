@@ -33,6 +33,7 @@
     @include e('item') {
         list-style: none;
         a {
+            padding: pem(10);
             color: $inverse;
             &:hover {
                 @extend %rounded-link;
@@ -101,7 +102,6 @@
         display: flex;
         color: $inverse;
         padding: 0;
-        
 
         @include mq('sm') {
             justify-content: space-between;
@@ -110,6 +110,14 @@
         @include mq('med') {
             justify-content: space-evenly;
         }
+
+        @include e('item') {
+            a{
+                &:hover {
+                    color: $site-secondary;
+                }
+            }
+        }
     }
 
     @include e('item') {
@@ -117,6 +125,9 @@
         a {
             text-decoration: none;
             color: $inverse;
+            &:hover {
+                color: $site-secondary;
+            }
         }
 
         @include mq('sm') {

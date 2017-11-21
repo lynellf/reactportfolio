@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 class EditJob extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class EditJob extends Component {
     handleDelete(id) {
         const jobs = this.state.jobs;
 
-        axios.post(`/api/deletejob`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/deletejob`, {
             jobId: id
         })
             .then(function (response) {

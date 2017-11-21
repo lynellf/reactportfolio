@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class AddEdu extends Component {
     constructor(props) {
@@ -55,7 +56,7 @@ export default class AddEdu extends Component {
             eduId: this.state.eduId
         }
 
-        axios.post('/api/submitedu', {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/submitedu/`, {
             schoolName: eduDetails.schoolName,
             degree: eduDetails.degree,
             subject: eduDetails.subject,

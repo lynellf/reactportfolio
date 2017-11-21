@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateJob extends Component {
     constructor(props) {
@@ -67,7 +68,7 @@ export default class UpdateJob extends Component {
             eduId: this.state.eduId
         }
 
-        axios.post(`/api/updateschool/${this.state.jobId}`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/updateschool/${this.state.eduId}`, {
             schoolName: eduDetails.schoolName,
             degree: eduDetails.degree,
             subject: eduDetails.subject,
@@ -75,6 +76,10 @@ export default class UpdateJob extends Component {
             eduId: eduDetails.eduId
         })
 
+        event.preventDefault();
+
+        // Redirect to target page
+        this.props.history.push('/controlpanel');
     }
 
     componentDidMount() {
@@ -148,7 +153,7 @@ export default class UpdateJob extends Component {
                                 <button
                                     type='submit'
                                     className="form__btn btn--primary">
-                                    Add Education
+                                    Update Education
                     </button>
                             </div>
                         </form>

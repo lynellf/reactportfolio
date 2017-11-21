@@ -7,7 +7,7 @@ Error: Undefined mixin 'e'.
 10:         './_form',
 11:         './_quill',
 12:         './_article',
-13:         './_table'
+13:         './_control-panel'
 
 Backtrace:
 scss/Modules/_layout.scss:15:in `e'
@@ -81,4 +81,4 @@ scss/Modules/index.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'e'.\A         on line 15 of scss/Modules/_layout.scss, in `e'\A         from line 15 of scss/Modules/_layout.scss\A         from line 1 of scss/Modules/index.scss\A \A 10:         './_form',\A 11:         './_quill',\A 12:         './_article',\A 13:         './_table'"; }
+  content: "Error: Undefined mixin 'e'.\A         on line 15 of scss/Modules/_layout.scss, in `e'\A         from line 15 of scss/Modules/_layout.scss\A         from line 1 of scss/Modules/index.scss\A \A 10:         './_form',\A 11:         './_quill',\A 12:         './_article',\A 13:         './_control-panel'"; }

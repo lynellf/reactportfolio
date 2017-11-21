@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 class ControlPanel extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class ControlPanel extends Component {
     handleDelete(id) {
         const posts = this.state.posts;
 
-        axios.post(`/api/rp`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/deletepost`, {
             postId: id
         })
             .then(function (response) {

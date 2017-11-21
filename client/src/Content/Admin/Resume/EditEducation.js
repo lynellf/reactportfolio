@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 class EditEducation extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class EditEducation extends Component {
     handleDelete(id) {
         const edus = this.state.edus;
 
-        axios.post(`/api/deleteedu`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/deleteschool`, {
             eduId: id
         })
             .then(function (response) {

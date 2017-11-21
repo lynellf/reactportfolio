@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateJob extends Component {
     constructor(props) {
@@ -120,7 +121,7 @@ export default class UpdateJob extends Component {
             endDate: this.state.endDate,
             tech: this.state.tech,
         }
-        axios.post(`/api/updatejob/${this.state.jobId}`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/updatejob/${this.state.jobId}`, {
             position: jobDetails.position,
             title: jobDetails.title,
             organization: jobDetails.organization,
@@ -132,6 +133,8 @@ export default class UpdateJob extends Component {
         })
         
         event.preventDefault();
+        // Redirect to target page
+        this.props.history.push('/controlpanel');
     }
 
     render() {
@@ -239,6 +242,7 @@ export default class UpdateJob extends Component {
                             </h4>
                         </div>
                     )}
+
                     
                 </main>
                 <footer className="footer">

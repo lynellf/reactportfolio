@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateSkill extends Component {
     constructor(props) {
@@ -63,7 +64,7 @@ export default class UpdateSkill extends Component {
             years: this.state.years,
             skillId: this.state.skillId
         }
-        axios.post(`/api/updateskill/${this.state.skillId}`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/updateskill/${this.state.skillId}`, {
             skill: skillDetails.skillName,
             years: skillDetails.years,
             skillId: skillDetails.skillId

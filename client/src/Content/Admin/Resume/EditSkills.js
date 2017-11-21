@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 class EditSkills extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class EditSkills extends Component {
     handleDelete(id) {
         const skills = this.state.skills;
 
-        axios.post(`/api/deleteskill`, {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/deleteskill`, {
             skillId: id
         })
             .then(function (response) {
@@ -60,10 +61,10 @@ class EditSkills extends Component {
                 </td>
             </tr>);
         return (
-            <div className="skll-list">
-                <table className="skll-list__table">
+            <div className="skill-list">
+                <table className="skill-list__table">
                     <thead>
-                        <tr className="skll-list__row">
+                        <tr className="skill-list__row">
                             <th className="title--light">
                                 Skill
                             </th>

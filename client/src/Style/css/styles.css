@@ -1,4 +1,4 @@
-.grid__col--1.centered, .grid__col--2.centered, .grid__col--3.centered, .grid__col--4.centered, .grid__col--5.centered, .grid__col--6.centered, .grid__col--7.centered, .grid__col--8.centered, .grid__col--9.centered, .grid__col--10.centered, .grid__col--11.centered, .grid__col--12.centered, .post-list__table, .posts {
+.grid__col--1.centered, .grid__col--2.centered, .grid__col--3.centered, .grid__col--4.centered, .grid__col--5.centered, .grid__col--6.centered, .grid__col--7.centered, .grid__col--8.centered, .grid__col--9.centered, .grid__col--10.centered, .grid__col--11.centered, .grid__col--12.centered, .post-list__table, .job-list__table, .edu-list__table, .skill-list__table, .posts {
   margin-left: auto;
   margin-right: auto; }
 
@@ -15,11 +15,20 @@
   padding-top: 0.9375em;
   text-align: center; }
 
-.nav__item a:hover, .project__title {
-  padding: 0.625em;
+.nav__item a:hover, .project__title, .quickbar__item a {
   background: #1abc9c;
   color: white;
-  border-radius: 0.375em; }
+  border-radius: 0.375em;
+  text-decoration: none;
+  padding: 0.625em; }
+
+.about__badges, .about__artists {
+  background: #ecf0f1;
+  border-radius: 0.375em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto; }
 
 .nav__list
 a, .logo
@@ -27,70 +36,127 @@ a {
   color: white;
   text-decoration: none; }
 
-.post-list__table {
+.post-list__table, .job-list__table, .edu-list__table, .skill-list__table {
   font-size: 16;
   border: 2px solid #eef0f0; }
-  .post-list__table > thead > tr > th,
+  .post-list__table > thead > tr > th, .job-list__table > thead > tr > th, .edu-list__table > thead > tr > th, .skill-list__table > thead > tr > th,
   .post-list__table > thead > tr > td,
+  .job-list__table > thead > tr > td,
+  .edu-list__table > thead > tr > td,
+  .skill-list__table > thead > tr > td,
   .post-list__table > tbody > tr > th,
+  .job-list__table > tbody > tr > th,
+  .edu-list__table > tbody > tr > th,
+  .skill-list__table > tbody > tr > th,
   .post-list__table > tbody > tr > td,
+  .job-list__table > tbody > tr > td,
+  .edu-list__table > tbody > tr > td,
+  .skill-list__table > tbody > tr > td,
   .post-list__table > tfoot > tr > th,
-  .post-list__table > tfoot > tr > td {
+  .job-list__table > tfoot > tr > th,
+  .edu-list__table > tfoot > tr > th,
+  .skill-list__table > tfoot > tr > th,
+  .post-list__table > tfoot > tr > td,
+  .job-list__table > tfoot > tr > td,
+  .edu-list__table > tfoot > tr > td,
+  .skill-list__table > tfoot > tr > td {
     padding: 9px;
     line-height: 1.407;
     border-top: 2px solid #eef0f0; }
     @media (min-width: 838px) {
-      .post-list__table > thead > tr > th,
+      .post-list__table > thead > tr > th, .job-list__table > thead > tr > th, .edu-list__table > thead > tr > th, .skill-list__table > thead > tr > th,
       .post-list__table > thead > tr > td,
+      .job-list__table > thead > tr > td,
+      .edu-list__table > thead > tr > td,
+      .skill-list__table > thead > tr > td,
       .post-list__table > tbody > tr > th,
+      .job-list__table > tbody > tr > th,
+      .edu-list__table > tbody > tr > th,
+      .skill-list__table > tbody > tr > th,
       .post-list__table > tbody > tr > td,
+      .job-list__table > tbody > tr > td,
+      .edu-list__table > tbody > tr > td,
+      .skill-list__table > tbody > tr > td,
       .post-list__table > tfoot > tr > th,
-      .post-list__table > tfoot > tr > td {
+      .job-list__table > tfoot > tr > th,
+      .edu-list__table > tfoot > tr > th,
+      .skill-list__table > tfoot > tr > th,
+      .post-list__table > tfoot > tr > td,
+      .job-list__table > tfoot > tr > td,
+      .edu-list__table > tfoot > tr > td,
+      .skill-list__table > tfoot > tr > td {
         padding: 9px 25px; } }
-  .post-list__table > thead > tr > th,
+  .post-list__table > thead > tr > th, .job-list__table > thead > tr > th, .edu-list__table > thead > tr > th, .skill-list__table > thead > tr > th,
   .post-list__table > tbody > tr > th,
-  .post-list__table > tfoot > tr > th {
+  .job-list__table > tbody > tr > th,
+  .edu-list__table > tbody > tr > th,
+  .skill-list__table > tbody > tr > th,
+  .post-list__table > tfoot > tr > th,
+  .job-list__table > tfoot > tr > th,
+  .edu-list__table > tfoot > tr > th,
+  .skill-list__table > tfoot > tr > th {
     color: #526476;
     border-bottom: 2px solid #eef0f0; }
-  .post-list__table > thead > tr > th {
+  .post-list__table > thead > tr > th, .job-list__table > thead > tr > th, .edu-list__table > thead > tr > th, .skill-list__table > thead > tr > th {
     border-bottom: 2px solid #eef0f0; }
-  .post-list__table > tbody + tbody {
+  .post-list__table > tbody + tbody, .job-list__table > tbody + tbody, .edu-list__table > tbody + tbody, .skill-list__table > tbody + tbody {
     border-top: 2px solid #eef0f0; }
-  .post-list__table .table {
+  .post-list__table .table, .job-list__table .table, .edu-list__table .table, .skill-list__table .table {
     background-color: white; }
-  .post-list__table [class*="fui-"] {
+  .post-list__table [class*="fui-"], .job-list__table [class*="fui-"], .edu-list__table [class*="fui-"], .skill-list__table [class*="fui-"] {
     display: inline-block;
     vertical-align: middle;
     font-size: 20px;
     margin: -42.5px 0 0;
     position: relative;
     top: 1em; }
-  .post-list__table .checkbox,
-  .post-list__table .radio {
+  .post-list__table .checkbox, .job-list__table .checkbox, .edu-list__table .checkbox, .skill-list__table .checkbox,
+  .post-list__table .radio,
+  .job-list__table .radio,
+  .edu-list__table .radio,
+  .skill-list__table .radio {
     display: inline-block;
     width: 20px;
     margin: -4px 0 0 -9px;
     top: 0.25em; }
-    .post-list__table .checkbox.no-label,
-    .post-list__table .radio.no-label {
+    .post-list__table .checkbox.no-label, .job-list__table .checkbox.no-label, .edu-list__table .checkbox.no-label, .skill-list__table .checkbox.no-label,
+    .post-list__table .radio.no-label,
+    .job-list__table .radio.no-label,
+    .edu-list__table .radio.no-label,
+    .skill-list__table .radio.no-label {
       padding-left: 0; }
-  .post-list__table .selected-row > td {
+  .post-list__table .selected-row > td, .job-list__table .selected-row > td, .edu-list__table .selected-row > td, .skill-list__table .selected-row > td {
     background-color: #f2fbfa; }
-  .post-list__table img {
+  .post-list__table img, .job-list__table img, .edu-list__table img, .skill-list__table img {
     vertical-align: top; }
-  .post-list__table > thead > tr > th,
+  .post-list__table > thead > tr > th, .job-list__table > thead > tr > th, .edu-list__table > thead > tr > th, .skill-list__table > thead > tr > th,
   .post-list__table > thead > tr > td,
+  .job-list__table > thead > tr > td,
+  .edu-list__table > thead > tr > td,
+  .skill-list__table > thead > tr > td,
   .post-list__table > tbody > tr > th,
+  .job-list__table > tbody > tr > th,
+  .edu-list__table > tbody > tr > th,
+  .skill-list__table > tbody > tr > th,
   .post-list__table > tbody > tr > td,
+  .job-list__table > tbody > tr > td,
+  .edu-list__table > tbody > tr > td,
+  .skill-list__table > tbody > tr > td,
   .post-list__table > tfoot > tr > th,
-  .post-list__table > tfoot > tr > td {
+  .job-list__table > tfoot > tr > th,
+  .edu-list__table > tfoot > tr > th,
+  .skill-list__table > tfoot > tr > th,
+  .post-list__table > tfoot > tr > td,
+  .job-list__table > tfoot > tr > td,
+  .edu-list__table > tfoot > tr > td,
+  .skill-list__table > tfoot > tr > td {
     border: 2px solid #eef0f0;
     padding-top: 8px;
     padding-bottom: 8px;
     vertical-align: middle; }
-  .post-list__table > tbody > tr:nth-child(odd), .post-list__table > tbody > tr.selected-row {
+  .post-list__table > tbody > tr:nth-child(odd), .job-list__table > tbody > tr:nth-child(odd), .edu-list__table > tbody > tr:nth-child(odd), .skill-list__table > tbody > tr:nth-child(odd), .post-list__table > tbody > tr.selected-row, .job-list__table > tbody > tr.selected-row, .edu-list__table > tbody > tr.selected-row, .skill-list__table > tbody > tr.selected-row {
     background-color: #f9fafb; }
-  .post-list__table > tbody > tr:nth-child(even) {
+  .post-list__table > tbody > tr:nth-child(even), .job-list__table > tbody > tr:nth-child(even), .edu-list__table > tbody > tr:nth-child(even), .skill-list__table > tbody > tr:nth-child(even) {
     background-color: transparent; }
 
 .form__input, .btn--primary {
@@ -602,6 +668,7 @@ p {
 .nav__item {
   list-style: none; }
   .nav__item a {
+    padding: 0.625em;
     color: white; }
   @media (max-width: 837px) {
     .nav__item {
@@ -653,11 +720,15 @@ p {
     @media (min-width: 838px) {
       .about__list, .external__list {
         justify-content: space-evenly; } }
+    .about__list__item a:hover, .external__list__item a:hover {
+      color: #1abc9c; }
   .about__item, .external__item {
     list-style: none; }
     .about__item a, .external__item a {
       text-decoration: none;
       color: white; }
+      .about__item a:hover, .external__item a:hover {
+        color: #1abc9c; }
     @media (max-width: 837px) {
       .about__item, .external__item {
         margin: 0.375em 0.5em; } }
@@ -721,53 +792,37 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between; } }
-.about__badges {
-  border-radius: 0.375em; }
-  @media (max-width: 837px) {
-    .about__badges {
-      display: block; } }
-  @media (min-width: 838px) {
-    .about__badges {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      background: #bdc3c7;
-      max-width: 75em;
-      margin: auto; } }
+@media (min-width: 838px) {
+  .about__badges {
+    max-width: 75em; } }
 .about__artists {
-  margin: auto;
   margin-top: 1.25em;
-  margin-bottom: 1.25em;
-  border-radius: 0.375em; }
-  @media (max-width: 837px) {
-    .about__artists {
-      display: block; } }
+  margin-bottom: 1.25em; }
   @media (min-width: 838px) {
     .about__artists {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      background: #bdc3c7;
       max-width: 75em; } }
 
 .badge, .song {
   border-radius: 0.375em;
   margin: 0.625em auto;
-  background: white; }
+  background: white;
+  display: flex;
+  padding: 0.625em 1.25em;
+  align-items: center;
+  box-shadow: 0.1875em 0.25em black; }
   @media (max-width: 837px) {
     .badge, .song {
-      display: block; } }
+      flex-wrap: wrap;
+      width: 40%; } }
   @media (min-width: 838px) {
     .badge, .song {
-      display: flex;
-      padding: 0.625em 1.25em;
       align-items: center;
       box-shadow: 0.1875em 0.25em black; } }
   .badge__image, .song__image {
-    margin-right: 0.625em;
+    background: #95a5a6;
     border-radius: 0.375em;
-    padding: 0.3125em;
-    background: #95a5a6; }
+    margin-right: 0.625em;
+    padding: 0.3125em; }
 
 @media (min-width: 838px) {
   .badge {
@@ -1554,30 +1609,35 @@ p {
   border: 1px solid #ccc; }
 
 .article {
-  margin: 0 auto;
   max-width: 48em;
-  height: 100%; }
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: auto; }
+  @media (max-width: 837px) {
+    .article__display {
+      width: 18.75em; } }
   .article__imac {
     height: auto; }
     @media (max-width: 837px) {
       .article__imac {
-        height: auto;
-        width: 6.25em; } }
+        width: 18.75em; } }
     @media (min-width: 838px) {
       .article__imac {
-        height: auto;
         width: 43.75em; } }
+  .article__title {
+    padding: 1.25em; }
   .article__item {
     position: relative;
     margin: 1.25em;
     text-align: center; }
   @media (max-width: 837px) {
     .article__img {
-      width: 5.6875em;
-      height: 39%;
+      width: 16.875em;
+      height: 54.8%;
       position: absolute;
-      top: 0.3125em;
-      left: 2.9375em;
+      top: 0.9375em;
+      left: 0.9375em;
       border-radius: 0.12375em; } }
   @media (min-width: 838px) {
     .article__img {
@@ -1588,14 +1648,45 @@ p {
       left: 3.0625em;
       border-radius: 0.1875em; } }
 
-.post-list__table {
+.post-list__table, .job-list__table, .edu-list__table, .skill-list__table {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
   min-width: 31.25em; }
-  .post-list__table th {
+  .post-list__table th, .job-list__table th, .edu-list__table th, .skill-list__table th {
     text-align: left; }
-.post-list__options button {
-  margin: 0 0.3125em; }
+.post-list__options, .job-list__options, .edu-list__options, .skill-list__options {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 837px) {
+    .post-list__options, .job-list__options, .edu-list__options, .skill-list__options {
+      flex-direction: column; } }
+  @media (min-width: 838px) {
+    .post-list__options, .job-list__options, .edu-list__options, .skill-list__options {
+      flex-direction: row; } }
+  .post-list__options button, .job-list__options button, .edu-list__options button, .skill-list__options button {
+    margin: 0.3125em 0.3125em; }
+
+.resume-config__items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  @media (max-width: 837px) {
+    .resume-config__items {
+      flex-direction: column; } }
+  @media (min-width: 838px) {
+    .resume-config__items {
+      flex-direction: row; } }
+
+.quickbar {
+  background: #ecf0f1;
+  border-radius: 0.375em;
+  padding: 1em; }
+  .quickbar__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  .quickbar__item {
+    list-style: none; }
 
 /*!
  * Flat UI Pro v1.3.2 (http://designmodo.com/flat)

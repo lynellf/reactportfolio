@@ -28,7 +28,7 @@ const Article = (props) => {
             </header>
             <main className="main">
                 <article  className="article">
-                    <h2 className="title--medium">{props.title}</h2>
+                    <h2 className="title--medium article__title">{props.title}</h2>
                     { imageResults }
                     <div className="container--text" dangerouslySetInnerHTML={{ __html: props.post }} />
                 </article>

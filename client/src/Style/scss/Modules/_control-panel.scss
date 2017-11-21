@@ -1,0 +1,71 @@
+.post-list, .job-list, .edu-list, .skill-list {
+    @include e('table') {
+        margin-top: pem(20);
+        margin-bottom: pem(20);
+        min-width: pem(500);
+        @extend %centered;
+
+        th {
+            text-align: left;
+        }
+
+        @extend %table-default;
+
+        
+    }
+    @include e('options') {
+        display: flex;
+        align-items: center;
+        @include mq('sm') {
+            flex-direction: column;
+        }
+
+        @include mq('med') {
+            flex-direction: row;
+        }
+
+        button {
+            margin: pem(5) pem(5);
+            // margin: auto;
+        }
+    }
+
+}
+
+.posts {
+    @extend %centered;
+}
+
+.resume-config {
+    @include e('items') {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include mq('sm') {
+            flex-direction: column;
+        }
+    
+        @include mq('med') {
+            flex-direction: row;
+        }
+    }
+    
+}
+
+.quickbar {
+    background: $clouds;
+    border-radius: pem(6);
+    padding: pem(16);
+    @include e('list') {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    @include e('item') {
+        list-style: none;
+        a {
+            @extend %rounded-link;
+        }
+    }
+}

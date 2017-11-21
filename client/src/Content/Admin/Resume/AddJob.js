@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
 import ReactQuill from 'react-quill';
 import { withRouter, Link } from "react-router-dom";
+import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class AddJob extends Component {
     constructor(props) {
@@ -90,7 +91,7 @@ export default class AddJob extends Component {
             tech: this.state.tech,
             jobId: this.state.jobId
         }
-        axios.post('/api/submitjob', {
+        axios.post(`/api/${ AUTH_CONFIG.clientId }/submitjob`, {
             position: jobDetails.position,
             title: jobDetails.title,
             organization: jobDetails.organization,

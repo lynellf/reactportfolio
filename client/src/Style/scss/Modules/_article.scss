@@ -1,20 +1,29 @@
 .article {
-    margin: 0 auto;
-    // width: 60%;
     max-width: pem(768);
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: auto;
+
+    @include e('display') {
+        @include mq('sm') {
+            width: pem(300);
+        }
+    }
 
     @include e('imac') {
         height: auto;
         @include mq('sm') {
-            height: auto;
-            width: pem(100);
+            width: pem(300);
         }
 
         @include mq('med') {
-            height: auto;
             width: pem(700);
         }
+    }
+
+    @include e('title') {
+        padding: pem(20);
     }
 
     @include e('item') {
@@ -25,21 +34,13 @@
 
     @include e('img') {
         @include mq('sm') {
-            width: pem(91);
-            height: 39%;
+            width: pem(270);
+            height: 54.8%;
             position: absolute;
-            top: pem(5);
-            left: pem(47);
+            top: pem(15);
+            left: pem(15);
             border-radius: pem(1.98);
         }
-        // @include mq('med') {
-        //     width: pem(631);
-        //     height: 54.9%;
-        //     position: absolute;
-        //     top: pem(36);
-        //     left: pem(34);
-        //     border-radius: pem(3);
-        // }
 
         @include mq('med') {
             width: pem(630);

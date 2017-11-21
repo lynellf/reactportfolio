@@ -4,6 +4,7 @@ var Posts = require('../model/posts.js');
 var Job = require('../model/job.js');
 var Skill = require('../model/skill.js');
 var Edu = require('../model/edu.js');
+var AUTH_CONFIG = require('../client/src/Auth/auth0-variables')
 var path = require('path');
 var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
@@ -33,7 +34,7 @@ var fileName;
   // The body object contains the values of the text fields of the form. 
   // The file or files object contains the files uploaded via the form.
 
-  router.post('/upload', upload.single('photo'), function(req, res, next){
+  router.post(`/${ AUTH_CONFIG.clientId }/upload`, upload.single('photo'), function(req, res, next){
     // req.file is the 'photo' file
     // req.body will hold the text fields, if there were any
     // res.send(`/public/uploadds/${storage.filename}`)
@@ -47,7 +48,7 @@ var fileName;
 /// Blog Posts
 /////////////////////////////////////////////
   // POST / New Blog Post
-  router.post('/submit', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/submit`, function (req, res) {
   let postData = {
     title: req.body.title,
     post: req.body.post,
@@ -70,7 +71,7 @@ var fileName;
   });
 
   // POST/ Update Blog Post 
-  router.post('/update/:postId', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/update/:postId`, function (req, res) {
     let updateData = {
       title: req.body.title,
       post: req.body.post,
@@ -92,7 +93,7 @@ var fileName;
   });
 
   // GET/ Delete Blog Post
-  router.post('/rp', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/deletepost`, function (req, res) {
     // console.log(req.body.postId);
     let deletedPost = {
       postId: req.body.postId
@@ -110,7 +111,7 @@ var fileName;
   });
 
   // GET/ Single Blog Post
-  router.get('/post/:postId', function (req, res) {
+  router.get(`/post/:postId`, function (req, res) {
     // console.log(req.params);
     Posts.findOne({ postId: `${req.params.postId}` }, function (err, docs) {
       if (!err) {
@@ -206,7 +207,7 @@ var fileName;
 /// Jobs 
 /////////////////////////////////////////////
   // POST/job (Create or Update)
-  router.post('/submitjob', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/submitjob`, function (req, res) {
     let jobData = {
       title: req.body.title,
       organization: req.body.organization,
@@ -231,7 +232,7 @@ var fileName;
     });
 
   // POST/ Update Job
-  router.post('/updatejob/:jobId', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/updatejob/:jobId`, function (req, res) {
     let updateData = {
       position: req.body.position,
       title: req.body.title,
@@ -309,7 +310,7 @@ var fileName;
 /// Skills 
 ///////////////////////////////////////////// 
   // POST/ Create New Skill
-  router.post('/submitskill', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/submitskill`, function (req, res) {
     let skillData = {
       skill: req.body.skill,
       years: req.body.years,
@@ -345,10 +346,10 @@ var fileName;
     });
   });
 
-  // POST/ Update Job
-  router.post('/updatejob/:jobId', function (req, res) {
+  // POST/ Update Skill
+  router.post(`/${ AUTH_CONFIG.clientId }/updateskill/:skillId`, function (req, res) {
     let updateData = {
-      skill: req.body.skillName,
+      skill: req.body.skill,
       years: req.body.years,
       skillId: req.body.skillId
     };
@@ -401,7 +402,7 @@ var fileName;
 /// Education
 /////////////////////////////////////////////
   // POST/ Create New School
-  router.post('/submitedu', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/submitedu`, function (req, res) {
     let eduData = {
       schoolName: req.body.schoolName,
       degree: req.body.degree,
@@ -422,12 +423,12 @@ var fileName;
   });
 
   // Post/ Delete School
-  router.post('/deleteschool', function (req, res) {
+  router.post(`/${ AUTH_CONFIG.clientId }/deleteschool`, function (req, res) {
     // console.log(req.body.eduId);
     let deletedEdu = {
       eduId: req.body.eduId
     }
-    edu.findOneAndRemove({ eduId: `${deletedEdu.eduId}` }, function (err, docs) {
+    Edu.findOneAndRemove({ eduId: `${deletedEdu.eduId}` }, function (err, docs) {
       if (!err) {
         console.log(`edu Id: ${deletedEdu.eduId} has been deleted.`);
         res.send(`edu Id: ${deletedEdu.eduId} has been deleted.`);
@@ -440,21 +441,42 @@ var fileName;
   });
 
   // POST/ Update Education
-  router.post('/updateschool/:eduId', function (req, res) {
-    let updateData = {
+  // router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
+  //   let updateData = {
+  //     schoolName: req.body.schoolName,
+  //     degree: req.body.degree,
+  //     subject: req.body.subject,
+  //     graduation: req.body.graduation
+  //   };
+  //   console.log(updateData);
+  //   Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
+  //     if (error) {
+  //       console.log(error);
+  //       // console.log(req.body);
+  //     } else {
+  //       // console.log(updateData);
+  //       res.send(`Successfully updated database.`);
+  //       return console.log(`Successfully updated database.`);
+  //     }
+  //   });
+  // });
+
+  router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
+    let eduData = {
       schoolName: req.body.schoolName,
       degree: req.body.degree,
       subject: req.body.subject,
       graduation: req.body.graduation
     };
-    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
+    console.log(eduData);
+    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, eduData, function (error, eduData) {
       if (error) {
         console.log(error);
         // console.log(req.body);
       } else {
-        // console.log(updateData);
-        res.send(`Successfully posted ${updateData.eduName} to database.`);
-        return console.log(`Successfully posted ${updateData.eduName} to database.`);
+        // console.log(eduData);
+        res.send(`Successfully posted ${eduData} to database.`);
+        return console.log(`Successfully posted ${eduData} to database.`);
       }
     });
   });

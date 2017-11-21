@@ -1,8 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component} from 'react';
+import { withRouter, Link } from 'react-router-dom';
 
-const NavEnd = () => {
-  return (
+class NavEndAuth0 extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+}
+
+login() {
+    this.props.auth.login();
+}
+
+logout() {
+    this.props.auth.logout();
+}
+
+
+  render() {
+    const { isAuthenticated } = this.props.auth;
+    
+    return (
     <div className="nav--end grid__row">
       <span className="legal grid__col--6">
         Copyright (c) 2017 Ezell Frazier All Rights Reserved.
@@ -48,5 +68,6 @@ const NavEnd = () => {
     </div>
   );
 }
+}
 
-export default NavEnd;
+export default withRouter(NavEndAuth0);
