@@ -1,18 +1,20 @@
 /*
 Error: Undefined mixin 'e'.
-        on line 15 of scss/Modules/_layout.scss, in `e'
-        from line 15 of scss/Modules/_layout.scss
-        from line 1 of scss/Modules/index.scss
+        on line 2 of scss/Modules/_nav.scss, in `e'
+        from line 2 of scss/Modules/_nav.scss
+        from line 2 of scss/Modules/index.scss
 
-10:         './_form',
-11:         './_quill',
-12:         './_article',
-13:         './_control-panel'
+1: @import 
+2: './_nav', 
+3: './_lists', 
+4: './_legal', 
+5: './_imac',
+6: './_logo'
 
 Backtrace:
-scss/Modules/_layout.scss:15:in `e'
-scss/Modules/_layout.scss:15
-scss/Modules/index.scss:1
+scss/Modules/_nav.scss:2:in `e'
+scss/Modules/_nav.scss:2
+scss/Modules/index.scss:2
 /var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
 /var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
 /var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
@@ -81,4 +83,4 @@ scss/Modules/index.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'e'.\A         on line 15 of scss/Modules/_layout.scss, in `e'\A         from line 15 of scss/Modules/_layout.scss\A         from line 1 of scss/Modules/index.scss\A \A 10:         './_form',\A 11:         './_quill',\A 12:         './_article',\A 13:         './_control-panel'"; }
+  content: "Error: Undefined mixin 'e'.\A         on line 2 of scss/Modules/_nav.scss, in `e'\A         from line 2 of scss/Modules/_nav.scss\A         from line 2 of scss/Modules/index.scss\A \A 1: @import \A 2: './_nav', \A 3: './_lists', \A 4: './_legal', \A 5: './_imac',\A 6: './_logo'"; }

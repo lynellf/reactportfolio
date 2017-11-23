@@ -1,0 +1,26 @@
+.container {
+    @extend %flex-column;
+    min-height: 100vh;
+
+    @include e('main') {
+        margin: pem(20) auto;
+        align-self: center;
+        background: $clouds;
+        border-radius: pem(6);
+        max-width: pem(900);
+        padding: pem(20);
+        line-height: pem(25);
+
+        @include m('flex-row') {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    @include e('flex-row') {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

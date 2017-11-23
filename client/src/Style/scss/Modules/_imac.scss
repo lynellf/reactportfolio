@@ -1,0 +1,84 @@
+.imac {
+    @include e('container') {
+        position: relative;
+        margin: pem(20);
+        text-align: center;
+        @include mq('sm') {
+            width: pem(300);
+        }
+        
+        @include mq('med') {
+            width: pem(700);
+        }
+
+        @include m('small') {
+            position: relative;
+            margin: pem(20);
+            text-align: center;
+            width: pem(300);
+        }
+    }
+
+    @include e('display') {
+        @include mq('sm') {
+            width: pem(300);
+        }
+
+        @include mq('med') {
+            width: pem(700);
+        }
+
+        @include m('small') {
+            width: pem(300);
+        }
+    }
+
+    @include e('frame') {
+        height: auto;
+        @include mq('sm') {
+            width: pem(300);
+        }
+
+        @include mq('med') {
+            width: pem(700);
+        }
+
+        @include m('small') {
+            height: auto;
+            width: pem(300);
+        }
+    }
+
+    @include e('image') {
+        @include mq('sm') {
+            width: pem(270);
+            height: 54.8%;
+            position: absolute;
+            top: pem(15);
+            left: pem(15);
+            border-radius: pem(1.98);
+        }
+
+        @include mq('med') {
+            width: pem(630);
+            height: 54.8%;
+            position: absolute;
+            top: pem(35);
+            left: pem(35);
+            border-radius: pem(3);
+        }
+
+        @include m('small') {
+            width: pem(270);
+            height: 54.8%;
+            position: absolute;
+            top: pem(15);
+            left: pem(15);
+            border-radius: pem(1.98);
+        }
+    }
+
+    @include e('title') {
+        padding: pem(20);
+    }
+}

@@ -1,0 +1,48 @@
+.external {
+    
+    @include mq('med') {
+        order: 2;
+    }
+
+    text-align: center;
+    @include e('list') {
+        display: flex;
+        color: $inverse;
+        padding: 0;
+
+        @include mq('sm') {
+            justify-content: space-between;
+        }
+
+        @include mq('med') {
+            justify-content: space-evenly;
+        }
+
+        @include e('item') {
+            a{
+                &:hover {
+                    color: $site-secondary;
+                }
+            }
+        }
+    }
+
+    @include e('item') {
+        list-style: none;
+        a {
+            text-decoration: none;
+            color: $inverse;
+            &:hover {
+                color: $site-secondary;
+            }
+        }
+
+        @include mq('sm') {
+            margin: pem(6) pem(8);
+        }
+
+        @include mq('med') {
+            margin: 0 pem(8);
+        }
+    }
+}

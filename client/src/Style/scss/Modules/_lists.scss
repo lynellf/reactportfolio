@@ -1,0 +1,127 @@
+.list {
+    @include e('container') {
+            @include m('about') {
+                text-align: center;
+            @include mq('sm') {
+                margin: pem(8) 0;
+            }
+            @include mq('med') {
+                order: 0;
+            } 
+        }
+
+        @include m('external') {
+            text-align: center;
+            @include mq('sm') {
+                margin: pem(8) 0;
+            }
+            @include mq('med') {
+                order: 2;
+            }
+        }
+    }
+
+    @include e('group') {
+        @include m('about') {
+            display: flex;
+            color: $inverse;
+            padding: 0;
+    
+            @include mq('sm') {
+                justify-content: space-between;
+            }
+    
+            @include mq('med') {
+                justify-content: space-evenly;
+            }
+        }
+
+        @include m('external') {
+            display: flex;
+            color: $inverse;
+            padding: 0;
+    
+            @include mq('sm') {
+                justify-content: space-between;
+            }
+    
+            @include mq('med') {
+                justify-content: space-evenly;
+            }
+        }
+
+        @include m('nav') {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            text-align: center;
+            @extend %no-decoration;
+    
+            @include mq('sm') {
+                flex-direction: column;
+            }
+    
+            @include mq('med') {
+                flex-direction: row;
+                justify-content: flex-end;
+                margin: pem(19.920) 0;
+            }
+        }
+
+    }
+
+    @include e('item') {
+        @include m('about') {
+            list-style: none;
+            @include mq('sm') {
+                margin: pem(6) pem(8);
+            }
+    
+            @include mq('med') {
+                margin: 0 pem(8);
+            }
+            a {
+                text-decoration: none;
+                color: $inverse;
+                &:hover {
+                    color: $site-secondary;
+                }
+            }
+        }
+
+        @include m('external') {
+            list-style: none;
+            a {
+                text-decoration: none;
+                color: $inverse;
+                &:hover {
+                    color: $site-secondary;
+                }
+            }
+        }
+
+        @include m('nav') {
+            list-style: none;
+            a {
+                padding: pem(10);
+                color: $inverse;
+                &:hover {
+                    @extend %rounded-link;
+                }
+            }
+            
+            @include mq('sm') {
+                margin: pem(16) 0;
+            }
+    
+            @include mq('med') {
+                margin: 0 pem(32);
+            }
+    
+        }
+
+        @include m('resume') {
+            list-style: none;
+        }
+    }
+}

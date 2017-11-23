@@ -13,7 +13,7 @@ export default class UpdateJob extends Component {
             degree: '',
             subject: [],
             graduation: '',
-            eduId: `${Date.now()}`
+            eduId: ''
         }
         this.updateEdu = this.updateEdu.bind(this);
         this.schoolChange = this.schoolChange.bind(this);
@@ -90,7 +90,8 @@ export default class UpdateJob extends Component {
                     schoolName: response.data.edu.schoolName,
                     degree: response.data.edu.degree,
                     subject: response.data.edu.subject,
-                    graduation: response.data.edu.graduation
+                    graduation: response.data.edu.graduation,
+                    eduId: response.data.edu.eduId
                 })
             })
     }
@@ -104,7 +105,7 @@ export default class UpdateJob extends Component {
                     <NavStart />
                 </header>
                 <main className="main">
-                    {isAuthenticated() && (
+                    {/* {isAuthenticated() && (
                         <form
                             onSubmit={this.createEdu}
                             className={`post-form`}>
@@ -169,7 +170,60 @@ export default class UpdateJob extends Component {
                                 {' '}to continue.
                             </h4>
                         </div>
-                    )}
+                    )} */}
+
+                        <form
+                            onSubmit={this.updateEdu}
+                            className={`post-form`}>
+                            <div className="form">
+                                <input
+                                    type="text"
+                                    label='School'
+                                    className="form__input"
+                                    placeholder="Add School"
+                                    ref="school"
+                                    value={this.state.schoolName}
+                                    onChange={evt => this.schoolChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Degree'
+                                    className="form__input"
+                                    placeholder="Add Degree"
+                                    ref="degree"
+                                    value={this.state.degree}
+                                    onChange={evt => this.degreeChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Courses'
+                                    className="form__input"
+                                    placeholder="Add Courses"
+                                    ref="subject"
+                                    value={this.state.subject}
+                                    onChange={evt => this.subjectChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Graduation'
+                                    className="form__input"
+                                    placeholder="Graduation Date"
+                                    ref="graduation"
+                                    value={this.state.graduation}
+                                    onChange={evt => this.graduationChange(evt)}
+                                />
+
+
+                                <button
+                                    type='submit'
+                                    className="form__btn btn--primary">
+                                    Update Education
+                    </button>
+                            </div>
+                        </form>
 
                 </main>
                 <footer className="footer">

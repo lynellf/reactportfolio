@@ -80,7 +80,7 @@ export default class UpdateSkill extends Component {
                     <NavStart/>
                 </header>
                 <main className="main">
-                    {isAuthenticated() && (
+                    {/* {isAuthenticated() && (
                         <form
                 onSubmit={this.updateSkill}
                 className={`post-form`}>
@@ -125,7 +125,40 @@ export default class UpdateSkill extends Component {
                         {' '}to continue.
                             </h4>
                         </div>
-                    )}
+                    )} */}
+
+                <form
+                onSubmit={this.updateSkill}
+                className={`post-form`}>
+                <div className="form">
+                    <input
+                        type="text"
+                        label='Skill'
+                        className="form__input"
+                        placeholder="Add Skill"
+                        ref="skill"
+                        value={this.state.skillName}
+                        onChange={evt => this.skillChange(evt)}
+                    />
+
+                    <input
+                        type="text"
+                        label='Years'
+                        className="form__input"
+                        placeholder="Years of Experience"
+                        ref="years"
+                        value={this.state.years}
+                        onChange={evt => this.yearsChange(evt)}
+                    />
+
+
+                    <button
+                        type='submit'
+                        className="form__btn btn--primary">
+                        Update Skill
+                    </button>
+                </div>
+            </form>
                     
                 </main>
                 <footer className="footer">

@@ -72,7 +72,7 @@ class EditResume extends Component {
                 <NavStart />
             </header>
             <main className="main">
-                /* {isAuthenticated() && (
+                 {/* {isAuthenticated() && (
                     <div className="res">
                         <span className="res__toggle" onClick={this.toggleJob}>
                             <h4 className={`title--medium`}>Add Job</h4>
@@ -105,7 +105,7 @@ class EditResume extends Component {
                             {' '}to continue.
                             </h4>
                     </div>
-                )} */
+                )} */}
                 <div className="res">
                         <span className="res__toggle" onClick={this.toggleJob}>
                             <h4 className={`title--medium`}>Add Job</h4>

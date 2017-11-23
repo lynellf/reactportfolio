@@ -1,0 +1,7 @@
+[class^="container__"] {
+    @extend %container;
+}
+
+.background {
+    @extend %container;
+}

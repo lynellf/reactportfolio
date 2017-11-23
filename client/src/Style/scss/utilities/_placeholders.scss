@@ -1,6 +1,45 @@
+// ==========================================================================
+// Layout
+// ==========================================================================
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+%flex-center-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 %centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+//Colors and fonts
+
+%container {
+    background: $clouds;
+    border-radius: pem(6);
+    line-height: pem(25);
+    margin: pem(20) 0;
+    padding: pem(20);
+}
+
+// ==========================================================================
+// Header and Footer
+// ==========================================================================
+
+%nav-colors {
+    background-color: $site-primary;
+    color: white;
+}
+
+%nav-width {
+    @include mq('med') {
+        margin: auto;
+        max-width: pem(1400);
+    }
 }
 
 %absolute-center {

@@ -42,7 +42,7 @@ export default class Resume extends Component {
     render() {
         const skills = this.state.skills;
         const techResults = skills.map(tech =>
-            <li className="list__item" key={tech.skillId}>{tech.skill}</li>
+            <li className="list__item--resume" key={tech.skillId}>{tech.skill}</li>
         );
         const experience = this.state.jobs;
         const expResults = experience.map(job =>
@@ -67,13 +67,13 @@ export default class Resume extends Component {
                     <NavStart />
                 </header>
                 <main className="main">
-                    <div className="resume">
+                    <div className="container__main">
                         <div className="resume__tech grid__row">
                             <div className="grid__col--3">
                                 <h2>Skills and Technologies</h2>
                             </div>
                             <div className="grid__col--9">
-                                <ul>
+                                <ul className="list__group--resume">
                                     { techResults }
                                 </ul>
                             </div>

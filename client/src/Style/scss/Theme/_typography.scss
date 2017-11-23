@@ -4,7 +4,7 @@
 }
 
 .container {
-    @include m('text') {
+    @include e('text') {
         padding: 0 pem(40);
     }
 
@@ -19,5 +19,11 @@
         @include m(#{$el}) {
             font-weight: $weight;
         }
+    }
+
+    @include m('skills') {
+        font-weight: $font-weight--medium-bold;
+        border-bottom: thin solid black;
+        text-align: center;
     }
 }

@@ -440,27 +440,6 @@ var fileName;
     });
   });
 
-  // POST/ Update Education
-  // router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
-  //   let updateData = {
-  //     schoolName: req.body.schoolName,
-  //     degree: req.body.degree,
-  //     subject: req.body.subject,
-  //     graduation: req.body.graduation
-  //   };
-  //   console.log(updateData);
-  //   Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
-  //     if (error) {
-  //       console.log(error);
-  //       // console.log(req.body);
-  //     } else {
-  //       // console.log(updateData);
-  //       res.send(`Successfully updated database.`);
-  //       return console.log(`Successfully updated database.`);
-  //     }
-  //   });
-  // });
-
   router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
     let eduData = {
       schoolName: req.body.schoolName,
@@ -468,14 +447,14 @@ var fileName;
       subject: req.body.subject,
       graduation: req.body.graduation
     };
-    console.log(eduData);
-    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, eduData, function (error, eduData) {
+    // console.log(eduData);
+    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, eduData, {upsert: true, new: true}, function (error, eduData) {
       if (error) {
         console.log(error);
         // console.log(req.body);
       } else {
         // console.log(eduData);
-        res.send(`Successfully posted ${eduData} to database.`);
+        res.send(`Successfully posted ${req.params.eduId} to database.`);
         return console.log(`Successfully posted ${eduData} to database.`);
       }
     });

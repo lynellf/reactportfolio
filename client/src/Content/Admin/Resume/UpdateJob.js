@@ -146,7 +146,7 @@ export default class UpdateJob extends Component {
                     <NavStart/>
                 </header>
                 <main className="main">
-                    {isAuthenticated() && (
+                    {/* {isAuthenticated() && (
                         <form 
                         onSubmit={this.updateJob} 
                             className={`post-form`}>
@@ -241,9 +241,90 @@ export default class UpdateJob extends Component {
                         {' '}to continue.
                             </h4>
                         </div>
-                    )}
+                    )} */}
 
-                    
+<form 
+                        onSubmit={this.updateJob} 
+                            className={`post-form`}>
+                            <div className="form">
+                                <input
+                                    type="text"
+                                    label='Title'
+                                    className="form__input"
+                                    placeholder="Job Title"
+                                    ref="title"
+                                    value={this.state.title}
+                                    onChange={evt => this.titleChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Company / Organization'
+                                    className="form__input"
+                                    placeholder="Company / Organization"
+                                    ref="organization"
+                                    value={this.state.organization}
+                                    onChange={evt => this.orgChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Location'
+                                    className="form__input"
+                                    placeholder="Location"
+                                    ref="location"
+                                    value={this.state.location}
+                                    onChange={evt => this.locationChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='Start Date'
+                                    className="form__input"
+                                    placeholder="Start Date"
+                                    ref="start"
+                                    value={this.state.startDate}
+                                    onChange={evt => this.startDateChange(evt)}
+                                />
+                                <input
+                                    type="text"
+                                    label='End Date'
+                                    className="form__input"
+                                    placeholder="End Date"
+                                    ref="end"
+                                    value={this.state.endDate}
+                                    onChange={evt => this.endDateChange(evt)}
+                                />
+        
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Technologies Used"
+                                    ref="tech"
+                                    value={this.state.tech}
+                                    onChange={evt => this.techChange(evt)}
+                                />
+        
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Position"
+                                    ref="position"
+                                    value={this.state.position}
+                                    onChange={evt => this.positionChange(evt)}
+                                />
+        
+                                <ReactQuill
+                                    value={this.state.description}
+                                    onChange={this.descriptionChange}
+                                    modules={this.moudles}
+                                    ref="description"
+                                />
+        
+                                <button
+                                    type='submit'
+                                    className="form__btn btn--primary">
+                                    Update Job
+                                </button>
+                            </div>
+                        </form>
                 </main>
                 <footer className="footer">
                     <div className="nav--end">

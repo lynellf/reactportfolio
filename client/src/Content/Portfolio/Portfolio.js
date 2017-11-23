@@ -26,12 +26,12 @@ export default class Portfolio extends Component {
     render() {
         const projects = this.state.projects;
         const results = projects.map(project =>
-            <div className="project__item" key={ project.postId }>
-                <div className="project__display">
-                    <img src={Desktop} alt="Desktop Display" className="project__imac"/>
+            <div className="imac__container--small" key={ project.postId }>
+                <div className="imac__display--small">
+                    <img src={Desktop} alt="Desktop Display" className="imac__frame--small"/>
                 </div>
-                <img src={ project.imgUrl } alt={ project.title } className="project__img"/>
-                <Link to={ `post/${ project.postId }` } className="project__title title--heavy">{ project.title }</Link>
+                <img src={ project.imgUrl } alt={ project.title } className="imac__image--small"/>
+                <Link to={ `post/${ project.postId }` } className="imac__title btn--primary">{ project.title }</Link>
             </div>
         );
 
@@ -40,8 +40,8 @@ export default class Portfolio extends Component {
                 <header className="header">
                     <NavStart />
                 </header>
-                <main className="main">
-                    <div className="project">
+                <main className="container__main">
+                    <div className="container__flex-row">
                         { results }
                     </div>
                 </main>

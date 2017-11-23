@@ -1,0 +1,25 @@
+.song {
+    border-radius: pem(6);
+    margin: pem(10) auto;
+    background: $inverse;
+    display: flex;
+    padding: pem(10) pem(20);
+    align-items: center;
+    box-shadow: pem(3) pem(4) black;
+    @include mq('sm') {
+        flex-wrap: wrap;
+        width: 40%;
+    }
+    @include mq('med') {
+        width: 40%;
+        align-items: center;
+        box-shadow: pem(3) pem(4) black;
+    }
+
+    @include e('image') {
+        background: $gray;
+        border-radius: pem(6);
+        margin-right: pem(10);
+        padding: pem(5);
+    }
+}
