@@ -1,4 +1,16 @@
 .resume {
+    margin: pem(20) auto;
+    align-self: center;
+    background: $clouds;
+    border-radius: pem(6);
+    max-width: pem(900);
+    padding: pem(20);
+    line-height: pem(25);
+
+    * {
+        list-style: none;
+    }
+
     @include e('description') {
         text-decoration: none;
         font-size: pem(16);

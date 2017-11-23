@@ -1,0 +1,71 @@
+.about {
+    @include e('progress') {
+        @include mq('sm') {
+            display: block;
+        }
+
+        @include mq('med') {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+
+
+    @include e('badges') {
+        @extend %card;
+        @include mq('med') {
+            max-width: pem(1200);
+        }
+    }
+
+    @include e('artists') {
+        margin-top: pem(20);
+        margin-bottom: pem(20);
+        @extend %card;
+
+        @include mq('med') {
+            max-width: pem(1200);
+        }
+    }
+}
+
+.badge, .song {
+    border-radius: pem(6);
+    margin: pem(10) auto;
+    background: $inverse;
+    display: flex;
+    padding: pem(10) pem(20);
+    align-items: center;
+    box-shadow: pem(3) pem(4) black;
+    @include mq('sm') {
+        flex-wrap: wrap;
+        width: 40%;
+    }
+    @include mq('med') {
+        align-items: center;
+        box-shadow: pem(3) pem(4) black;
+    }
+
+    @include e('image') {
+        background: $gray;
+        border-radius: pem(6);
+        margin-right: pem(10);
+        padding: pem(5);
+    }
+}
+
+.badge {
+    @include mq('med') {
+        width: 30%;
+    }
+    
+}
+
+.song {
+    @include mq('med') {
+        width: 40%;
+    }
+}
+

@@ -27,19 +27,19 @@ export default class Welcome extends Component {
     render() {
         const projects = this.state.latest;
         const results = projects.map(project =>
-            <div className="imac__container--small" key={project.postId}>
-                <div className="imac__display--small">
-                    <img src={Desktop} alt="Desktop Display" className="imac__frame--small" />
+            <div className="project__item" key={project.postId}>
+                <div className="project__display">
+                    <img src={Desktop} alt="Desktop Display" className="project__imac" />
                 </div>
-                <img src={project.imgUrl} alt={project.title} className="imac__image--small" />
-                <Link to={`post/${project.postId}`} className="imac__title btn--primary">{project.title}</Link>
+                <img src={project.imgUrl} alt={project.title} className="project__img" />
+                <Link to={`post/${project.postId}`} className="project__title title--medium">{project.title}</Link>
             </div>
         );
         return (
-            <div className="grid__row">
-                <div className="container__text grid__col--7 centered">
-                    <div className="grid__row">
-                        <img className="profile-pic image__profile" src={Ezell} alt="Image of Ezell Frazier" />
+            <div className="welcome__intro grid__row">
+                <div className="welcome__body container--text grid__col--7 centered">
+                    <div className="welcome__profile">
+                        <img className="profile-pic" src={Ezell} alt="Image of Ezell Frazier" />
                         <div className="welcome__text">
                             <h3 className="title--medium">Background</h3>
                             <p>
@@ -49,7 +49,7 @@ export default class Welcome extends Component {
                             </p>
                         </div>
                     </div>
-                    <h2 className="title--skills">
+                    <h2 className="title--medium-bold welcome__skills">
                         JavaScript / React.js / Node.js / Express / MongoDB / Sass
                     </h2>
                     <div className="welcome__text">
@@ -62,7 +62,7 @@ export default class Welcome extends Component {
                         </p>
                     </div>
                     <h3 className="title--medium">Latest Projects</h3>
-                    <div className="container__flex-row">
+                    <div className="project">
                         {results}
                     </div>
                 </div>

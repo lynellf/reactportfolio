@@ -5,12 +5,10 @@ Error: Undefined variable: "$font-stack--primary".
 
 1: @import './_fonts',
 2:         './_typography',
-3:         './_header',
-4:         './_footer',
-5:         './_form',
-6:         './_buttons',
-7:         './_images',
-8:         './_table',
+3:         './_form',
+4:         './_buttons',
+5:         './_images',
+6:         './_table'
 
 Backtrace:
 scss/Theme/_typography.scss:3
@@ -81,4 +79,4 @@ scss/Theme/index.scss:2
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$font-stack--primary\".\A         on line 3 of scss/Theme/_typography.scss\A         from line 2 of scss/Theme/index.scss\A \A 1: @import './_fonts',\A 2:         './_typography',\A 3:         './_header',\A 4:         './_footer',\A 5:         './_form',\A 6:         './_buttons',\A 7:         './_images',\A 8:         './_table',"; }
+  content: "Error: Undefined variable: \"$font-stack--primary\".\A         on line 3 of scss/Theme/_typography.scss\A         from line 2 of scss/Theme/index.scss\A \A 1: @import './_fonts',\A 2:         './_typography',\A 3:         './_form',\A 4:         './_buttons',\A 5:         './_images',\A 6:         './_table'"; }
