@@ -12,6 +12,7 @@ var fbKey = require('../Auth/facebook');
 var path = require('path');
 var Twit = require('twit');
 var graph = require('fbgraph');
+var location = require('../uploads/fileLocation.js');
 var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
 var tweet;
@@ -24,7 +25,7 @@ var tweet;
   // Storage configuration
   var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './client/public/uploads/')
+      cb(null, `${location.storage}`)
     },
     filename: function (req, file, cb) {
       cb(null, fileName = Date.now() + path.extname(file.originalname))
@@ -45,7 +46,7 @@ var tweet;
     // req.file is the 'photo' file
     // req.body will hold the text fields, if there were any
     // res.send(`/public/uploadds/${storage.filename}`)
-    res.send(`/uploads/${fileName}`);
+    res.send(`${location.path}`);
     
   });
 

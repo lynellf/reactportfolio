@@ -53,7 +53,7 @@ export default class About extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Ezellf&api_key=${apiKey}&limit=9&format=json`)
+        axios.get(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Ezellf&api_key=${apiKey}&limit=9&format=json`)
             .then(response => {
                 // console.log(response.data.recenttracks.track);
                 this.setState({

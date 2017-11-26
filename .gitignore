@@ -19,3 +19,4 @@ client/src/Auth/twitter.js
 Auth/auth0-variables.js
 Auth/facebook.js
 Auth/twitter.js
+Auth/admin.js

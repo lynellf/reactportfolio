@@ -141,7 +141,7 @@ class UpdatePost extends Component {
         const modules = {
             toolbar: [
                 [{ 'header': [1, 2, false] }],
-                ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
                 ['link', 'image'],
                 ['clean']
@@ -152,8 +152,9 @@ class UpdatePost extends Component {
             'header',
             'bold', 'italic', 'underline', 'strike', 'blockquote',
             'list', 'bullet', 'indent',
-            'link', 'image', 'code-block'
+            'link', 'image'
         ];
+
         const { isAuthenticated } = this.props.auth;
         return (
             <div className="container">
