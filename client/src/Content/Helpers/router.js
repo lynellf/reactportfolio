@@ -1,5 +1,9 @@
 import React from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from "react-browser-router";
 import Callback from '../Helpers/Callback/Callback';
 import Auth from '../Helpers/Auth/Auth';
 import history from '../Helpers/history';
@@ -27,7 +31,7 @@ const handleAuthentication = (nextState, replace) => {
 
 export const makeMainRoutes = () => {
   return (
-      <Router history={history} component={Home}>
+      <BrowserRouter history={history} component={Home}>
         <Switch>
           <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/resume" render={(props) => (<Resume auth={auth} {...props} />)} />
@@ -46,8 +50,7 @@ export const makeMainRoutes = () => {
             return <Callback {...props} /> 
           }}/>
           <Route path="/controlpanel" render={(props) => <ControlPanel auth={auth} {...props} />} />
-          
         </Switch>
-      </Router>
+      </BrowserRouter>
   );
 }

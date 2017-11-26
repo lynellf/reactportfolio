@@ -68,7 +68,7 @@ var tweet;
 /////////////////////////////////////////////
   // POST / New Blog Post
   router.post(`/${ AUTH_CONFIG.clientId }/submit`, function (req, res) {
-  let postData = {
+  var postData = {
     title: req.body.title,
     post: req.body.post,
     date: req.body.date,
@@ -100,7 +100,7 @@ var tweet;
 
   // POST/ Update Blog Post 
   router.post(`/${ AUTH_CONFIG.clientId }/update/:postId`, function (req, res) {
-    let updateData = {
+    var updateData = {
       title: req.body.title,
       post: req.body.post,
       lastUpdated: req.body.date,
@@ -123,7 +123,7 @@ var tweet;
   // GET/ Delete Blog Post
   router.post(`/${ AUTH_CONFIG.clientId }/deletepost`, function (req, res) {
     // console.log(req.body.postId);
-    let deletedPost = {
+    var deletedPost = {
       postId: req.body.postId
     }
     Posts.findOneAndRemove({ postId: `${deletedPost.postId}` }, function (err, docs) {
@@ -143,7 +143,7 @@ var tweet;
     // console.log(req.params);
     Posts.findOne({ postId: `${req.params.postId}` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "post": {}
         };
         results.post = docs;
@@ -160,7 +160,7 @@ var tweet;
   router.get('/posts', function (req, res) {
     Posts.find({}, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "posts": {}
         };
         results.posts = docs;
@@ -175,7 +175,7 @@ var tweet;
   router.get('/portfolio', function (req, res) {
     Posts.find({ tags: `Project` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "posts": {}
         };
         results.posts = docs;
@@ -190,7 +190,7 @@ var tweet;
   router.get('/latest', function (req, res) {
     Posts.find(latest, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "posts": {}
         };
         results.posts = docs;
@@ -205,7 +205,7 @@ var tweet;
   router.get('/books', function (req, res) {
     Posts.find({ tags: `Books` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "posts": {}
         };
         results.posts = docs;
@@ -220,7 +220,7 @@ var tweet;
   router.get('/blog', function (req, res) {
     Posts.find({ tags: `Blog` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "posts": {}
         };
         results.posts = docs;
@@ -236,7 +236,7 @@ var tweet;
 /////////////////////////////////////////////
   // POST/job (Create or Update)
   router.post(`/${ AUTH_CONFIG.clientId }/submitjob`, function (req, res) {
-    let jobData = {
+    var jobData = {
       title: req.body.title,
       organization: req.body.organization,
       location: req.body.location,
@@ -261,7 +261,7 @@ var tweet;
 
   // POST/ Update Job
   router.post(`/${ AUTH_CONFIG.clientId }/updatejob/:jobId`, function (req, res) {
-    let updateData = {
+    var updateData = {
       position: req.body.position,
       title: req.body.title,
       organization: req.body.organization,
@@ -286,7 +286,7 @@ var tweet;
   // GET/ Delete Job Post
   router.post('/deletejob', function (req, res) {
     // console.log(req.body.jobId);
-    let deletedJob = {
+    var deletedJob = {
       jobId: req.body.jobId
     }
     Job.findOneAndRemove({ jobId: `${deletedJob.jobId}` }, function (err, docs) {
@@ -306,7 +306,7 @@ var tweet;
       // console.log(req.params);
       Job.findOne( { jobId: `${req.params.jobId}` } , function (err, docs) {
         if (!err) {
-          let results = {
+          var results = {
             "job": {}
           };
           results.job = docs;
@@ -323,7 +323,7 @@ var tweet;
     router.get('/jobs', function (req, res) {
       Job.find({}, function (err, docs) {
         if (!err) {
-          let results = {
+          var results = {
             "jobs": {}
           };
           results.jobs = docs;
@@ -339,7 +339,7 @@ var tweet;
 ///////////////////////////////////////////// 
   // POST/ Create New Skill
   router.post(`/${ AUTH_CONFIG.clientId }/submitskill`, function (req, res) {
-    let skillData = {
+    var skillData = {
       skill: req.body.skill,
       years: req.body.years,
       skillId: req.body.skillId
@@ -359,7 +359,7 @@ var tweet;
   // Post/ Delete Skill
   router.post('/deleteskill', function (req, res) {
     // console.log(req.body.skillId);
-    let deletedSkill = {
+    var deletedSkill = {
       skillId: req.body.skillId
     }
     Skill.findOneAndRemove({ skillId: `${deletedSkill.skillId}` }, function (err, docs) {
@@ -376,7 +376,7 @@ var tweet;
 
   // POST/ Update Skill
   router.post(`/${ AUTH_CONFIG.clientId }/updateskill/:skillId`, function (req, res) {
-    let updateData = {
+    var updateData = {
       skill: req.body.skill,
       years: req.body.years,
       skillId: req.body.skillId
@@ -398,7 +398,7 @@ var tweet;
     // console.log(req.params);
     Skill.findOne({ skillId: `${req.params.skillId}` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "skill": {}
         };
         results.skill = docs;
@@ -415,7 +415,7 @@ var tweet;
   router.get('/skills', function (req, res) {
     Skill.find({}, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "skills": {}
         };
         results.skills = docs;
@@ -431,7 +431,7 @@ var tweet;
 /////////////////////////////////////////////
   // POST/ Create New School
   router.post(`/${ AUTH_CONFIG.clientId }/submitedu`, function (req, res) {
-    let eduData = {
+    var eduData = {
       schoolName: req.body.schoolName,
       degree: req.body.degree,
       subject: req.body.subject,
@@ -453,7 +453,7 @@ var tweet;
   // Post/ Delete School
   router.post(`/${ AUTH_CONFIG.clientId }/deleteschool`, function (req, res) {
     // console.log(req.body.eduId);
-    let deletedEdu = {
+    var deletedEdu = {
       eduId: req.body.eduId
     }
     Edu.findOneAndRemove({ eduId: `${deletedEdu.eduId}` }, function (err, docs) {
@@ -469,7 +469,7 @@ var tweet;
   });
 
   router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
-    let eduData = {
+    var eduData = {
       schoolName: req.body.schoolName,
       degree: req.body.degree,
       subject: req.body.subject,
@@ -493,7 +493,7 @@ var tweet;
     // console.log(req.params);
     Edu.findOne({ eduId: `${req.params.eduId}` }, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "edu": {}
         };
         results.edu = docs;
@@ -510,7 +510,7 @@ var tweet;
   router.get('/edu', function (req, res) {
     Edu.find({}, function (err, docs) {
       if (!err) {
-        let results = {
+        var results = {
           "edus": {}
         };
         results.edus = docs;

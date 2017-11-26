@@ -5,7 +5,6 @@ import ReactQuill from 'react-quill';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { AUTH_CONFIG } from '../Helpers/Auth/auth0-variables';
-import MetaTags from 'react-meta-tags';
 
 const d = new Date();
 
