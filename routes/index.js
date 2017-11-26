@@ -12,7 +12,7 @@ var fbKey = require('../Auth/facebook');
 var path = require('path');
 var Twit = require('twit');
 var graph = require('fbgraph');
-var location = require('../uploads/fileLocation.js');
+var location = require('./location.js');
 var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
 var tweet;
