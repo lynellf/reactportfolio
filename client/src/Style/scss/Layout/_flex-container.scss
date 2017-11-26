@@ -1,0 +1,36 @@
+.container {
+    @extend %flex-column;
+    min-height: 100vh;
+
+    @include e('main') {
+        @extend %content-area;
+
+        @include m('flex-row') {
+            @extend %flex-row;
+            @extend %content-area;
+        }
+    }
+
+    @include e('flex-row') {
+        @extend %flex-row;
+        @extend %content-area;
+
+        @include m('white') {
+            @extend %flex-row;
+            @extend %content-area;
+        }
+
+    }
+
+    @include e('flex-column') {
+        @extend %flex-center-column;
+
+        @include m('white') {
+            @extend %flex-center-column;
+        }
+    }
+
+    @include e('text') {
+        border-radius: pem(6);
+    }
+}

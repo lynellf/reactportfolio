@@ -1,0 +1,67 @@
+.card {
+    @extend %card;
+
+    @include e('badge') {
+        @extend %card;
+
+        @include mq('sm') {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        @include mq('med') {
+            width: 45%;
+            align-items: center;
+            box-shadow: pem(3) pem(4) black;
+        }
+    }
+
+    @include e('icon') {
+        height: auto;
+        width: pem(50);
+    }
+    
+    @include e('music') {
+        @extend %card;
+
+        @include mq('sm') {
+            flex-direction: column;
+            min-width: 45%;
+        }
+
+        @include mq('med') {
+            width: 45%;
+        }
+    }
+
+    @include e('image') {
+        border-radius: pem(6);
+        margin-right: pem(10);
+        margin-bottom: pem(10);
+        padding: pem(0);
+    }
+
+    @include e('main') {
+        @extend %card;
+
+        @include mq('med') {
+            min-width: pem(860);
+        }
+    }
+
+    @include e('title') {
+        @include mq('sm') {
+            width: 50%;
+        }
+        @include mq('med') {
+            width: 60%;
+        }
+        
+        font-weight: $font-weight--medium;
+    }
+
+    @include e('column') {
+        @extend %card;
+        flex-direction: column;
+    }
+}

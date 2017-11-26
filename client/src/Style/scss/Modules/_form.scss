@@ -1,34 +1,13 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     @include e('input') {
         @extend %input;
+        width: 100%;
         margin: pem(20) 0;
-        @include mq('med') {
-            width: pem(445);
-            margin-right: pem(96);
-        }
-
-        @include mq('lg') {
-            width: pem(600);
-            margin-right: pem(130);
-        }
     }
 
     @include e('btn') {
+        text-align: center;
         margin: pem(50) 0;
-    }
-}
-
-.ql-container, .ql-clipboard {
-    @include mq('med') {
-        width: pem(668);
-    }
-
-    @include mq('lg') {
-        width: pem(900);
     }
 }
 

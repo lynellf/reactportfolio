@@ -1,0 +1,16 @@
+.table {
+    margin-top: pem(20);
+    margin-bottom: pem(20);
+    min-width: pem(500);
+    @extend %centered;
+    th {
+        text-align: left;
+    }
+
+    @extend %table-default;
+    
+    @include e('options') {
+        display: flex;
+        justify-content: space-around;
+    }
+}

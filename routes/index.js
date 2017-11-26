@@ -1,13 +1,20 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
+var Strategy = require('passport-facebook').Strategy;
 var Posts = require('../model/posts.js');
 var Job = require('../model/job.js');
 var Skill = require('../model/skill.js');
 var Edu = require('../model/edu.js');
-var AUTH_CONFIG = require('../client/src/Auth/auth0-variables')
+var AUTH_CONFIG = require('../client/src/Auth/auth0-variables');
+var twitterKey = require('../client/src/Auth/twitter');
+var fbKey = require('../client/src/Auth/facebook');
 var path = require('path');
+var Twit = require('twit');
+var graph = require('fbgraph');
 var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
+var tweet;
 
 /////////////////////////////////////////////
 /// File Uploads
@@ -45,6 +52,18 @@ var fileName;
   router.post('');
 
 /////////////////////////////////////////////
+/// Twitter
+/////////////////////////////////////////////
+  // Credentials
+  var T = new Twit({
+    consumer_key: twitterKey.consumerKey,
+    consumer_secret: twitterKey.consumerSecret,
+    access_token: twitterKey.accessToken,
+    access_token_secret: twitterKey.accessTokenSecret,
+    timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests. 
+  });
+
+/////////////////////////////////////////////
 /// Blog Posts
 /////////////////////////////////////////////
   // POST / New Blog Post
@@ -57,7 +76,16 @@ var fileName;
     tags: req.body.tags,
     imgUrl: req.body.imgUrl,
     preview: req.body.preview,
+    tweet: req.body.tweet
   };
+  T.post('statuses/update', { status: `${postData.title}. Read more at http://ezellfrazier.com/${postData.postId}` }, function (err, data, response) {
+
+    if (err) {
+      console.log(err);
+    }
+    console.log(req.body);
+  });
+
   Posts.create(postData, function(error, postData) {
     if (error) {
       console.log(error);
@@ -440,27 +468,6 @@ var fileName;
     });
   });
 
-  // POST/ Update Education
-  // router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
-  //   let updateData = {
-  //     schoolName: req.body.schoolName,
-  //     degree: req.body.degree,
-  //     subject: req.body.subject,
-  //     graduation: req.body.graduation
-  //   };
-  //   console.log(updateData);
-  //   Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, updateData, function (error, updateData) {
-  //     if (error) {
-  //       console.log(error);
-  //       // console.log(req.body);
-  //     } else {
-  //       // console.log(updateData);
-  //       res.send(`Successfully updated database.`);
-  //       return console.log(`Successfully updated database.`);
-  //     }
-  //   });
-  // });
-
   router.post(`/${ AUTH_CONFIG.clientId }/updateschool/:eduId`, function (req, res) {
     let eduData = {
       schoolName: req.body.schoolName,
@@ -468,14 +475,14 @@ var fileName;
       subject: req.body.subject,
       graduation: req.body.graduation
     };
-    console.log(eduData);
-    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, eduData, function (error, eduData) {
+    // console.log(eduData);
+    Edu.findOneAndUpdate({ eduId: `${req.params.eduId}` }, eduData, {upsert: true, new: true}, function (error, eduData) {
       if (error) {
         console.log(error);
         // console.log(req.body);
       } else {
         // console.log(eduData);
-        res.send(`Successfully posted ${eduData} to database.`);
+        res.send(`Successfully posted ${req.params.eduId} to database.`);
         return console.log(`Successfully posted ${eduData} to database.`);
       }
     });

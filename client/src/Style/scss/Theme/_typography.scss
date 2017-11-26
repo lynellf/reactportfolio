@@ -4,12 +4,16 @@
 }
 
 .container {
-    @include m('text') {
-        padding: 0 pem(40);
+    @include e('text') {
+        padding: pem(40);
     }
 
     a {
         text-decoration: none;
+    }
+
+    p {
+        margin: 0 0 pem(-1);
     }
 }
 
@@ -19,5 +23,27 @@
         @include m(#{$el}) {
             font-weight: $weight;
         }
+    }
+
+    @include m('skills') {
+        font-weight: $font-weight--medium-bold;
+        border-bottom: thin solid black;
+        text-align: center;
+        padding: pem(16);
+    }
+}
+
+.centered {
+    display: block;
+    margin: auto;
+    @include e('text') {
+        text-align: center;
+    }
+}
+
+.text {
+    @include e('border-bottom') {
+        border-bottom: thin solid black;
+        padding: pem(0) 0 pem(20) 0;
     }
 }

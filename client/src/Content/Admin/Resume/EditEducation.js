@@ -55,16 +55,17 @@ class EditEducation extends Component {
                 <td>
                     <span key={edu.eduId}>{edu.degree}</span>
                 </td>
-                <td className="edu-list__options">
+                <td className="table__options">
                     <button type="button" className="btn--primary" onClick={() => this.handleDelete(edu.eduId)}>Delete</button>
                     <button type="button" className="btn--primary" onClick={() => this.updateEdu(edu.eduId)}>Edit</button>
                 </td>
             </tr>);
         return (
-            <div className="edu-list">
-                <table className="edu-list__table">
+            <div className="container__main">
+                <h3>Education</h3>
+                <table className="table">
                     <thead>
-                        <tr className="edu-list__row">
+                        <tr className="">
                             <th className="title--light">
                                 School Name
                             </th>

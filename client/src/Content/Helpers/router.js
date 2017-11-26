@@ -8,7 +8,7 @@ import ControlPanel from '../Admin/ControlPanel';
 import NewPost from '../Admin/NewPost';
 import EditResume from '../Admin/Resume/Index';
 import UpdatePost from '../Admin/UpdatePost';
-import DirectPost from '../Blog/DirectPost';
+import Article from '../Blog/Article';
 import Resume from '../Resume/Resume';
 import Portfolio from '../Portfolio/Portfolio';
 import UpdateJob from '../Admin/Resume/UpdateJob';
@@ -37,7 +37,7 @@ export const makeMainRoutes = () => {
           <Route path="/new" render={(props) => (<NewPost auth={auth} {...props} />)} />
           <Route path="/editresume" render={(props) => (<EditResume auth={auth} {...props} />)} />
           <Route path="/update/:id" render={(props) => (<UpdatePost auth={auth} {...props} />)} />
-          <Route path="/post/:id" render={(props) => (<DirectPost auth={auth} {...props} />)} />
+          <Route path="/post/:id" render={(props) => (<Article auth={auth} {...props} />)} />
           <Route path="/updateschool/:id" render={(props) => (<UpdateEducation auth={auth} {...props} />)} />
           <Route path="/updateskill/:id" render={(props) => (<UpdateSkill auth={auth} {...props} />)} />
           <Route path="/updatejob/:id" render={(props) => (<UpdateJob auth={auth} {...props} />)} />

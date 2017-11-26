@@ -55,16 +55,17 @@ class EditSkills extends Component {
                 <td>
                     <span key={skill.skillId}>{skill.years}</span>
                 </td>
-                <td className="skill-list__options">
+                <td className="table__options">
                     <button type="button" className="btn--primary" onClick={() => this.handleDelete(skill.skillId)}>Delete</button>
                     <button type="button" className="btn--primary" onClick={() => this.updateSkill(skill.skillId)}>Edit</button>
                 </td>
             </tr>);
         return (
-            <div className="skill-list">
-                <table className="skill-list__table">
+            <div className="container__main">
+                <h3>Related Skills</h3>
+                <table className="table">
                     <thead>
-                        <tr className="skill-list__row">
+                        <tr className="">
                             <th className="title--light">
                                 Skill
                             </th>

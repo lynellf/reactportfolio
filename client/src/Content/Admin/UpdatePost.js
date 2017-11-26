@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import NavStart from '../Nav/NavStart';
+import NavEnd from '../Nav/NavEnd';
 import ReactQuill from 'react-quill';
 import axios from 'axios';
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { AUTH_CONFIG } from '../Helpers/Auth/auth0-variables';
 
 const d = new Date();
@@ -137,59 +138,79 @@ class UpdatePost extends Component {
     }
 
     render() {
+        const modules = {
+            toolbar: [
+                [{ 'header': [1, 2, false] }],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        };
+
+        const formats = [
+            'header',
+            'bold', 'italic', 'underline', 'strike', 'blockquote',
+            'list', 'bullet', 'indent',
+            'link', 'image', 'code-block'
+        ];
         const { isAuthenticated } = this.props.auth;
         return (
-            <div className="container--site">
+            <div className="container">
                 <header className="header">
                     <nav>
                         <NavStart />
                     </nav>
                 </header>
                 <main className="main">
-                {/* {isAuthenticated() && (
-                <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="post-form">
-                        <div className="form">
-                            <h4 className="title--medium">
-                                New Post
-                            </h4>
-                            <input 
-                                type="text" 
-                                label='Title' 
-                                className="form__input" 
-                                placeholder="Title" 
-                                value={this.state.title} 
-                                onChange={evt => this.titleChange(evt)}
-                            />
-                            <ReactQuill 
-                                value={this.state.post} 
-                                onChange={this.postChange} 
-                                modules={this.moudles}
-                            />
-                            <span className="form__btn btn--primary">
-                                Upload Image
-                                <input 
-                                    type="file" 
-                                    onChange={this.handleUploadFile.bind(this)} 
-                                    name="photo" 
+                {isAuthenticated() && (
+                    <div className="container__flex-column--white">
+                        <h1 className="centered__text">Edit Post</h1>
+                        <div className="container__main">
+                            <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="container__flex-column">
+                                <input
+                                    type="text"
+                                    label='Title'
                                     className="form__input"
+                                    placeholder="Title"
+                                    value={this.state.title}
+                                    onChange={evt => this.titleChange(evt)}
                                 />
-                            </span>
+                                <ReactQuill
+                                    theme={'snow'}
+                                    value={this.state.post}
+                                    onChange={this.postChange}
+                                    modules={modules}
+                                    formats={formats}
+                                />
+                                <span className="form__btn btn--primary">
+                                    Upload Image
+                                    <input
+                                        type="file"
+                                        onChange={this.handleUploadFile.bind(this)}
+                                        name="photo"
+                                        className="form__input"
+                                    />
+                                </span>
 
-                            <input 
-                                type="text" 
-                                className="form__input" 
-                                placeholder="Tags"
-                                value={this.state.tags} 
-                                onChange={evt => this.tagChange(evt)}
-                            />
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Tags"
+                                    value={this.state.tags}
+                                    onChange={evt => this.tagChange(evt)}
+                                />
 
-                            <button 
-                                type='submit' 
-                                className="form__btn btn--primary">
-                                Submit Post
-                            </button>
+                                <button
+                                    type='submit'
+                                    className="form__btn btn--primary">
+                                    Submit Post
+                                </button>
+                            </form>
                         </div>
-                    </form>)}
+                        
+                    </div>
+                )}
 
                 {!isAuthenticated() && (<h4 className="title--medium">
                         You are not logged in! Please{' '}
@@ -197,95 +218,10 @@ class UpdatePost extends Component {
                             Log In
                             </a>
                         {' '}to continue.
-                            </h4>)} */}
-                    <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="post-form">
-                        <div className="form">
-                            <h4 className="title--medium">
-                                New Post
-                            </h4>
-                            <input 
-                                type="text" 
-                                label='Title' 
-                                className="form__input" 
-                                placeholder="Title" 
-                                value={this.state.title} 
-                                onChange={evt => this.titleChange(evt)}
-                            />
-                            <ReactQuill 
-                                value={this.state.post} 
-                                onChange={this.postChange} 
-                                modules={this.moudles}
-                            />
-                            <span className="form__btn btn--primary">
-                                Upload Image
-                                <input 
-                                    type="file" 
-                                    onChange={this.handleUploadFile.bind(this)} 
-                                    name="photo" 
-                                    className="form__input"
-                                />
-                            </span>
-
-                            <input 
-                                type="text" 
-                                className="form__input" 
-                                placeholder="Tags"
-                                value={this.state.tags} 
-                                onChange={evt => this.tagChange(evt)}
-                            />
-
-                            <button 
-                                type='submit' 
-                                className="form__btn btn--primary">
-                                Submit Post
-                            </button>
-                        </div>
-                    </form>
+                            </h4>)}
                 </main>
                 <footer className="footer">
-                <div className="nav--end grid__row">
-                <span className="legal grid__col--6">
-                  Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                </span>
-                <div className="about grid__col--3">
-                  <span className="about__title">About</span>
-                  <ul className="about__list">
-                      <li className="about__item">
-                          <Link to="/">Home</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to ="/resume">Resume</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/portfolio">Portfolio</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/blog">Blog</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/about">More</Link>
-                      </li>
-                    </ul>
-                </div>
-                <div className="external grid__col--3">
-                  <span className="external__title">External</span>
-                  <ul className="external__list">
-                  <li className="external__item">
-                      <a href="#" className="social--github fui-github"></a>
-                    </li>
-                  <li className="external__item">
-                      <a href="#" className="social--linkedin fui-linkedin"></a>
-                    </li>
-                  <li className="external__item">
-                      <a href="#" className="social--facebook fui-facebook"></a>
-                    </li>
-                    <li className="external__item">
-                      <a href="#" className="social--twitter fui-twitter"></a>
-                    </li>
-                  </ul>
-          
-                </div>
-              </div>
+                    <NavEnd />
                 </footer>
             </div>
 

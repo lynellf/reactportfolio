@@ -35,6 +35,19 @@
     
 }
 
+.centered {
+    @include e('contact-btn') {
+        width: pem(123);
+        height: auto;
+        display: block;
+        margin: auto;
+        @include mq('sm') {
+            margin: pem(20) auto 0 auto;
+        }
+        
+    }
+}
+
 // Alternate buttons
 // --------------------------------------------------
 

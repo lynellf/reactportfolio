@@ -1,0 +1,50 @@
+.container {
+    @include e('main') {
+        background: $clouds;
+    }
+    @include e('flex-row') {
+        background: $clouds;
+        @include m('white') {
+            background: $inverse;
+        }
+    }
+    @include e('flex-column') {
+        background: $clouds;
+        @include m('white') {
+            background: $inverse;
+        }
+    }
+
+    @include e('text') {
+        background: $inverse;
+
+        pre {
+            background-color: #23241f;
+            color: #f8f8f2;
+            overflow: hidden;
+        }
+
+        img {
+            border-radius: pem(6);
+            display: block;
+            vertical-align: middle;
+            margin: auto;
+
+            @include mq('sm') {
+                max-width: 280px;
+                height: auto;
+            }
+
+            @include mq('med') {
+                max-width: 700px;
+                height: auto;
+            }
+        }
+
+        @include m('default') {
+            background: inherit;
+            padding: 0 pem(10);
+        }
+    }
+
+}

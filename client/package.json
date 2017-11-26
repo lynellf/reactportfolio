@@ -13,6 +13,8 @@
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
+    "react-meta-tags": "^0.3.0",
+    "react-native-twitter": "^0.2.1",
     "react-quill": "^1.1.0",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

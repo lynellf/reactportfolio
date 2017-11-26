@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import NavStart from '../../Nav/NavStart';
-// import NavEnd from '../../Nav/NavEnd';
+import NavEnd from '../../Nav/NavEnd';
 import AddJob from './AddJob';
 import AddSkill from './AddSkill';
 import AddEdu from './AddEdu';
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class EditResume extends Component {
     constructor(props) {
@@ -72,27 +72,34 @@ class EditResume extends Component {
                 <NavStart />
             </header>
             <main className="main">
-                /* {isAuthenticated() && (
-                    <div className="res">
-                        <span className="res__toggle" onClick={this.toggleJob}>
-                            <h4 className={`title--medium`}>Add Job</h4>
-                        </span>
-                        <div className={`${this.state.jobToggle}`}>
-                            <AddJob />
+                 {isAuthenticated() && (
+                    <div className="container__flex-column--white">
+                        <h1 className="centered__text">Add Résumé Details</h1>
+                        <div className="container__main">
+                            <div className="card__main">
+                                <h4 className={`title--medium`}>Work Experience</h4>
+                                <button type="button" className="btn--primary" onClick={this.toggleJob}>Toggle Job</button>
+                            </div>
+                            <div className={`${this.state.jobToggle}`}>
+                                <AddJob />
+                            </div>
+                            <div className="card__main">
+                                <h4 className={`title--medium`}>Skill</h4>
+                                <button type="button" className="btn--primary" onClick={this.toggleSkill}>Toggle Skill</button>
+                            </div>
+                            <div className={`${this.state.skillToggle}`}>
+                                <AddSkill />
+                            </div>
+                            <div className="card__main">
+                                <h4 className={`title--medium`}>Add Education</h4>
+                                <button type="button" className="btn--primary" onClick={this.toggleEdu}>Toggle Education</button>
+                            </div>
+                            <div className={`${this.state.eduToggle}`}>
+                                <AddEdu />
+                            </div>
                         </div>
-                        <span className="res__toggle" onClick={this.toggleSkill}>
-                            <h4 className={`title--medium`}>Add Skill</h4>
-                        </span>
-                        <div className={`${this.state.skillToggle}`}>
-                            <AddSkill />
-                        </div>
-                        <span className="res__toggle" onClick={this.toggleEdu}>
-                            <h4 className={`title--medium`}>Add Education</h4>
-                        </span>
-                        <div className={`${this.state.eduToggle}`}>
-                            <AddEdu />
-                        </div>
-                    </div>
+                     </div>
+                    
                     
                 )}
                 {!isAuthenticated() && (
@@ -105,72 +112,10 @@ class EditResume extends Component {
                             {' '}to continue.
                             </h4>
                     </div>
-                )} */
-                <div className="res">
-                        <span className="res__toggle" onClick={this.toggleJob}>
-                            <h4 className={`title--medium`}>Add Job</h4>
-                        </span>
-                        <div className={`${this.state.jobToggle}`}>
-                            <AddJob />
-                        </div>
-                        <span className="res__toggle" onClick={this.toggleSkill}>
-                            <h4 className={`title--medium`}>Add Skill</h4>
-                        </span>
-                        <div className={`${this.state.skillToggle}`}>
-                            <AddSkill />
-                        </div>
-                        <span className="res__toggle" onClick={this.toggleEdu}>
-                            <h4 className={`title--medium`}>Add Education</h4>
-                        </span>
-                        <div className={`${this.state.eduToggle}`}>
-                            <AddEdu />
-                        </div>
-                    </div>
+                )}
             </main>
             <footer className="footer">
-            <div className="nav--end grid__row">
-            <span className="legal grid__col--6">
-              Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-            </span>
-            <div className="about grid__col--3">
-              <span className="about__title">About</span>
-              <ul className="about__list">
-                  <li className="about__item">
-                      <Link to="/">Home</Link>
-                  </li>
-                  <li className="about__item">
-                      <Link to ="/resume">Resume</Link>
-                  </li>
-                  <li className="about__item">
-                      <Link to="/portfolio">Portfolio</Link>
-                  </li>
-                  <li className="about__item">
-                      <Link to="/blog">Blog</Link>
-                  </li>
-                  <li className="about__item">
-                      <Link to="/about">More</Link>
-                  </li>
-                </ul>
-            </div>
-            <div className="external grid__col--3">
-              <span className="external__title">External</span>
-              <ul className="external__list">
-              <li className="external__item">
-                  <a href="#" className="social--github fui-github"></a>
-                </li>
-              <li className="external__item">
-                  <a href="#" className="social--linkedin fui-linkedin"></a>
-                </li>
-              <li className="external__item">
-                  <a href="#" className="social--facebook fui-facebook"></a>
-                </li>
-                <li className="external__item">
-                  <a href="#" className="social--twitter fui-twitter"></a>
-                </li>
-              </ul>
-      
-            </div>
-          </div>
+                <NavEnd />
             </footer>
         </div>);
     }

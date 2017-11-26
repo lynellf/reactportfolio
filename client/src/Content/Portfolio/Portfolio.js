@@ -3,13 +3,15 @@ import axios from 'axios';
 import NavStart from '../Nav/NavStart';
 import NavEnd from '../Nav/NavEnd';
 import { Link } from "react-router-dom";
+import Loading from "../../Style/images/Rolling.svg";
 import Desktop from "../../Style/images/imac.svg";
 
 export default class Portfolio extends Component {
     constructor() {
         super();
         this.state = {
-            projects: []
+            projects: [],
+            isLoading: true
         }
     }
 
@@ -19,6 +21,7 @@ export default class Portfolio extends Component {
                 console.log(response.data.posts);
                 this.setState({
                     projects: response.data.posts,
+                    isLoading: false
                 })
             })
     }
@@ -26,30 +29,41 @@ export default class Portfolio extends Component {
     render() {
         const projects = this.state.projects;
         const results = projects.map(project =>
-            <div className="project__item" key={ project.postId }>
-                <div className="project__display">
-                    <img src={Desktop} alt="Desktop Display" className="project__imac"/>
+            <div className="imac__container--small" key={ project.postId }>
+                <div className="imac__display--small">
+                    <img src={Desktop} alt="Desktop Display" className="imac__frame--small"/>
                 </div>
-                <img src={ project.imgUrl } alt={ project.title } className="project__img"/>
-                <Link to={ `post/${ project.postId }` } className="project__title title--heavy">{ project.title }</Link>
+                <img src={ project.imgUrl } alt={ project.title } className="imac__image--small"/>
+                <Link to={ `post/${ project.postId }` } className="imac__title btn--primary">{ project.title }</Link>
             </div>
         );
 
-        return (
-            <div className="container">
-                <header className="header">
-                    <NavStart />
-                </header>
-                <main className="main">
-                    <div className="project">
-                        { results }
-                    </div>
-                </main>
-                <footer className="footer">
-                    <NavEnd />
-                </footer>
-            </div>
-        );
+        if (this.state.isLoading === true) {
+            return (
+                <div className="container__flex-column--white">
+                    <img src={Loading} alt="Loading" className="centered" />
+                </div>
+            );
+        } else {
+            return (
+                <div className="container">
+                    <header className="header">
+                        <NavStart />
+                    </header>
+                    <main className="main">
+                        <div className="container__flex-column--white">
+                            <h1 className="centered__text">Portfolio</h1>
+                            <div className="container__flex-row">
+                                {results}
+                            </div>
+                        </div>
+                    </main>
+                    <footer className="footer">
+                        <NavEnd />
+                    </footer>
+                </div>
+            );
+        }
     }
 
 }

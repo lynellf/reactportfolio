@@ -54,16 +54,16 @@ class ControlPanel extends Component {
                 <td>
                     <Link key={post.postId} to={`/post/${post.postId}`}>{post.title}</Link>
                 </td>
-                <td className="post-list__options">
+                <td className="table__options">
                     <button type="button" className="btn--primary" onClick={() => this.handleDelete(post.postId)}>Delete</button>
                     <button type="button" className="btn--primary" onClick={() => this.updatePost(post.postId)}>Edit</button>
                 </td>
             </tr>);
         return (
-            <div className="posts">
-                <table className="post-list__table">
+            <div className="container__main">
+                <table className="table">
                     <thead>
-                        <tr className="post-list__row">
+                        <tr className="">
                             <th className="title--light">
                                 Title
                             </th>

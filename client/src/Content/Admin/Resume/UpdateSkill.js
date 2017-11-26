@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
-import ReactQuill from 'react-quill';
-import { withRouter, Link } from "react-router-dom";
+import NavEnd from '../../Nav/NavEnd'; 
 import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateSkill extends Component {
@@ -81,38 +80,43 @@ export default class UpdateSkill extends Component {
                 </header>
                 <main className="main">
                     {isAuthenticated() && (
-                        <form
-                onSubmit={this.updateSkill}
-                className={`post-form`}>
-                <div className="form">
-                    <input
-                        type="text"
-                        label='Skill'
-                        className="form__input"
-                        placeholder="Add Skill"
-                        ref="skill"
-                        value={this.state.skillName}
-                        onChange={evt => this.skillChange(evt)}
-                    />
+                        <div className="container__flex-column--white">
+                            <h1 className="centered__text">Update Skill</h1>
+                            <div className="container__main">
+                                <form
+                                    onSubmit={this.updateSkill}
+                                    className="container__flex-column">
 
-                    <input
-                        type="text"
-                        label='Years'
-                        className="form__input"
-                        placeholder="Years of Experience"
-                        ref="years"
-                        value={this.state.years}
-                        onChange={evt => this.yearsChange(evt)}
-                    />
+                                    <input
+                                        type="text"
+                                        label='Skill'
+                                        className="form__input"
+                                        placeholder="Add Skill"
+                                        ref="skill"
+                                        value={this.state.skillName}
+                                        onChange={evt => this.skillChange(evt)}
+                                    />
+
+                                    <input
+                                        type="text"
+                                        label='Years'
+                                        className="form__input"
+                                        placeholder="Years of Experience"
+                                        ref="years"
+                                        value={this.state.years}
+                                        onChange={evt => this.yearsChange(evt)}
+                                    />
 
 
-                    <button
-                        type='submit'
-                        className="form__btn btn--primary">
-                        Update Skill
-                    </button>
-                </div>
-            </form>
+                                    <button
+                                        type='submit'
+                                        className="form__btn btn--primary">
+                                        Update Skill
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
                     )}
 
                     {!isAuthenticated() && (
@@ -126,22 +130,9 @@ export default class UpdateSkill extends Component {
                             </h4>
                         </div>
                     )}
-                    
                 </main>
                 <footer className="footer">
-                    <div className="nav--end">
-                        <span className="legal">
-                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                            </span>
-                        <ul className="nav__list">
-                        {!isAuthenticated() && (<li onClick={this.login.bind(this)}>
-                                Log In
-                            </li>)}
-                        {isAuthenticated() && (<li onClick={this.logout.bind(this)}>
-                                Log Out
-                            </li>)}
-                        </ul>
-                    </div>
+                    <NavEnd />
                 </footer>
             </div>            
         );

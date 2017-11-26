@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NavStart from '../../Nav/NavStart';
-import ReactQuill from 'react-quill';
-import { withRouter, Link } from "react-router-dom";
 import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class AddEdu extends Component {
@@ -84,7 +81,7 @@ export default class AddEdu extends Component {
             <form
                 onSubmit={this.createEdu}
                 className={`post-form`}>
-                <div className="form">
+                <div className="container__flex-column">
                     <input
                         type="text"
                         label='School'

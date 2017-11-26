@@ -1,0 +1,26 @@
+.card {
+    @extend %card-theme;
+    @include e('music') {
+        @extend %card-theme;
+    }
+
+    @include e('badge') {
+        @extend %card-theme;
+    }
+
+    @include e('image') {
+        background: $gray;
+    }
+
+    @include e('icon') {
+        @extend %card-icon;
+    }
+
+    @include e('main') {
+        @extend %card-theme;
+    }
+
+    @include e('column') {
+        @extend %card-theme;
+    }
+}

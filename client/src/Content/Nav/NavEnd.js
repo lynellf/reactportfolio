@@ -3,44 +3,44 @@ import { Link } from 'react-router-dom';
 
 const NavEnd = () => {
   return (
-    <div className="nav--end grid__row">
+    <div className="nav__end grid__row">
       <span className="legal grid__col--6">
         Copyright (c) 2017 Ezell Frazier All Rights Reserved.
       </span>
-      <div className="about grid__col--3">
-        <span className="about__title">About</span>
-        <ul className="about__list">
-            <li className="about__item">
+      <div className="list__container--about grid__col--3">
+        <span className="title--about">About</span>
+        <ul className="list__group--about">
+            <li className="list__item--about">
                 <Link to="/">Home</Link>
             </li>
-            <li className="about__item">
-                <Link to ="/resume">Resume</Link>
+            <li className="list__item--about">
+                <Link to="/resume">Resume</Link>
             </li>
-            <li className="about__item">
+            <li className="list__item--about">
                 <Link to="/portfolio">Portfolio</Link>
             </li>
-            <li className="about__item">
+            <li className="list__item--about">
                 <Link to="/blog">Blog</Link>
             </li>
-            <li className="about__item">
+            <li className="list__item--about">
                 <Link to="/about">More</Link>
             </li>
           </ul>
       </div>
-      <div className="external grid__col--3">
-        <span className="external__title">External</span>
-        <ul className="external__list">
-        <li className="external__item">
-            <a href="#" className="social--github fui-github"></a>
+      <div className="list__container--external grid__col--3">
+        <span className="title--external">External</span>
+        <ul className="list__group--external">
+        <li className="list__item--external">
+            <a href="https://github.com/lynellf" className="social--github fui-github"></a>
           </li>
-        <li className="external__item">
-            <a href="#" className="social--linkedin fui-linkedin"></a>
+        <li className="list__item--external">
+            <a href="www.linkedin.com/in/ezell-frazier-830a50135" className="social--linkedin fui-linkedin"></a>
           </li>
-        <li className="external__item">
-            <a href="#" className="social--facebook fui-facebook"></a>
+        <li className="list__item--external">
+            <a href="https://www.facebook.com/ezellf" className="social--facebook fui-facebook"></a>
           </li>
-          <li className="external__item">
-            <a href="#" className="social--twitter fui-twitter"></a>
+          <li className="list__item--external">
+            <a href="https://twitter.com/_Ezell_" className="social--twitter fui-twitter"></a>
           </li>
         </ul>
 

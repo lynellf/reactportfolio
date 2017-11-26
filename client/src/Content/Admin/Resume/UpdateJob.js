@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavStart from '../../Nav/NavStart';
+import NavEnd from '../../Nav/NavEnd'; 
 import ReactQuill from 'react-quill';
-import { withRouter, Link } from "react-router-dom";
 import { AUTH_CONFIG } from '../../Helpers/Auth/auth0-variables';
 
 export default class UpdateJob extends Component {
@@ -147,88 +147,91 @@ export default class UpdateJob extends Component {
                 </header>
                 <main className="main">
                     {isAuthenticated() && (
-                        <form 
-                        onSubmit={this.updateJob} 
-                            className={`post-form`}>
-                            <div className="form">
-                                <input
-                                    type="text"
-                                    label='Title'
-                                    className="form__input"
-                                    placeholder="Job Title"
-                                    ref="title"
-                                    value={this.state.title}
-                                    onChange={evt => this.titleChange(evt)}
-                                />
-                                <input
-                                    type="text"
-                                    label='Company / Organization'
-                                    className="form__input"
-                                    placeholder="Company / Organization"
-                                    ref="organization"
-                                    value={this.state.organization}
-                                    onChange={evt => this.orgChange(evt)}
-                                />
-                                <input
-                                    type="text"
-                                    label='Location'
-                                    className="form__input"
-                                    placeholder="Location"
-                                    ref="location"
-                                    value={this.state.location}
-                                    onChange={evt => this.locationChange(evt)}
-                                />
-                                <input
-                                    type="text"
-                                    label='Start Date'
-                                    className="form__input"
-                                    placeholder="Start Date"
-                                    ref="start"
-                                    value={this.state.startDate}
-                                    onChange={evt => this.startDateChange(evt)}
-                                />
-                                <input
-                                    type="text"
-                                    label='End Date'
-                                    className="form__input"
-                                    placeholder="End Date"
-                                    ref="end"
-                                    value={this.state.endDate}
-                                    onChange={evt => this.endDateChange(evt)}
-                                />
-        
-                                <input
-                                    type="text"
-                                    className="form__input"
-                                    placeholder="Technologies Used"
-                                    ref="tech"
-                                    value={this.state.tech}
-                                    onChange={evt => this.techChange(evt)}
-                                />
-        
-                                <input
-                                    type="text"
-                                    className="form__input"
-                                    placeholder="Position"
-                                    ref="position"
-                                    value={this.state.position}
-                                    onChange={evt => this.positionChange(evt)}
-                                />
-        
-                                <ReactQuill
-                                    value={this.state.description}
-                                    onChange={this.descriptionChange}
-                                    modules={this.moudles}
-                                    ref="description"
-                                />
-        
-                                <button
-                                    type='submit'
-                                    className="form__btn btn--primary">
-                                    Update Job
+                        <div className="container__flex-column--white">
+                            <h1 className="centered__text">Update Experience</h1>
+                            <div className="container__main">
+                                <form
+                                    onSubmit={this.updateJob}
+                                    className="container__flex-column">
+                                    <input
+                                        type="text"
+                                        label='Title'
+                                        className="form__input"
+                                        placeholder="Job Title"
+                                        ref="title"
+                                        value={this.state.title}
+                                        onChange={evt => this.titleChange(evt)}
+                                    />
+                                    <input
+                                        type="text"
+                                        label='Company / Organization'
+                                        className="form__input"
+                                        placeholder="Company / Organization"
+                                        ref="organization"
+                                        value={this.state.organization}
+                                        onChange={evt => this.orgChange(evt)}
+                                    />
+                                    <input
+                                        type="text"
+                                        label='Location'
+                                        className="form__input"
+                                        placeholder="Location"
+                                        ref="location"
+                                        value={this.state.location}
+                                        onChange={evt => this.locationChange(evt)}
+                                    />
+                                    <input
+                                        type="text"
+                                        label='Start Date'
+                                        className="form__input"
+                                        placeholder="Start Date"
+                                        ref="start"
+                                        value={this.state.startDate}
+                                        onChange={evt => this.startDateChange(evt)}
+                                    />
+                                    <input
+                                        type="text"
+                                        label='End Date'
+                                        className="form__input"
+                                        placeholder="End Date"
+                                        ref="end"
+                                        value={this.state.endDate}
+                                        onChange={evt => this.endDateChange(evt)}
+                                    />
+
+                                    <input
+                                        type="text"
+                                        className="form__input"
+                                        placeholder="Technologies Used"
+                                        ref="tech"
+                                        value={this.state.tech}
+                                        onChange={evt => this.techChange(evt)}
+                                    />
+
+                                    <input
+                                        type="text"
+                                        className="form__input"
+                                        placeholder="Position"
+                                        ref="position"
+                                        value={this.state.position}
+                                        onChange={evt => this.positionChange(evt)}
+                                    />
+
+                                    <ReactQuill
+                                        value={this.state.description}
+                                        onChange={this.descriptionChange}
+                                        modules={this.moudles}
+                                        ref="description"
+                                    />
+
+                                    <button
+                                        type='submit'
+                                        className="form__btn btn--primary">
+                                        Update Job
                                 </button>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     )}
 
                     {!isAuthenticated() && (
@@ -243,22 +246,9 @@ export default class UpdateJob extends Component {
                         </div>
                     )}
 
-                    
                 </main>
                 <footer className="footer">
-                    <div className="nav--end">
-                        <span className="legal">
-                            Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                            </span>
-                        <ul className="nav__list">
-                        {!isAuthenticated() && (<li onClick={this.login.bind(this)}>
-                                Log In
-                            </li>)}
-                        {isAuthenticated() && (<li onClick={this.logout.bind(this)}>
-                                Log Out
-                            </li>)}
-                        </ul>
-                    </div>
+                    <NavEnd />
                 </footer>
             </div>
 

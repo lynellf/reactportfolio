@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import NavStart from '../Nav/NavStart';
+import NavEnd from '../Nav/NavEnd';
 import ReactQuill from 'react-quill';
 import axios from 'axios';
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { AUTH_CONFIG } from '../Helpers/Auth/auth0-variables';
+import MetaTags from 'react-meta-tags';
 
 const d = new Date();
 
@@ -18,7 +20,8 @@ class PostNew extends Component{
             imgUrl: "",
             files: [],
             postId: `${Date.now()}`,
-            preview: ''
+            preview: '',
+            tweet: ''
         }; // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
@@ -35,6 +38,7 @@ class PostNew extends Component{
     logout() {
         this.props.auth.logout();
     }
+    
     handleUploadFile = (event) => {
         this.setState({
             files: event.target.files
@@ -62,11 +66,15 @@ class PostNew extends Component{
     }
     postChange(value) {
         let closing = value.indexOf("</p>") + 4;
+        let noCode = value.replace(/<(?:.|\n)*?>/gm, '');
+        let tweetLimit = 143;
         let preview = value.substr(0,closing);
+        let tweet = noCode.substr(0, tweetLimit);
         console.log(preview);
         this.setState({
             post: value,
-            preview: preview
+            preview: preview,
+            tweet: tweet
         })
     }
     tagChange(evt) {
@@ -84,7 +92,8 @@ class PostNew extends Component{
             imgUrl: this.state.imgUrl,
             photo: this.state.photo,
             postId: this.state.postId,
-            preview: this.state.preview
+            preview: this.state.preview,
+            tweet: this.state.tweet
         })
             .then(function (response) {
             console.log(response);
@@ -92,61 +101,86 @@ class PostNew extends Component{
             .catch(function (error) {
             console.log(error);
         });
+
+        axios.post('/api/statuses/update')
+
         event.preventDefault();
         // Redirect to target page
         this.props.history.push('/controlpanel');
     }
     render() {
+        const modules = {
+            toolbar: [
+            [{ 'header': [1, 2, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+            ['link', 'image'],
+            ['clean']
+            ]
+    };
+
+        const formats = [
+            'header',
+            'bold', 'italic', 'underline', 'strike', 'blockquote',
+            'list', 'bullet', 'indent',
+            'link', 'image'
+        ];
+
         const { isAuthenticated } = this.props.auth;
         return (<div className="container">
                 <header className="header">
                     <NavStart />
                 </header>
                 <main className="main">
-                     {/* {isAuthenticated() && (
-                    <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="post-form">
-                            <div className="form">
-                                <h4 className="title--medium">
-                                    New Post
-                                </h4>
-                                <input 
-                                    type="text" 
-                                    label='Title' 
-                                    className="form__input" 
-                                    placeholder="Title" 
-                                    value={this.state.title} 
+                     {isAuthenticated() && (
+                    <div className="container__flex-column--white">
+                        <h1 className="centered__text">
+                                New Post
+                            </h1>
+                            <div className="container__main">
+                            <form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="container__flex-column">
+                                <input
+                                    type="text"
+                                    label='Title'
+                                    className="form__input"
+                                    placeholder="Title"
+                                    value={this.state.title}
                                     onChange={evt => this.titleChange(evt)}
                                 />
-                                <ReactQuill 
-                                    value={this.state.post} 
-                                    onChange={this.postChange} 
-                                    modules={this.moudles}
+                                <ReactQuill
+                                    theme={'snow'}
+                                    value={this.state.post}
+                                    onChange={this.postChange}
+                                    modules={modules}
+                                    formats={formats}
                                 />
                                 <span className="form__btn btn--primary">
                                     Upload Image
-                                    <input 
-                                        type="file" 
-                                        onChange={this.handleUploadFile.bind(this)} 
-                                        name="photo" 
+                                        <input
+                                        type="file"
+                                        onChange={this.handleUploadFile.bind(this)}
+                                        name="photo"
                                         className="form__input"
                                     />
                                 </span>
 
-                                <input 
-                                    type="text" 
-                                    className="form__input" 
+                                <input
+                                    type="text"
+                                    className="form__input"
                                     placeholder="Tags"
-                                    value={this.state.tags} 
+                                    value={this.state.tags}
                                     onChange={evt => this.tagChange(evt)}
                                 />
 
-                                <button 
-                                    type='submit' 
+                                <button
+                                    type='submit'
                                     className="form__btn btn--primary">
                                     Submit Post
-                                </button>
+                                    </button>
+                            </form>
                             </div>
-                        </form>)}
+                         </div>
+                    )}
 
                     {!isAuthenticated() && (
                         <div className="auth-check">
@@ -158,96 +192,10 @@ class PostNew extends Component{
                                 {' '}to continue.
                             </h4>
                         </div>
-                    )}  */}
-
-<form onSubmit={this.handleSubmit} name='photo' encType="multipart/form-data" className="post-form">
-                            <div className="form">
-                                <h4 className="title--medium">
-                                    New Post
-                                </h4>
-                                <input 
-                                    type="text" 
-                                    label='Title' 
-                                    className="form__input" 
-                                    placeholder="Title" 
-                                    value={this.state.title} 
-                                    onChange={evt => this.titleChange(evt)}
-                                />
-                                <ReactQuill 
-                                    value={this.state.post} 
-                                    onChange={this.postChange} 
-                                    modules={this.moudles}
-                                />
-                                <span className="form__btn btn--primary">
-                                    Upload Image
-                                    <input 
-                                        type="file" 
-                                        onChange={this.handleUploadFile.bind(this)} 
-                                        name="photo" 
-                                        className="form__input"
-                                    />
-                                </span>
-
-                                <input 
-                                    type="text" 
-                                    className="form__input" 
-                                    placeholder="Tags"
-                                    value={this.state.tags} 
-                                    onChange={evt => this.tagChange(evt)}
-                                />
-
-                                <button 
-                                    type='submit' 
-                                    className="form__btn btn--primary">
-                                    Submit Post
-                                </button>
-                            </div>
-                        </form>
+                    )}
                 </main>
                 <footer className="footer">
-                <div className="nav--end grid__row">
-                <span className="legal grid__col--6">
-                  Copyright (c) 2017 Ezell Frazier All Rights Reserved.
-                </span>
-                <div className="about grid__col--3">
-                  <span className="about__title">About</span>
-                  <ul className="about__list">
-                      <li className="about__item">
-                          <Link to="/">Home</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to ="/resume">Resume</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/portfolio">Portfolio</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/blog">Blog</Link>
-                      </li>
-                      <li className="about__item">
-                          <Link to="/about">More</Link>
-                      </li>
-                    </ul>
-                </div>
-                <div className="external grid__col--3">
-                  <span className="external__title">External</span>
-                  <ul className="external__list">
-                  <li className="external__item">
-                      <a href="#" className="social--github fui-github"></a>
-                    </li>
-                  <li className="external__item">
-                      <a href="#" className="social--linkedin fui-linkedin"></a>
-                    </li>
-                  <li className="external__item">
-                      <a href="#" className="social--facebook fui-facebook"></a>
-                    </li>
-                    <li className="external__item">
-                      <a href="#" className="social--twitter fui-twitter"></a>
-                    </li>
-                  </ul>
-          
-                </div>
-              </div>
+                    <NavEnd />
                 </footer>
             </div>);
     }

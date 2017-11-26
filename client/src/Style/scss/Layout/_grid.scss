@@ -1,0 +1,23 @@
+.grid {
+    @include e('row') {
+    
+        @include mq('sm') {
+            display: block;
+        }
+
+        @include mq('med') {
+            display: flex;
+        }
+    }
+
+    @include e('col') {
+        @each $col, $width in $grid-col--width {
+            @include m(#{$col}) {
+                flex: $width;
+                &.centered {
+                    @extend %centered;
+                }
+            }
+        }
+    }
+}

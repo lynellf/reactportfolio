@@ -55,16 +55,17 @@ class EditJob extends Component {
                 <td>
                     <span key={job.jobId}>{job.title}</span>
                 </td>
-                <td className="job-list__options">
+                <td className="table__options">
                     <button type="button" className="btn--primary" onClick={() => this.handleDelete(job.jobId)}>Delete</button>
                     <button type="button" className="btn--primary" onClick={() => this.updateJob(job.jobId)}>Edit</button>
                 </td>
             </tr>);
         return(
-            <div className="job-list">
-                <table className="job-list__table">
+            <div className="container__main">
+                <h3>Work Experience</h3>
+                <table className="table">
                     <thead>
-                        <tr className="job-list__row">
+                        <tr className="">
                             <th className="title--light">
                                 Organization
                             </th>

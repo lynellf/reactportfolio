@@ -1,6 +1,109 @@
+// ==========================================================================
+// Layout
+// ==========================================================================
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+%flex-center-row {
+    display: flex;
+    flex-direction: row;
+}
+
+%flex-center-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-self: center;
+    
+    line-height: pem(25);
+    border-radius: pem(6);
+    @include mq('sm') {
+        min-width: pem(300);
+    }
+
+    @include mq('med') {
+        width: 100%;
+        margin: pem(20) auto;
+        padding: pem(20);
+    }
+    
+    
+}
+
 %centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+%content-area {
+    margin: pem(20) auto;
+    align-self: center;
+    border-radius: pem(6);
+    max-width: pem(900);
+    padding: pem(20);
+    line-height: pem(25);
+}
+
+%card {
+    display: flex;
+    border-radius: pem(6);
+    margin: pem(10) auto;
+    padding: pem(10) pem(20);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    @include mq('sm') {
+        flex-wrap: wrap;
+    }
+}
+
+//Colors and fonts
+
+%container {
+    background: $clouds;
+    border-radius: pem(6);
+    line-height: pem(25);
+    margin: pem(20) 0;
+    padding: pem(20);
+}
+
+%card-theme {
+    background: $inverse;
+    box-shadow: pem(3) pem(4) black;
+}
+
+%card-icon {
+    background: $gray;
+    border-radius: pem(6);
+    padding: pem(5);
+}
+
+
+
+// ==========================================================================
+// Header and Footer
+// ==========================================================================
+
+%nav-colors {
+    background-color: $site-primary;
+    color: white;
+}
+
+%nav-width {
+    @include mq('med') {
+        margin: auto;
+        max-width: pem(1400);
+    }
 }
 
 %absolute-center {
@@ -26,14 +129,14 @@
     padding: pem(10);
 }
 
-%card {
-    background: $clouds;
-    border-radius: pem(6);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: auto;
-}
+// %card {
+//     background: $clouds;
+//     border-radius: pem(6);
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     margin: auto;
+// }
 
 // ==========================================================================
 // Links
@@ -45,6 +148,14 @@ a {
     text-decoration: none;
 }
 
+// ==========================================================================
+// Ql Config
+// ==========================================================================
+%ql-config {
+    @include mq('med') {
+        width: 100%;
+    }
+}
 // ==========================================================================
 // Table
 // ==========================================================================
