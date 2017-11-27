@@ -34,7 +34,7 @@ const NavEnd = () => {
             <a href="https://github.com/lynellf" className="social--github fui-github"></a>
           </li>
         <li className="list__item--external">
-            <a href="www.linkedin.com/in/ezell-frazier-830a50135" className="social--linkedin fui-linkedin"></a>
+            <a href="https://www.linkedin.com/in/ezell-frazier-830a50135" className="social--linkedin fui-linkedin"></a>
           </li>
         <li className="list__item--external">
             <a href="https://www.facebook.com/ezellf" className="social--facebook fui-facebook"></a>

@@ -28,6 +28,7 @@
     border-radius: pem(6);
     @include mq('sm') {
         min-width: pem(300);
+        max-width: 100%;
     }
 
     @include mq('med') {

@@ -32,5 +32,6 @@
 
     @include e('text') {
         border-radius: pem(6);
+        overflow: hidden;
     }
 }

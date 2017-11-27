@@ -12,7 +12,10 @@ var fbKey = require('../Auth/facebook');
 var path = require('path');
 var Twit = require('twit');
 var graph = require('fbgraph');
-var location = require('./location.js');
+//Production uploads folder
+var prodLocation = './client/build/uploads';
+//Development uploads folder
+var devLocation = './client/public/uploads/';
 var latest = Posts.find({ tags: 'Project' }).limit(6);
 var fileName;
 var tweet;
@@ -25,7 +28,7 @@ var tweet;
   // Storage configuration
   var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, `${location.storage}`)
+      cb(null, `${devLocation}`)
     },
     filename: function (req, file, cb) {
       cb(null, fileName = Date.now() + path.extname(file.originalname))
@@ -46,7 +49,7 @@ var tweet;
     // req.file is the 'photo' file
     // req.body will hold the text fields, if there were any
     // res.send(`/public/uploadds/${storage.filename}`)
-    res.send(`${location.path}`);
+    res.send(`/uploads/${fileName}`);
     
   });
 
@@ -79,7 +82,7 @@ var tweet;
     preview: req.body.preview,
     tweet: req.body.tweet
   };
-  T.post('statuses/update', { status: `${postData.title}. Read more at http://ezellfrazier.com/${postData.postId}` }, function (err, data, response) {
+  T.post('statuses/update', { status: `${postData.title}. Read more at http://ezellfrazier.com/post/${postData.postId}` }, function (err, data, response) {
 
     if (err) {
       console.log(err);
