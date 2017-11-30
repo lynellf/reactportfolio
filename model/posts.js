@@ -36,6 +36,14 @@ var PostSchema = new mongoose.Schema({
     preview: {
         type: String,
         required: true
+    },
+    projectUrl: {
+        type: String,
+        required: false
+    },
+    gitHub: {
+        type: String,
+        required: false
     }
 
 });

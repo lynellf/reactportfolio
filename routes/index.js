@@ -1,17 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var Strategy = require('passport-facebook').Strategy;
 var Posts = require('../model/posts.js');
 var Job = require('../model/job.js');
 var Skill = require('../model/skill.js');
 var Edu = require('../model/edu.js');
 var AUTH_CONFIG = require('../Auth/auth0-variables');
 var twitterKey = require('../Auth/twitter');
-var fbKey = require('../Auth/facebook');
 var path = require('path');
 var Twit = require('twit');
-var graph = require('fbgraph');
 //Production uploads folder
 var prodLocation = './client/build/uploads';
 //Development uploads folder
@@ -80,7 +77,10 @@ var tweet;
     tags: req.body.tags,
     imgUrl: req.body.imgUrl,
     preview: req.body.preview,
-    tweet: req.body.tweet
+    tweet: req.body.tweet,
+    projectUrl: req.body.projectUrl,
+    gitHub: req.body.gitHub
+
   };
   T.post('statuses/update', { status: `${postData.title}. Read more at http://ezellfrazier.com/post/${postData.postId}` }, function (err, data, response) {
 
@@ -110,7 +110,9 @@ var tweet;
       lastUpdated: req.body.date,
       tags: req.body.tags,
       imgUrl: req.body.imgUrl,
-      preview: req.body.preview
+      preview: req.body.preview,
+      projectUrl: req.body.projectUrl,
+      gitHub: req.body.gitHub
     };
     Posts.findOneAndUpdate({ postId: `${req.params.postId}` }, updateData, function (error, updateData) {
       if (error) {

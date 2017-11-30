@@ -24,6 +24,8 @@ class UpdatePost extends Component {
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
         this.tagChange = this.tagChange.bind(this);
+        this.projectChange = this.projectChange.bind(this);
+        this.gitChange = this.gitChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
@@ -51,6 +53,8 @@ class UpdatePost extends Component {
                     imgUrl: response.data.post.imgUrl,
                     postId: response.data.post.postId,
                     tags: response.data.post.tags,
+                    projectUrl: response.data.post.projectUrl,
+                    gitHub: response.data.post.gitHub,
                     isLoading: false
                 })
             })
@@ -101,6 +105,17 @@ class UpdatePost extends Component {
         })
     }
 
+    projectChange(evt) {
+        this.setState({
+            projectUrl: evt.target.value
+        });
+    }
+    gitChange(evt) {
+        this.setState({
+            gitHub: evt.target.value
+        });
+    }
+
     handleSubmit(event) {
         axios.post(`/api/${ AUTH_CONFIG.clientId }/update/${this.state.postId}`, {
             title: this.state.title,
@@ -109,7 +124,9 @@ class UpdatePost extends Component {
             tags: this.state.tags,
             imgUrl: this.state.imgUrl,
             photo: this.state.photo,
-            preview: this.state.preview
+            preview: this.state.preview,
+            projectUrl: this.state.projectUrl,
+            gitHub: this.state.gitHub
         })
             .then(function (response) {
                 console.log(response);
@@ -200,6 +217,24 @@ class UpdatePost extends Component {
                                     placeholder="Tags"
                                     value={this.state.tags}
                                     onChange={evt => this.tagChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Project URL'
+                                    className="form__input"
+                                    placeholder="Project URL"
+                                    value={this.state.projectUrl}
+                                    onChange={evt => this.projectChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Github Repo'
+                                    className="form__input"
+                                    placeholder="Github Repo"
+                                    value={this.state.gitHub}
+                                    onChange={evt => this.gitChange(evt)}
                                 />
 
                                 <button

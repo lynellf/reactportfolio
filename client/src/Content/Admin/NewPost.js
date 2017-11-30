@@ -20,11 +20,15 @@ class PostNew extends Component{
             files: [],
             postId: `${Date.now()}`,
             preview: '',
-            tweet: ''
+            tweet: '',
+            projectUrl: '',
+            gitHub: ''
         }; // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
         this.tagChange = this.tagChange.bind(this);
+        this.projectChange = this.projectChange.bind(this);
+        this.gitChange = this.gitChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
     }
@@ -82,6 +86,16 @@ class PostNew extends Component{
             tags: arr
         });
     }
+    projectChange(evt) {
+        this.setState({
+            projectUrl: evt.target.value
+        });
+    }
+    gitChange(evt) {
+        this.setState({
+            gitHub: evt.target.value
+        });
+    }
     handleSubmit(event) {
         axios.post(`/api/${ AUTH_CONFIG.clientId }/submit`, {
             title: this.state.title,
@@ -92,7 +106,9 @@ class PostNew extends Component{
             photo: this.state.photo,
             postId: this.state.postId,
             preview: this.state.preview,
-            tweet: this.state.tweet
+            tweet: this.state.tweet,
+            projectUrl: this.state.projectUrl,
+            gitHub: this.state.gitHub
         })
             .then(function (response) {
             console.log(response);
@@ -169,6 +185,24 @@ class PostNew extends Component{
                                     placeholder="Tags"
                                     value={this.state.tags}
                                     onChange={evt => this.tagChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Project URL'
+                                    className="form__input"
+                                    placeholder="Project URL"
+                                    value={this.state.projectUrl}
+                                    onChange={evt => this.projectChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    label='Github Repo'
+                                    className="form__input"
+                                    placeholder="Github Repo"
+                                    value={this.state.gitHub}
+                                    onChange={evt => this.gitChange(evt)}
                                 />
 
                                 <button

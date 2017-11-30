@@ -12,6 +12,8 @@ class Article extends Component {
             title: '',
             contents: '',
             imgUrl: '',
+            projectUrl: '',
+            gitHub: '',
             isLoading: true,
         }
     }
@@ -24,6 +26,8 @@ class Article extends Component {
             contents: response.data.post.post,
             title: response.data.post.title,
             imgUrl: response.data.post.imgUrl,
+            projectUrl: response.data.post.projectUrl,
+            gitHub: response.data.post.gitHub,
             isLoading: false
         })
     })
@@ -31,7 +35,10 @@ class Article extends Component {
 
     render() {
         const image = this.state.imgUrl;
+        const projectUrl = this.state.projectUrl;
+        const gitUrl = this.state.gitHub;
         let imageResults;
+        let projectLinks;
         if (image !== "") {
             imageResults = (
                 <div className="imac__container">
@@ -44,6 +51,15 @@ class Article extends Component {
             );
         } else if (image === "") {
             imageResults = "";
+        }
+
+        if (this.state.projectUrl && this.state.gitHub) {
+            projectLinks = (
+                <div className="card">
+                    <a href={projectUrl} className="btn--primary">View Project</a>
+                    <a href={gitUrl} className="btn--primary">View GitHub Repo</a>
+                </div>
+            );
         }
 
         if (this.state.isLoading === true) {
@@ -64,6 +80,7 @@ class Article extends Component {
                             <div className="container__main">
                                 <article className="article">
                                     {imageResults}
+                                    {projectLinks}
                                     <div className="container__text" dangerouslySetInnerHTML={{ __html: this.state.contents }} />
                                 </article>
                             </div>
