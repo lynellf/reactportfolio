@@ -1,8 +1,10 @@
 .card {
     @extend %card;
+    justify-content: space-between;
 
     @include e('badge') {
         @extend %card;
+        justify-content: space-between;
 
         @include mq('sm') {
             flex-wrap: wrap;
@@ -23,6 +25,7 @@
     
     @include e('music') {
         @extend %card;
+        justify-content: space-between;
 
         @include mq('sm') {
             flex-direction: column;
@@ -63,5 +66,11 @@
     @include e('column') {
         @extend %card;
         flex-direction: column;
+        justify-content: space-between;
+    }
+
+    @include e('default') {
+        @extend %card;
+        justify-content: space-evenly;
     }
 }

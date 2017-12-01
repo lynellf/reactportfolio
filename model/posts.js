@@ -44,7 +44,11 @@ var PostSchema = new mongoose.Schema({
     gitHub: {
         type: String,
         required: false
-    }
+    },
+    skills: {
+        type: Array,
+        required: false
+    },
 
 });
 

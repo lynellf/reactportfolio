@@ -79,7 +79,8 @@ var tweet;
     preview: req.body.preview,
     tweet: req.body.tweet,
     projectUrl: req.body.projectUrl,
-    gitHub: req.body.gitHub
+    gitHub: req.body.gitHub, 
+    skills: req.body.skills
 
   };
   T.post('statuses/update', { status: `${postData.title}. Read more at http://ezellfrazier.com/post/${postData.postId}` }, function (err, data, response) {
@@ -112,7 +113,8 @@ var tweet;
       imgUrl: req.body.imgUrl,
       preview: req.body.preview,
       projectUrl: req.body.projectUrl,
-      gitHub: req.body.gitHub
+      gitHub: req.body.gitHub,
+      skills: req.body.skills
     };
     Posts.findOneAndUpdate({ postId: `${req.params.postId}` }, updateData, function (error, updateData) {
       if (error) {

@@ -23,4 +23,8 @@
     @include e('column') {
         @extend %card-theme;
     }
+
+    @include e('default') {
+        background: $inverse;
+    }
 }

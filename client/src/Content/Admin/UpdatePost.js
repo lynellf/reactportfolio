@@ -17,6 +17,9 @@ class UpdatePost extends Component {
             lastUpdated: `${d.getMonth()} ${d.getDate()} ${d.getFullYear()}`,
             tags: [],
             imgUrl: "",
+            projectUrl: '',
+            gitHub: '',
+            skills: [],
             files: [],
             postId: '',
             preview: ''
@@ -26,6 +29,7 @@ class UpdatePost extends Component {
         this.tagChange = this.tagChange.bind(this);
         this.projectChange = this.projectChange.bind(this);
         this.gitChange = this.gitChange.bind(this);
+        this.skillChange = this.skillChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
@@ -55,6 +59,7 @@ class UpdatePost extends Component {
                     tags: response.data.post.tags,
                     projectUrl: response.data.post.projectUrl,
                     gitHub: response.data.post.gitHub,
+                    skills: response.data.post.skills,
                     isLoading: false
                 })
             })
@@ -115,6 +120,12 @@ class UpdatePost extends Component {
             gitHub: evt.target.value
         });
     }
+    skillChange(evt) {
+        let arr = evt.target.value.split(",");
+        this.setState({
+            skills: arr
+        })
+    }
 
     handleSubmit(event) {
         axios.post(`/api/${ AUTH_CONFIG.clientId }/update/${this.state.postId}`, {
@@ -126,7 +137,8 @@ class UpdatePost extends Component {
             photo: this.state.photo,
             preview: this.state.preview,
             projectUrl: this.state.projectUrl,
-            gitHub: this.state.gitHub
+            gitHub: this.state.gitHub,
+            skills: this.state.skills
         })
             .then(function (response) {
                 console.log(response);
@@ -158,7 +170,7 @@ class UpdatePost extends Component {
         const modules = {
             toolbar: [
                 [{ 'header': [1, 2, false] }],
-                ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block'],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block', 'video'],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }, { 'color': [] }],
                 ['link', 'image'],
                 ['clean']
@@ -236,6 +248,14 @@ class UpdatePost extends Component {
                                     value={this.state.gitHub}
                                     onChange={evt => this.gitChange(evt)}
                                 />
+
+                                    <input
+                                        type="text"
+                                        className="form__input"
+                                        placeholder="Skills and Technologies"
+                                        value={this.state.skills}
+                                        onChange={evt => this.skillChange(evt)}
+                                    />
 
                                 <button
                                     type='submit'

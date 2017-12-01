@@ -1,5 +1,6 @@
 .list {
     @include e('container') {
+            margin: auto;
             @include m('about') {
                 text-align: center;
             @include mq('sm') {
@@ -71,6 +72,7 @@
     }
 
     @include e('item') {
+        margin: pem(6) pem(8);
         @include m('about') {
             list-style: none;
             @include mq('sm') {

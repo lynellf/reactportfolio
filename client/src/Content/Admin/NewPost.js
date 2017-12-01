@@ -22,13 +22,15 @@ class PostNew extends Component{
             preview: '',
             tweet: '',
             projectUrl: '',
-            gitHub: ''
+            gitHub: '',
+            skills: []
         }; // You can also pass a Quill Delta here
         this.titleChange = this.titleChange.bind(this);
         this.postChange = this.postChange.bind(this);
         this.tagChange = this.tagChange.bind(this);
         this.projectChange = this.projectChange.bind(this);
         this.gitChange = this.gitChange.bind(this);
+        this.skillChange = this.skillChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
     }
@@ -96,6 +98,12 @@ class PostNew extends Component{
             gitHub: evt.target.value
         });
     }
+    skillChange(evt) {
+        let arr = evt.target.value.split(",");
+        this.setState({
+            skills: arr
+        })
+    }
     handleSubmit(event) {
         axios.post(`/api/${ AUTH_CONFIG.clientId }/submit`, {
             title: this.state.title,
@@ -108,7 +116,8 @@ class PostNew extends Component{
             preview: this.state.preview,
             tweet: this.state.tweet,
             projectUrl: this.state.projectUrl,
-            gitHub: this.state.gitHub
+            gitHub: this.state.gitHub,
+            skills: this.state.skills
         })
             .then(function (response) {
             console.log(response);
@@ -127,7 +136,7 @@ class PostNew extends Component{
         const modules = {
             toolbar: [
             [{ 'header': [1, 2, false] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block'],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block', 'video'],
         [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }, { 'color': [] }],
             ['link', 'image'],
             ['clean']
@@ -203,6 +212,14 @@ class PostNew extends Component{
                                     placeholder="Github Repo"
                                     value={this.state.gitHub}
                                     onChange={evt => this.gitChange(evt)}
+                                />
+
+                                <input
+                                    type="text"
+                                    className="form__input"
+                                    placeholder="Skills and Technologies"
+                                    value={this.state.skills}
+                                    onChange={evt => this.skillChange(evt)}
                                 />
 
                                 <button
