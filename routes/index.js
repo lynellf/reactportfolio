@@ -25,7 +25,7 @@ var tweet;
   // Storage configuration
   var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, `${devLocation}`)
+      cb(null, `${prodLocation}`)
     },
     filename: function (req, file, cb) {
       cb(null, fileName = Date.now() + path.extname(file.originalname))
