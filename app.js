@@ -14,6 +14,7 @@ var index = require('./routes/index');
 var app = express();
 
 var db = mongoose.connection
+var port = 3001;
 
 //Increase filesize limit for image uploads
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -61,8 +62,8 @@ db.on('error', console.error.bind(console, 'Database connection error'));
 
 //Listen 
 
-// app.listen(port, ()=> {
-//   console.log(`The backend server is running on port ${port}`);
-// })
+app.listen(port, ()=> {
+  console.log(`The backend server is running on port ${port}`);
+})
 
 module.exports = app;
