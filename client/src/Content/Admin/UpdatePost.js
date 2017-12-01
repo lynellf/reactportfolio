@@ -158,8 +158,8 @@ class UpdatePost extends Component {
         const modules = {
             toolbar: [
                 [{ 'header': [1, 2, false] }],
-                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }, { 'color': [] }],
                 ['link', 'image'],
                 ['clean']
             ]
@@ -167,9 +167,9 @@ class UpdatePost extends Component {
 
         const formats = [
             'header',
-            'bold', 'italic', 'underline', 'strike', 'blockquote',
+            'bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block',
             'list', 'bullet', 'indent',
-            'link', 'image'
+            'link', 'image', 'video'
         ];
 
         const { isAuthenticated } = this.props.auth;
