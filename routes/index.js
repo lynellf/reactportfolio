@@ -196,7 +196,7 @@ var tweet;
 
   // GET/ Most Recent Projects
   router.get('/latest', function (req, res) {
-    Posts.find(latest, function (err, docs) {
+    Posts.find(latest.sort({ postId: -1 }), function (err, docs) {
       if (!err) {
         var results = {
           "posts": {}
