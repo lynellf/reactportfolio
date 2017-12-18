@@ -51,7 +51,7 @@ class ControlPanel extends Component {
                                 </div>
                                 <div className="card__column">
                                     <h2>Résumé Details</h2>
-                                    <div className="container__flex-row">
+                                    <div className="container__flex-row--white">
                                         <div className="">
                                             <EditJob />
                                         </div>

@@ -61,7 +61,7 @@ class ControlPanel extends Component {
             </tr>);
         return (
             <div className="container__main">
-                <table className="table">
+                <table className="table-responsive table-striped">
                     <thead>
                         <tr className="">
                             <th className="title--light">

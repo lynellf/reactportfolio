@@ -63,7 +63,7 @@ class EditSkills extends Component {
         return (
             <div className="container__main">
                 <h3>Related Skills</h3>
-                <table className="table">
+                <table className="table-responsive table-striped">
                     <thead>
                         <tr className="">
                             <th className="title--light">

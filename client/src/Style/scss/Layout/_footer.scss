@@ -1,3 +1,6 @@
 .footer {
     width: 100%;
+    @include mq('med') {
+        padding-bottom: pem(20);
+    }
 }

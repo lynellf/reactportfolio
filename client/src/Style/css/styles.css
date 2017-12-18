@@ -200,6 +200,9 @@ a {
     color: #34495e;
     border-color: #1abc9c;
     box-shadow: none; }
+  @media (max-width: 837px) {
+    .form__input, .btn--primary {
+      margin: 0.5em; } }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -649,6 +652,9 @@ ul {
 
 .footer {
   width: 100%; }
+  @media (min-width: 838px) {
+    .footer {
+      padding-bottom: 1.25em; } }
 
 .nav__start {
   height: auto;
@@ -678,7 +684,10 @@ ul {
       padding: 1.25em 3em 0; } }
 
 .list__container {
-  margin: auto; }
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
   .list__container--about {
     text-align: center; }
     @media (max-width: 837px) {
@@ -704,7 +713,8 @@ ul {
       justify-content: space-between; } }
   @media (min-width: 838px) {
     .list__group--about {
-      justify-content: space-evenly; } }
+      justify-content: center;
+      padding-top: 0.5em; } }
 .list__group--external {
   display: flex;
   color: white;
@@ -714,7 +724,8 @@ ul {
       justify-content: space-between; } }
   @media (min-width: 838px) {
     .list__group--external {
-      justify-content: space-evenly; } }
+      justify-content: center;
+      padding-top: 0.5em; } }
 .list__group--nav {
   padding: 0;
   margin: 0;
@@ -893,7 +904,7 @@ ul {
     flex-direction: column;
     justify-content: space-between; }
   .card__default {
-    justify-content: space-evenly; }
+    justify-content: space-around; }
 
 .table {
   margin-top: 1.25em;
@@ -1985,6 +1996,9 @@ ul {
   border-bottom: thin solid black;
   text-align: center;
   padding: 1em; }
+@media (min-width: 838px) {
+  .title--about {
+    padding-bottom: 0.5em; } }
 
 .centered {
   display: block;

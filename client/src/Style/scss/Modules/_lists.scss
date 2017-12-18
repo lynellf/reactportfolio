@@ -1,6 +1,9 @@
 .list {
     @include e('container') {
             margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             @include m('about') {
                 text-align: center;
             @include mq('sm') {
@@ -33,7 +36,8 @@
             }
     
             @include mq('med') {
-                justify-content: space-evenly;
+                justify-content: center;
+                padding-top: pem(8);
             }
         }
 
@@ -47,7 +51,8 @@
             }
     
             @include mq('med') {
-                justify-content: space-evenly;
+                justify-content: center;
+                padding-top: pem(8);
             }
         }
 

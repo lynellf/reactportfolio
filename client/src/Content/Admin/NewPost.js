@@ -33,6 +33,7 @@ class PostNew extends Component{
         this.skillChange = this.skillChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUploadFile = this.handleUploadFile.bind(this);
+        this.saveDraft = this.saveDraft.bind(this);
     }
     goTo(route) {
         this.props.history.replace(`/${route}`);
@@ -132,6 +133,31 @@ class PostNew extends Component{
         // Redirect to target page
         this.props.history.push('/controlpanel');
     }
+    saveDraft(evt) {
+        axios.post(`/api/${AUTH_CONFIG.clientId}/submit`, {
+            title: this.state.title,
+            post: this.state.post,
+            date: this.state.date,
+            imgUrl: this.state.imgUrl,
+            photo: this.state.photo,
+            postId: this.state.postId,
+            preview: this.state.preview,
+            tweet: this.state.tweet,
+            projectUrl: this.state.projectUrl,
+            gitHub: this.state.gitHub,
+            skills: this.state.skills
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        event.preventDefault();
+        // Redirect to target page
+        this.props.history.push('/controlpanel');
+    }
     render() {
         const modules = {
             toolbar: [
@@ -226,7 +252,14 @@ class PostNew extends Component{
                                     type='submit'
                                     className="form__btn btn--primary">
                                     Submit Post
-                                    </button>
+                                </button>
+                                <button
+                                    type='button'
+                                    className="form__btn btn--primary"
+                                    onClick={evt => this.saveDraft(evt)}
+                                    >
+                                    Save Draft
+                                </button>
                             </form>
                             </div>
                          </div>

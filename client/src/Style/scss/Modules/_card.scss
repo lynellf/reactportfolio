@@ -71,6 +71,6 @@
 
     @include e('default') {
         @extend %card;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 }

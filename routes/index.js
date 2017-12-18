@@ -176,7 +176,7 @@ var tweet;
         res.send(results);
         return (results);
       }
-    });
+    }).sort({ date: -1 });
   });
 
   // GET/ All Blog Posts with Project Tag

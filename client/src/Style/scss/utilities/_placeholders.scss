@@ -296,4 +296,8 @@ a {
         border-color: $border-color;
         box-shadow: none;
     }
+
+    @include mq('sm') {
+        margin: pem(8);
+    }
 }

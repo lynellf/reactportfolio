@@ -31,6 +31,12 @@
         text-align: center;
         padding: pem(16);
     }
+
+    @include m('about') {
+        @include mq('med') {
+            padding-bottom: pem(8);
+        }
+    }
 }
 
 .centered {
